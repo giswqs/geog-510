@@ -23,12 +23,12 @@ All course materials, including lecture videos, are freely available on the cour
 
 ## Lecture Videos
 
-The lecture videos are available as a YouTube playlist: <https://bit.ly/intro-gis-programming>
+The lecture videos are available as a YouTube playlist: <https://bit.ly/geosoft-design>
 
 ## Enroll for Certification
 
-Please note that you can access the [course materials](https://geog-510.gishub.org) and [lecture videos](https://bit.ly/intro-gis-programming) on the course website without enrolling in the course. However, if you're interested in submitting lab assignments, receiving grades, and earning a certificate of completion, you can enroll in the course at any time by clicking the link below. There is no deadline for enrollment, and you can complete the course at your own pace.
+Please note that you can access the [course materials](https://geog-510.gishub.org) and [lecture videos](https://bit.ly/geosoft-design) on the course website without enrolling in the course. However, if you're interested in submitting lab assignments, receiving grades, and earning a certificate of completion, you can enroll in the course at any time by clicking the link below. There is no deadline for enrollment, and you can complete the course at your own pace.
 
-[Enroll Now](https://tiny.utk.edu/intro-gis-programming)
+[Enroll Now](https://tiny.utk.edu/geosoft-design)
 
-[![Geographic Software Design](https://assets.gishub.org/images/intro-gis-programming.webp)](https://tiny.utk.edu/intro-gis-programming)
+[![Geographic Software Design](https://assets.gishub.org/images/geosoft-design.webp)](https://tiny.utk.edu/geosoft-design)
