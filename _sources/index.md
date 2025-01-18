@@ -1,29 +1,36 @@
 # Geographic Software Design
 
-Welcome to the official course website for "_Geographic Software Design_," offered at the University of Tennessee, Knoxville.
+Welcome to the official course website for _**Geographic Software Design**_, offered by the University of Tennessee, Knoxville. This course provides an immersive journey into the world of developing open-source Python packages for geospatial analysis and interactive mapping.
 
 ## Course Overview
 
-This course offers a comprehensive exploration of GIS programming, centered around the Python programming language. Throughout the semester, students will master the use of Python libraries and frameworks essential for processing, analyzing, and visualizing geospatial data.
+This course offers a comprehensive introduction to creating and designing open-source Python packages for geospatial analysis and interactive mapping. Students will gain hands-on experience with popular Python development environments, including Visual Studio Code, Jupyter Notebook, and Google Colab, to streamline the development, packaging, and distribution of their code. The course emphasizes leveraging existing geospatial libraries, such as geemap and leafmap, as models for best practices, while fostering contributions to the open-source community.
 
-## What You'll Learn
+Throughout the course, students will learn how to design a fully functional Python package, complete with an accompanying documentation website that can be freely hosted on GitHub. The curriculum includes essential topics such as version control with Git, writing clean and reusable code, generating documentation, and sharing projects with collaborators and the broader Python ecosystem.
 
-- **Fundamentals of Python**: Start with the basics—variables, data types, data structures, string operations, looping, and control statements. Progress to more advanced topics, including functions, classes, file handling, and exception handling.
-- **Geospatial Applications**: Delve into Python’s application in the geospatial realm. Learn to create interactive web maps using Leafmap, visualize vector and raster data, and explore 3D mapping with MapLibre. You'll also get hands-on experience with a number of specialized geospatial libraries, including GeoPandas, Rasterio, Xarray, Rioxarray, Leafmap, Whitebox, MapLibre, Geemap, SAMGeo, HyperCoast, DuckDB, and more.
+By the end of the course, students will have developed their own Python package, gaining practical skills highly valued in technical roles such as GIS analyst, data scientist, and software developer. These skills will not only enhance their resumes but also position them competitively in the job market for cutting-edge geospatial and software development roles.
 
-- **Hands-On Experience**: Engage in practical labs and projects designed to reinforce the concepts covered in lectures. These activities culminate in a final project where you'll apply your skills to a real-world geospatial problem.
+## Learning Outcomes
 
-By the end of the course, you will have a robust understanding of Python programming, specifically tailored to geospatial analysis and visualization, empowering you to confidently tackle various geospatial challenges.
+Upon successfully completing the course, students will be able to:
 
-![GIS Programming Course](https://assets.gishub.org/images/geog-510.png)
+- Apply git for effective version control
+- Design and develop open-source Python packages for geospatial analysis
+- Leverage open-source geospatial libraries
+- Host and maintain open-source code on GitHub
+- Deploy Python packages to PyPI and conda-forge
+- Develop and host documentation websites
+- Collaborate on open-source projects
+- Contribute meaningfully to the open-source community
+- Enhance employability in geospatial and software development roles
 
 ## Course Resources
 
-All course materials, including video recordings, are freely available on the course website: [geog-510.gishub.org](https://geog-510.gishub.org).
+All course materials, including lecture videos and assignments, are freely accessible via the course website: [geog-510.gishub.org](https://geog-510.gishub.org).
 
 ## Enroll for Certification
 
-Please note that you can access the [course materials](https://geog-510.gishub.org) and [lecture videos](https://bit.ly/geosoft-design) on the course website without enrolling in the course. However, if you're interested in submitting lab assignments, receiving grades, and earning a certificate of completion, you can enroll in the course at any time by clicking the link below. There is no deadline for enrollment, and you can complete the course at your own pace.
+You can freely access all [course materials](https://geog-510.gishub.org) and [lecture videos](https://bit.ly/geosoft-design) without enrolling. However, to receive personalized feedback, graded assignments, and a certificate of completion, you can enroll in the course anytime using the link below. Enrollment is open-ended, allowing you to complete the course at your own pace.
 
 [Enroll Now](https://tiny.utk.edu/geosoft-design)
 
@@ -31,6 +38,6 @@ Please note that you can access the [course materials](https://geog-510.gishub.o
 
 ## Lecture Videos
 
-The lecture videos are available as a YouTube playlist: <https://bit.ly/geosoft-design>
+The complete lecture series is available as a YouTube playlist: <https://bit.ly/geosoft-design>
 
-<iframe width="800" height="480" src="https://www.youtube.com/embed/videoseries?si=FdG82kU5YHBqGsIc&amp;list=PLAxJ4-o7ZoPfb18kNe2luWX9xKg1233i9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="800" height="480" src="https://www.youtube.com/embed/videoseries?si=0QTQmV5Oj_2UsKkY&amp;list=PLAxJ4-o7ZoPePd9h8xT_Kc38UP_9GHdbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

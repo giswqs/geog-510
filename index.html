@@ -183,7 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="book/about/videos.html">Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="book/about/acknowledgments.html">Acknowledgments</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="book/software/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="book/software/miniconda.html">Miniconda</a></li>
@@ -204,12 +204,14 @@
 <li class="toctree-l1"><a class="reference internal" href="book/python/07_files.html">7. Files and Exception Handling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="book/python/08_numpy_pandas.html">8. Intro to NumPy and Pandas</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="book/geospatial/get_started.html">9. Get Started</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="book/labs/instructions.html">Submission Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="book/labs/lab_01.html">Lab 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book/labs/lab_02.html">Lab 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book/labs/lab_03.html">Lab 3</a></li>
 </ul>
 
     </div>
@@ -423,7 +425,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-ll-learn">What You’ll Learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-resources">Course Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enroll-for-certification">Enroll for Certification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-videos">Lecture Videos</a></li>
@@ -440,35 +442,42 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="geographic-software-design">
 <h1>Geographic Software Design<a class="headerlink" href="#geographic-software-design" title="Link to this heading">#</a></h1>
-<p>Welcome to the official course website for “<em>Geographic Software Design</em>,” offered at the University of Tennessee, Knoxville.</p>
+<p>Welcome to the official course website for <em><strong>Geographic Software Design</strong></em>, offered by the University of Tennessee, Knoxville. This course provides an immersive journey into the world of developing open-source Python packages for geospatial analysis and interactive mapping.</p>
 <section id="course-overview">
 <h2>Course Overview<a class="headerlink" href="#course-overview" title="Link to this heading">#</a></h2>
-<p>This course offers a comprehensive exploration of GIS programming, centered around the Python programming language. Throughout the semester, students will master the use of Python libraries and frameworks essential for processing, analyzing, and visualizing geospatial data.</p>
+<p>This course offers a comprehensive introduction to creating and designing open-source Python packages for geospatial analysis and interactive mapping. Students will gain hands-on experience with popular Python development environments, including Visual Studio Code, Jupyter Notebook, and Google Colab, to streamline the development, packaging, and distribution of their code. The course emphasizes leveraging existing geospatial libraries, such as geemap and leafmap, as models for best practices, while fostering contributions to the open-source community.</p>
+<p>Throughout the course, students will learn how to design a fully functional Python package, complete with an accompanying documentation website that can be freely hosted on GitHub. The curriculum includes essential topics such as version control with Git, writing clean and reusable code, generating documentation, and sharing projects with collaborators and the broader Python ecosystem.</p>
+<p>By the end of the course, students will have developed their own Python package, gaining practical skills highly valued in technical roles such as GIS analyst, data scientist, and software developer. These skills will not only enhance their resumes but also position them competitively in the job market for cutting-edge geospatial and software development roles.</p>
 </section>
-<section id="what-you-ll-learn">
-<h2>What You’ll Learn<a class="headerlink" href="#what-you-ll-learn" title="Link to this heading">#</a></h2>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
+<p>Upon successfully completing the course, students will be able to:</p>
 <ul class="simple">
-<li><p><strong>Fundamentals of Python</strong>: Start with the basics—variables, data types, data structures, string operations, looping, and control statements. Progress to more advanced topics, including functions, classes, file handling, and exception handling.</p></li>
-<li><p><strong>Geospatial Applications</strong>: Delve into Python’s application in the geospatial realm. Learn to create interactive web maps using Leafmap, visualize vector and raster data, and explore 3D mapping with MapLibre. You’ll also get hands-on experience with a number of specialized geospatial libraries, including GeoPandas, Rasterio, Xarray, Rioxarray, Leafmap, Whitebox, MapLibre, Geemap, SAMGeo, HyperCoast, DuckDB, and more.</p></li>
-<li><p><strong>Hands-On Experience</strong>: Engage in practical labs and projects designed to reinforce the concepts covered in lectures. These activities culminate in a final project where you’ll apply your skills to a real-world geospatial problem.</p></li>
+<li><p>Apply git for effective version control</p></li>
+<li><p>Design and develop open-source Python packages for geospatial analysis</p></li>
+<li><p>Leverage open-source geospatial libraries</p></li>
+<li><p>Host and maintain open-source code on GitHub</p></li>
+<li><p>Deploy Python packages to PyPI and conda-forge</p></li>
+<li><p>Develop and host documentation websites</p></li>
+<li><p>Collaborate on open-source projects</p></li>
+<li><p>Contribute meaningfully to the open-source community</p></li>
+<li><p>Enhance employability in geospatial and software development roles</p></li>
 </ul>
-<p>By the end of the course, you will have a robust understanding of Python programming, specifically tailored to geospatial analysis and visualization, empowering you to confidently tackle various geospatial challenges.</p>
-<p><img alt="GIS Programming Course" src="https://assets.gishub.org/images/geog-510.png" /></p>
 </section>
 <section id="course-resources">
 <h2>Course Resources<a class="headerlink" href="#course-resources" title="Link to this heading">#</a></h2>
-<p>All course materials, including video recordings, are freely available on the course website: <a class="reference external" href="https://geog-510.gishub.org">geog-510.gishub.org</a>.</p>
+<p>All course materials, including lecture videos and assignments, are freely accessible via the course website: <a class="reference external" href="https://geog-510.gishub.org">geog-510.gishub.org</a>.</p>
 </section>
 <section id="enroll-for-certification">
 <h2>Enroll for Certification<a class="headerlink" href="#enroll-for-certification" title="Link to this heading">#</a></h2>
-<p>Please note that you can access the <a class="reference external" href="https://geog-510.gishub.org">course materials</a> and <a class="reference external" href="https://bit.ly/geosoft-design">lecture videos</a> on the course website without enrolling in the course. However, if you’re interested in submitting lab assignments, receiving grades, and earning a certificate of completion, you can enroll in the course at any time by clicking the link below. There is no deadline for enrollment, and you can complete the course at your own pace.</p>
+<p>You can freely access all <a class="reference external" href="https://geog-510.gishub.org">course materials</a> and <a class="reference external" href="https://bit.ly/geosoft-design">lecture videos</a> without enrolling. However, to receive personalized feedback, graded assignments, and a certificate of completion, you can enroll in the course anytime using the link below. Enrollment is open-ended, allowing you to complete the course at your own pace.</p>
 <p><a class="reference external" href="https://tiny.utk.edu/geosoft-design">Enroll Now</a></p>
 <p><a class="reference external" href="https://tiny.utk.edu/geosoft-design"><img alt="Geographic Software Design" src="https://assets.gishub.org/images/geosoft-design.webp" /></a></p>
 </section>
 <section id="lecture-videos">
 <h2>Lecture Videos<a class="headerlink" href="#lecture-videos" title="Link to this heading">#</a></h2>
-<p>The lecture videos are available as a YouTube playlist: <a class="reference external" href="https://bit.ly/geosoft-design">https://bit.ly/geosoft-design</a></p>
-<iframe width="800" height="480" src="https://www.youtube.com/embed/videoseries?si=FdG82kU5YHBqGsIc&amp;list=PLAxJ4-o7ZoPfb18kNe2luWX9xKg1233i9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>The complete lecture series is available as a YouTube playlist: <a class="reference external" href="https://bit.ly/geosoft-design">https://bit.ly/geosoft-design</a></p>
+<iframe width="800" height="480" src="https://www.youtube.com/embed/videoseries?si=0QTQmV5Oj_2UsKkY&amp;list=PLAxJ4-o7ZoPePd9h8xT_Kc38UP_9GHdbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -538,7 +547,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-ll-learn">What You’ll Learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-resources">Course Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enroll-for-certification">Enroll for Certification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-videos">Lecture Videos</a></li>
