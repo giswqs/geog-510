@@ -38,6 +38,6 @@ You can freely access all [course materials](https://geog-510.gishub.org) and [l
 
 ## Lecture Videos
 
-The complete lecture series is available as a YouTube playlist: <https://bit.ly/geosoft-design>
+The complete lecture series is available as a YouTube playlist: <https://bit.ly/geosoft-design>. Lecture videos will be added weekly as the course progresses in Spring 2025.
 
 <iframe width="800" height="480" src="https://www.youtube.com/embed/videoseries?si=0QTQmV5Oj_2UsKkY&amp;list=PLAxJ4-o7ZoPePd9h8xT_Kc38UP_9GHdbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
