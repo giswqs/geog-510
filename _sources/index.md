@@ -4,7 +4,7 @@ Welcome to the official course website for _**Geographic Software Design**_, off
 
 ## Course Overview
 
-This course offers a comprehensive introduction to creating and designing open-source Python packages for geospatial analysis and interactive mapping. Students will gain hands-on experience with popular Python development environments, including Visual Studio Code, Jupyter Notebook, and Google Colab, to streamline the development, packaging, and distribution of their code. The course emphasizes leveraging existing geospatial libraries, such as geemap and leafmap, as models for best practices, while fostering contributions to the open-source community.
+This course offers a comprehensive introduction to creating and designing open-source Python packages for geospatial analysis and interactive mapping. Students will gain hands-on experience with popular Python development environments, including Visual Studio Code, Jupyter Notebook, and Google Colab, to streamline the development, packaging, and distribution of their code. The course emphasizes leveraging existing geospatial libraries, such as [geemap](https://geemap.org) and [leafmap](https://leafmap.org), as models for best practices, while fostering contributions to the open-source community.
 
 Throughout the course, students will learn how to design a fully functional Python package, complete with an accompanying documentation website that can be freely hosted on GitHub. The curriculum includes essential topics such as version control with Git, writing clean and reusable code, generating documentation, and sharing projects with collaborators and the broader Python ecosystem.
 
