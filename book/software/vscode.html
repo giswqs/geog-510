@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Git" href="git.html" />
-    <link rel="prev" title="Miniconda" href="miniconda.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,10 +185,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Visual Studio Code</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google Colab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlab.html">JupyterLab</a></li>
 </ul>
@@ -423,15 +422,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visual Studio Code</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions">Important Extensions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-extensions">Useful Extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development">1. <strong>Important Extensions for Geospatial Development</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs">2. <strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-microsoft-python-data-science-extension-pack">Example: <strong>Microsoft Python Data Science Extension Pack</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install">How to Install:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-extension-packs">Other Useful Extension Packs:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions">3. <strong>Additional Useful Extensions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github">4. <strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-enable-settings-sync">Steps to Enable Settings Sync:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-to-sync">Why Use GitHub to Sync?</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts">5. <strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing">Editing:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-layout">Markdown and Layout:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts">6. <strong>References for Keyboard Shortcuts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started">7. <strong>Tips for Getting Started</strong></a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -444,58 +457,180 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visual-studio-code">
 <h1>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a> is a free source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can change the theme, keyboard shortcuts, preferences, and install extensions that add additional functionality.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="important-extensions">
-<h1>Important Extensions<a class="headerlink" href="#important-extensions" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a> is a free, cross-platform source-code editor developed by Microsoft for Windows, Linux, and macOS. It’s lightweight, highly customizable, and packed with features to make coding efficient and enjoyable. Key features include:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></p></li>
-<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a></p></li>
-<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development</a></p></li>
+<li><p><strong>Debugging</strong>: Identify and fix issues in your code directly within the editor.</p></li>
+<li><p><strong>Syntax Highlighting</strong>: Make your code easier to read and understand.</p></li>
+<li><p><strong>Intelligent Code Completion</strong>: Get smart suggestions based on your code.</p></li>
+<li><p><strong>Snippets</strong>: Quickly insert reusable pieces of code.</p></li>
+<li><p><strong>Code Refactoring</strong>: Simplify and restructure your code efficiently.</p></li>
+<li><p><strong>Built-in Git Integration</strong>: Manage version control seamlessly within the editor.</p></li>
 </ul>
-<section id="useful-extensions">
-<h2>Useful Extensions<a class="headerlink" href="#useful-extensions" title="Link to this heading">#</a></h2>
+<p>VS Code also supports an extensive library of <strong>extensions</strong> to enhance functionality, allowing you to tailor the editor to meet your specific needs.</p>
+<hr class="docutils" />
+<section id="important-extensions-for-geospatial-development">
+<h2>1. <strong>Important Extensions for Geospatial Development</strong><a class="headerlink" href="#important-extensions-for-geospatial-development" title="Link to this heading">#</a></h2>
+<p>These extensions are critical for Python and Jupyter-based geospatial workflows:</p>
 <ul class="simple">
-<li><p>autoDocstring</p></li>
-<li><p>Black Formatter</p></li>
-<li><p>Code Runner</p></li>
-<li><p>CodeSnap</p></li>
-<li><p>GistPad</p></li>
-<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></p></li>
-<li><p>GitHub Copilot</p></li>
-<li><p>GitHub Copilot Chat</p></li>
-<li><p>GitHub Pull Requests</p></li>
-<li><p>GitLens</p></li>
-<li><p>IntelliCode</p></li>
-<li><p>Markdown All in One</p></li>
-<li><p>Markdown Shortcuts</p></li>
-<li><p>Prettier</p></li>
-<li><p>Pylint</p></li>
-<li><p>vscode-icons</p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></strong>: Essential for Python development, offering linting, debugging, and IntelliSense.</p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a></strong>: Enables seamless integration with Jupyter notebooks, letting you write, run, and debug notebooks within VS Code.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/features/copilot">GitHub Copilot</a></strong>: AI-powered code completion for productivity boosts.</p></li>
 </ul>
 </section>
-<section id="keyboard-shortcuts">
-<h2>Keyboard shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="vs-code-extension-packs">
+<h2>2. <strong>VS Code Extension Packs</strong><a class="headerlink" href="#vs-code-extension-packs" title="Link to this heading">#</a></h2>
+<p>An <strong><a class="reference external" href="https://marketplace.visualstudio.com/search?target=VSCode&amp;amp;category=Extension%20Packs&amp;amp;sortBy=Installs">extension pack</a></strong> is a curated collection of related extensions bundled together to enhance a specific workflow or domain. These packs save time by providing all the essential tools in a single installation.</p>
+<section id="example-microsoft-python-data-science-extension-pack">
+<h3>Example: <strong>Microsoft Python Data Science Extension Pack</strong><a class="headerlink" href="#example-microsoft-python-data-science-extension-pack" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.python-ds-extension-pack">Microsoft Python Data Science Extension Pack</a> is a must-have for data scientists and geospatial analysts. It includes the following powerful tools:</p>
+<ul class="simple">
+<li><p><strong>Python</strong>: Core Python support with IntelliSense, debugging, and more.</p></li>
+<li><p><strong>Pylance</strong>: A fast, feature-rich language server for Python.</p></li>
+<li><p><strong>Jupyter</strong>: Seamless Jupyter notebook support within VS Code.</p></li>
+<li><p><strong>Data Wrangler</strong>: Explore, visualize, and clean tabular data</p></li>
+<li><p><strong>GitHub Copilot</strong>: - AI pair programmer</p></li>
+</ul>
+</section>
+<section id="how-to-install">
+<h3>How to Install:<a class="headerlink" href="#how-to-install" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><strong>Command Palette:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code></p></li>
-<li><p><strong>Search and open a file:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+P</span></code></p></li>
-<li><p><strong>Go to Symbol:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+O</span></code></p></li>
-<li><p><strong>Move line up and down:</strong> <code class="docutils literal notranslate"><span class="pre">Alt+Arrow</span> <span class="pre">up/down</span></code></p></li>
-<li><p><strong>Go to line number:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+G</span></code></p></li>
-<li><p><strong>Cut the Entire Line:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+X</span></code></p></li>
-<li><p><strong>Select the entire line:</strong> Triple-clicking at the line of the line</p></li>
-<li><p><strong>Markdown preview:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+K</span> <span class="pre">V</span></code></p></li>
-<li><p><strong>Zen Mode:</strong> <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">&gt;</span> <span class="pre">Appearance</span> <span class="pre">&gt;</span> <span class="pre">Toggle</span> <span class="pre">Zen</span> <span class="pre">Mode</span></code></p></li>
-<li><p><strong>Split view:</strong> <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">&gt;</span> <span class="pre">Editor</span> <span class="pre">Layout</span> <span class="pre">&gt;</span> <span class="pre">Split</span> <span class="pre">Up</span></code></p></li>
-<li><p><strong>Edit multiple lines simultaneously</strong>: Hold <strong>Alt</strong> and <strong>click</strong> to add a cursor in the places you want to type or edit the code.</p></li>
+<li><p>Open the Extensions view: <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+X</span></code>.</p></li>
+<li><p>Search for <strong>Python Data Science</strong>.</p></li>
+<li><p>Click <strong>Install</strong> to add the entire pack to your workspace.</p></li>
 </ol>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<section id="other-useful-extension-packs">
+<h3>Other Useful Extension Packs:<a class="headerlink" href="#other-useful-extension-packs" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Visual Studio keyboard shortcuts for Windows</a></p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">Visual Studio keyboard shortcuts for macOS</a></p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Pack</a></strong>: Enables development on remote servers, containers, and WSL.</p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack">JavaScript/Node.js Extension Pack</a></strong>: Ideal for JavaScript and Node.js developers.</p></li>
 </ul>
+<p>Extension packs are a great way to set up your environment quickly and efficiently for specific tasks or workflows.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="additional-useful-extensions">
+<h2>3. <strong>Additional Useful Extensions</strong><a class="headerlink" href="#additional-useful-extensions" title="Link to this heading">#</a></h2>
+<p>Enhance your development experience with the following extensions:</p>
+<ul class="simple">
+<li><p><strong>autoDocstring</strong>: Automatically generate Python docstrings to document your functions.</p></li>
+<li><p><strong>Black Formatter</strong>: Enforce consistent formatting using the Black code style.</p></li>
+<li><p><strong>Code Runner</strong>: Quickly run code snippets directly from the editor.</p></li>
+<li><p><strong>CodeSnap</strong>: Capture beautiful images of your code for sharing or documentation.</p></li>
+<li><p><strong>GistPad</strong>: Manage GitHub Gists without leaving VS Code.</p></li>
+<li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></strong>: Streamline CI/CD workflows with GitHub Actions integration.</p></li>
+<li><p><strong>GitHub Copilot Chat</strong>: Interactive coding assistant for real-time help.</p></li>
+<li><p><strong>GitHub Pull Requests</strong>: Collaborate on pull requests directly within the editor.</p></li>
+<li><p><strong>GitLens</strong>: Explore Git history and code changes with powerful visualization tools.</p></li>
+<li><p><strong>IntelliCode</strong>: AI-powered recommendations for improving your code.</p></li>
+<li><p><strong>Markdown All in One</strong>: Simplify Markdown editing with preview, shortcuts, and more.</p></li>
+<li><p><strong>Markdown Shortcuts</strong>: Speed up Markdown writing with handy shortcuts.</p></li>
+<li><p><strong>Prettier</strong>: Ensure consistent code style for multiple file types.</p></li>
+<li><p><strong>Pylint</strong>: Analyze Python code for potential errors and enforce PEP8 standards.</p></li>
+<li><p><strong>vscode-icons</strong>: Add colorful icons to make your file tree visually intuitive.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="syncing-settings-and-extensions-with-github">
+<h2>4. <strong>Syncing Settings and Extensions with GitHub</strong><a class="headerlink" href="#syncing-settings-and-extensions-with-github" title="Link to this heading">#</a></h2>
+<p>One of the powerful features of VS Code is its ability to sync your settings, extensions, and configurations across multiple devices. This is especially useful if you work on different computers.</p>
+<section id="steps-to-enable-settings-sync">
+<h3>Steps to Enable Settings Sync:<a class="headerlink" href="#steps-to-enable-settings-sync" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open <strong>Command Palette</strong>: Press <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> and type <code class="docutils literal notranslate"><span class="pre">Preferences:</span> <span class="pre">Turn</span> <span class="pre">on</span> <span class="pre">Settings</span> <span class="pre">Sync</span></code>.</p></li>
+<li><p>Choose your preferred <strong>sign-in method</strong>:</p>
+<ul class="simple">
+<li><p>Log in using your <strong>GitHub</strong> or <strong>Microsoft</strong> account.</p></li>
+</ul>
+</li>
+<li><p>Select what you want to sync:</p>
+<ul class="simple">
+<li><p>Settings</p></li>
+<li><p>Keybindings</p></li>
+<li><p>Extensions</p></li>
+<li><p>UI State</p></li>
+<li><p>Snippets</p></li>
+</ul>
+</li>
+<li><p>Once logged in, VS Code will automatically sync these preferences across any device where you sign in with the same account.</p></li>
+</ol>
+</section>
+<section id="why-use-github-to-sync">
+<h3>Why Use GitHub to Sync?<a class="headerlink" href="#why-use-github-to-sync" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Seamless Workflow</strong>: Access your extensions, themes, and custom settings from any device.</p></li>
+<li><p><strong>Backup</strong>: Ensure your setup is never lost, even if you switch machines.</p></li>
+<li><p><strong>Collaboration</strong>: Share your development environment configuration with your team.</p></li>
+</ul>
+<p>To check your sync status or manage sync preferences, visit <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Settings</span> <span class="pre">Sync</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="essential-keyboard-shortcuts">
+<h2>5. <strong>Essential Keyboard Shortcuts</strong><a class="headerlink" href="#essential-keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<p>Master these shortcuts to boost your productivity in VS Code:</p>
+<section id="navigation">
+<h3>Navigation:<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Command Palette:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code>
+<em>Access all commands in VS Code.</em></p></li>
+<li><p><strong>Search and open a file:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+P</span></code>
+<em>Quickly locate and open files.</em></p></li>
+<li><p><strong>Go to Symbol:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+O</span></code>
+<em>Navigate directly to classes, methods, or functions.</em></p></li>
+</ol>
+</section>
+<section id="editing">
+<h3>Editing:<a class="headerlink" href="#editing" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="4">
+<li><p><strong>Move line up or down:</strong> <code class="docutils literal notranslate"><span class="pre">Alt+Arrow</span> <span class="pre">Up/Down</span></code>
+<em>Reorder lines of code easily.</em></p></li>
+<li><p><strong>Cut the entire line:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+X</span></code>
+<em>Quickly cut a line without selecting it.</em></p></li>
+<li><p><strong>Edit multiple lines simultaneously:</strong> Hold <strong>Alt</strong> and click.
+<em>Place multiple cursors to edit in multiple places at once.</em></p></li>
+</ol>
+</section>
+<section id="markdown-and-layout">
+<h3>Markdown and Layout:<a class="headerlink" href="#markdown-and-layout" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="7">
+<li><p><strong>Markdown preview:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+K</span> <span class="pre">V</span></code>
+<em>View the rendered Markdown side-by-side with the editor.</em></p></li>
+<li><p><strong>Zen Mode:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+K</span> <span class="pre">Z</span></code> (or via <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">&gt;</span> <span class="pre">Appearance</span> <span class="pre">&gt;</span> <span class="pre">Toggle</span> <span class="pre">Zen</span> <span class="pre">Mode</span></code>)
+<em>Eliminate distractions with a full-screen editing experience.</em></p></li>
+<li><p><strong>Split view:</strong> <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">&gt;</span> <span class="pre">Editor</span> <span class="pre">Layout</span> <span class="pre">&gt;</span> <span class="pre">Split</span> <span class="pre">Up</span></code>
+<em>Work on multiple files or split the same file vertically.</em></p></li>
+</ol>
+</section>
+<section id="other">
+<h3>Other:<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="10">
+<li><p><strong>Go to line number:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+G</span></code>
+<em>Jump to a specific line in your code.</em></p></li>
+<li><p><strong>Select the entire line:</strong> Triple-click anywhere on the line.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="references-for-keyboard-shortcuts">
+<h2>6. <strong>References for Keyboard Shortcuts</strong><a class="headerlink" href="#references-for-keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<p>Expand your efficiency by learning more shortcuts:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Visual Studio Code Keyboard Shortcuts for Windows</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">Visual Studio Code Keyboard Shortcuts for macOS</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="tips-for-getting-started">
+<h2>7. <strong>Tips for Getting Started</strong><a class="headerlink" href="#tips-for-getting-started" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Install Extensions</strong>: Open the Extensions view (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+X</span></code>) and search for the ones listed above.</p></li>
+<li><p><strong>Customize Your Setup</strong>: Change themes, fonts, and settings to suit your workflow via <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Settings</span></code>.</p></li>
+<li><p><strong>Sync Settings</strong>: Use your <strong>GitHub account</strong> to sync settings and extensions across devices.</p></li>
+<li><p><strong>Explore Themes</strong>: Choose a theme that enhances your productivity, such as <strong>Dark+</strong> or <strong>Dracula</strong>.</p></li>
+</ul>
+<p>With VS Code as your primary editor, you’ll have a powerful and flexible environment for geospatial software development. Explore its features, experiment with extensions, and take advantage of the keyboard shortcuts to streamline your workflow!</p>
 </section>
 </section>
 
@@ -530,12 +665,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="miniconda.html"
+       href="overview.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Miniconda</p>
+        <p class="prev-next-title">Overview</p>
       </div>
     </a>
     <a class="right-next"
@@ -563,15 +698,29 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visual Studio Code</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions">Important Extensions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-extensions">Useful Extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development">1. <strong>Important Extensions for Geospatial Development</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs">2. <strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-microsoft-python-data-science-extension-pack">Example: <strong>Microsoft Python Data Science Extension Pack</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install">How to Install:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-extension-packs">Other Useful Extension Packs:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions">3. <strong>Additional Useful Extensions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github">4. <strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-enable-settings-sync">Steps to Enable Settings Sync:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-to-sync">Why Use GitHub to Sync?</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts">5. <strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing">Editing:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-layout">Markdown and Layout:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts">6. <strong>References for Keyboard Shortcuts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started">7. <strong>Tips for Getting Started</strong></a></li>
+</ul>
   </nav></div>
 
 </div></div>

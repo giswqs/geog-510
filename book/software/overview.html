@@ -62,7 +62,7 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Miniconda" href="miniconda.html" />
+    <link rel="next" title="Visual Studio Code" href="vscode.html" />
     <link rel="prev" title="Acknowledgments" href="../about/acknowledgments.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -185,10 +185,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vscode.html">Visual Studio Code</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google Colab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlab.html">JupyterLab</a></li>
 </ul>
@@ -508,7 +507,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-tools">Software Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-computing-platforms">Cloud Computing Platforms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-computing-platforms">Cloud Computing Platforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-google-colab">Why Use Google Colab?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-packages">Install Python Packages</a></li>
 </ul>
             </nav>
@@ -525,21 +527,33 @@ document.write(`
 <h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
 <section id="software-tools">
 <h2>Software Tools<a class="headerlink" href="#software-tools" title="Link to this heading">#</a></h2>
+<p>In this course, we will use essential software tools that streamline development, version control, and geospatial analysis. Make sure you have these installed and configured:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> or <a class="reference external" href="https://www.anaconda.com/">Anaconda</a></p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
-<li><p><a class="reference external" href="https://git-scm.com/downloads">Git</a></p></li>
-<li><p><a class="reference external" href="https://www.qgis.org/">QGIS</a></p></li>
+<li><p><strong><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></strong>: A lightweight, highly customizable code editor with robust extensions for Python development.</p></li>
+<li><p><strong><a class="reference external" href="https://git-scm.com/downloads">Git</a></strong>: A version control system for tracking code changes and collaborating on projects.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a></strong> or <strong><a class="reference external" href="https://www.anaconda.com/">Anaconda</a></strong>: Python distribution platforms that simplify environment management and package installation.</p></li>
+<li><p><strong><a class="reference external" href="https://qgis.org">QGIS</a></strong>: An open-source GIS software that complements Python tools for geospatial data visualization and analysis.</p></li>
 </ul>
+<p><em>Tip:</em> If you’re new to any of these tools, refer to their official documentation for setup guides or seek tutorials in the course <strong>Software Tools</strong> section.</p>
 </section>
 <section id="cloud-computing-platforms">
 <h2>Cloud Computing Platforms<a class="headerlink" href="#cloud-computing-platforms" title="Link to this heading">#</a></h2>
+<p>Geospatial analysis often involves large datasets and computationally intensive tasks. Cloud platforms provide scalable solutions to handle these efficiently. Here are some popular options:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://earthengine.google.com/">Google Earth Engine</a></p></li>
-<li><p><a class="reference external" href="https://research.google.com/colaboratory">Google Colab</a></p></li>
-<li><p><a class="reference external" href="https://studiolab.sagemaker.aws">Amazon SageMaker Studio Lab</a></p></li>
-<li><p><a class="reference external" href="https://planetarycomputer.microsoft.com">Microsoft Planetary Computer</a></p></li>
+<li><p><strong><a class="reference external" href="https://research.google.com/colaboratory">Google Colab</a></strong>: A free Jupyter notebook environment with pre-installed Python packages, ideal for coding on the go. <em>We will primarily use this platform in the course.</em></p></li>
+<li><p><strong><a class="reference external" href="https://earthengine.google.com/">Google Earth Engine</a></strong>: A cloud-based platform for processing geospatial data, especially remote sensing imagery.</p></li>
+<li><p><strong><a class="reference external" href="https://studiolab.sagemaker.aws">Amazon SageMaker Studio Lab</a></strong>: Offers free cloud computing resources for Python-based machine learning and data analysis.</p></li>
+<li><p><strong><a class="reference external" href="https://planetarycomputer.microsoft.com/">Microsoft Planetary Computer</a></strong>: Provides geospatial datasets and APIs for large-scale environmental analysis.</p></li>
 </ul>
+<section id="why-use-google-colab">
+<h3>Why Use Google Colab?<a class="headerlink" href="#why-use-google-colab" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Accessibility:</strong> Works entirely in the browser, so no setup is required.</p></li>
+<li><p><strong>Free Resources:</strong> Includes free access to GPUs/TPUs for advanced computations.</p></li>
+<li><p><strong>Integration:</strong> Supports popular geospatial libraries like GeoPandas, Shapely, and Leafmap out of the box.</p></li>
+</ul>
+<p>To get started, visit <a class="reference external" href="https://colab.research.google.com">colab.research.google.com</a> and sign in with your Google account.</p>
+</section>
 </section>
 <section id="install-python-packages">
 <h2>Install Python Packages<a class="headerlink" href="#install-python-packages" title="Link to this heading">#</a></h2>
@@ -603,11 +617,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="miniconda.html"
+       href="vscode.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Miniconda</p>
+        <p class="prev-next-title">Visual Studio Code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -628,7 +642,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-tools">Software Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-computing-platforms">Cloud Computing Platforms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-computing-platforms">Cloud Computing Platforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-google-colab">Why Use Google Colab?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-packages">Install Python Packages</a></li>
 </ul>
   </nav></div>
