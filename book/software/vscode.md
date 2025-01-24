@@ -13,7 +13,13 @@ VS Code also supports an extensive library of **extensions** to enhance function
 
 ---
 
-## 1. **Important Extensions for Geospatial Development**
+## **Installation**
+
+1. **Download and Install**: Visit the [Visual Studio Code website](https://code.visualstudio.com/) and download the installer for your operating system (Windows, macOS, or Linux). Follow the installation instructions provided on the website.
+2. **Launch VS Code**: After installation, open Visual Studio Code.
+3. **Verify Installation**: Ensure that VS Code is installed correctly by checking the version. Open the terminal or command prompt and type `code --version`. You should see the installed version number.
+
+## **Important Extensions for Geospatial Development**
 
 These extensions are critical for Python and Jupyter-based geospatial workflows:
 
@@ -23,7 +29,7 @@ These extensions are critical for Python and Jupyter-based geospatial workflows:
 
 ---
 
-## 2. **VS Code Extension Packs**
+## **VS Code Extension Packs**
 
 An **[extension pack](https://marketplace.visualstudio.com/search?target=VSCode&category=Extension%20Packs&sortBy=Installs)** is a curated collection of related extensions bundled together to enhance a specific workflow or domain. These packs save time by providing all the essential tools in a single installation.
 
@@ -52,7 +58,7 @@ Extension packs are a great way to set up your environment quickly and efficient
 
 ---
 
-## 3. **Additional Useful Extensions**
+## **Additional Useful Extensions**
 
 Enhance your development experience with the following extensions:
 
@@ -74,7 +80,7 @@ Enhance your development experience with the following extensions:
 
 ---
 
-## 4. **Syncing Settings and Extensions with GitHub**
+## **Syncing Settings and Extensions with GitHub**
 
 One of the powerful features of VS Code is its ability to sync your settings, extensions, and configurations across multiple devices. This is especially useful if you work on different computers.
 
@@ -101,7 +107,7 @@ To check your sync status or manage sync preferences, visit `File > Preferences 
 
 ---
 
-## 5. **Essential Keyboard Shortcuts**
+## **Essential Keyboard Shortcuts**
 
 Master these shortcuts to boost your productivity in VS Code:
 
@@ -140,7 +146,7 @@ Master these shortcuts to boost your productivity in VS Code:
 
 ---
 
-## 6. **References for Keyboard Shortcuts**
+## **References for Keyboard Shortcuts**
 
 Expand your efficiency by learning more shortcuts:
 
@@ -149,7 +155,7 @@ Expand your efficiency by learning more shortcuts:
 
 ---
 
-## 7. **Tips for Getting Started**
+## **Tips for Getting Started**
 
 - **Install Extensions**: Open the Extensions view (`Ctrl+Shift+X`) and search for the ones listed above.
 - **Customize Your Setup**: Change themes, fonts, and settings to suit your workflow via `File > Preferences > Settings`.
