@@ -107,34 +107,34 @@ Master these shortcuts to boost your productivity in VS Code:
 
 ### Navigation:
 
-1. **Command Palette:** `Ctrl+Shift+P`  
+1. **Command Palette:** `Ctrl+Shift+P`
    _Access all commands in VS Code._
-2. **Search and open a file:** `Ctrl+P`  
+2. **Search and open a file:** `Ctrl+P`
    _Quickly locate and open files._
-3. **Go to Symbol:** `Ctrl+Shift+O`  
+3. **Go to Symbol:** `Ctrl+Shift+O`
    _Navigate directly to classes, methods, or functions._
 
 ### Editing:
 
-4. **Move line up or down:** `Alt+Arrow Up/Down`  
+4. **Move line up or down:** `Alt+Arrow Up/Down`
    _Reorder lines of code easily._
-5. **Cut the entire line:** `Ctrl+X`  
+5. **Cut the entire line:** `Ctrl+X`
    _Quickly cut a line without selecting it._
-6. **Edit multiple lines simultaneously:** Hold **Alt** and click.  
+6. **Edit multiple lines simultaneously:** Hold **Alt** and click.
    _Place multiple cursors to edit in multiple places at once._
 
 ### Markdown and Layout:
 
-7. **Markdown preview:** `Ctrl+K V`  
+7. **Markdown preview:** `Ctrl+K V`
    _View the rendered Markdown side-by-side with the editor._
-8. **Zen Mode:** `Ctrl+K Z` (or via `View > Appearance > Toggle Zen Mode`)  
+8. **Zen Mode:** `Ctrl+K Z` (or via `View > Appearance > Toggle Zen Mode`)
    _Eliminate distractions with a full-screen editing experience._
-9. **Split view:** `View > Editor Layout > Split Up`  
+9. **Split view:** `View > Editor Layout > Split Up`
    _Work on multiple files or split the same file vertically._
 
 ### Other:
 
-10. **Go to line number:** `Ctrl+G`  
+10. **Go to line number:** `Ctrl+G`
     _Jump to a specific line in your code._
 11. **Select the entire line:** Triple-click anywhere on the line.
 
