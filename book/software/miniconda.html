@@ -256,73 +256,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-510/main?urlpath=tree/book/software/miniconda.md" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/software/miniconda.md" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -392,23 +325,6 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../../_sources/book/software/miniconda.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
       
       
       
@@ -506,15 +422,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-in-windows-terminal">Accessing Conda in Windows Terminal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">Common Commands</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-managing-environments">Creating and Managing Environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-managing-packages">Installing and Managing Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mamba-faster-package-management">Using Mamba (Faster Package Management)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-miniconda"><strong>Why Use Miniconda?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation"><strong>Verify Installation</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-miniconda"><strong>Getting Started with Miniconda</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-first-environment"><strong>Creating Your First Environment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancing-conda-with-mamba"><strong>Enhancing Conda with Mamba</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-in-windows-terminal"><strong>Accessing Conda in Windows Terminal</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-configuration"><strong>Testing the Configuration</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands"><strong>Common Commands</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management"><strong>Environment Management</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-management"><strong>Package Management</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mamba-for-faster-package-management"><strong>Using Mamba for Faster Package Management</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices"><strong>Best Practices</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -528,50 +456,101 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="miniconda">
 <h1>Miniconda<a class="headerlink" href="#miniconda" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://docs.anaconda.com/miniconda">Miniconda</a> is a free minimal installer for conda. It is a small, bootstrap version of Anaconda that includes only conda, Python, the packages they depend on, and a small number of other useful packages, including pip, zlib, and a few others.</p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<p>To install Miniconda, download the installer from the <a class="reference external" href="https://docs.anaconda.com/miniconda">Miniconda website</a> and run the installer. The installer will ask you to accept the license agreement, choose the installation directory, and add the conda path to your shell profile.</p>
+<p><a class="reference external" href="https://docs.anaconda.com/miniconda">Miniconda</a> is a free, minimal installer for Conda, a powerful package and environment management system. Unlike Anaconda, which includes numerous pre-installed data science packages, Miniconda is a smaller bootstrap version containing only Conda, Python, and a few essential dependencies, such as pip and zlib. This lightweight approach allows you to customize your Python environment from scratch.</p>
+<hr class="docutils" />
+<section id="why-use-miniconda">
+<h2><strong>Why Use Miniconda?</strong><a class="headerlink" href="#why-use-miniconda" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Lightweight:</strong> Install only the packages you need, avoiding unnecessary bloat.</p></li>
+<li><p><strong>Customizable:</strong> Easily create isolated environments tailored for specific projects.</p></li>
+<li><p><strong>Cross-Platform:</strong> Available on Windows, macOS, and Linux.</p></li>
+<li><p><strong>Support for Conda-Forge:</strong> Access a wide variety of packages from the community-maintained Conda-Forge repository.</p></li>
+</ul>
 </section>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<p>After installing Miniconda, you can open the <strong>Anaconda Prompt</strong> or <strong>Terminal</strong> to create a new environment and install packages required for this course using the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>geo<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+<hr class="docutils" />
+<section id="installation">
+<h2><strong>Installation</strong><a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To install Miniconda:</p>
+<ol class="arabic simple">
+<li><p>Visit the <a class="reference external" href="https://docs.anaconda.com/miniconda">Miniconda download page</a> and download the installer for your operating system.</p></li>
+<li><p>Run the installer and follow the on-screen instructions:</p>
+<ul class="simple">
+<li><p>Accept the license agreement.</p></li>
+<li><p>Choose the installation directory (e.g., <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;YourUsername&gt;\miniconda3</span></code> on Windows).</p></li>
+<li><p>Decide whether to add Conda to your PATH (recommended for simplicity but optional).</p></li>
+</ul>
+</li>
+</ol>
+<section id="verify-installation">
+<h3><strong>Verify Installation</strong><a class="headerlink" href="#verify-installation" title="Link to this heading">#</a></h3>
+<p>After installation, verify that Miniconda is installed correctly by opening a terminal or command prompt and running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>This command should display the installed Conda version.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getting-started-with-miniconda">
+<h2><strong>Getting Started with Miniconda</strong><a class="headerlink" href="#getting-started-with-miniconda" title="Link to this heading">#</a></h2>
+<section id="creating-your-first-environment">
+<h3><strong>Creating Your First Environment</strong><a class="headerlink" href="#creating-your-first-environment" title="Link to this heading">#</a></h3>
+<p>A common practice is to create isolated environments for specific projects. For geospatial applications, you can create an environment as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>geo<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12
 conda<span class="w"> </span>activate<span class="w"> </span>geo
-conda<span class="w"> </span>install<span class="w"> </span>-n<span class="w"> </span>base<span class="w"> </span>mamba<span class="w"> </span>-c<span class="w"> </span>conda-forge
-mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>geemap<span class="w"> </span>leafmap
+</pre></div>
+</div>
+<p>This creates and activates a new environment named <code class="docutils literal notranslate"><span class="pre">geo</span></code> with Python 3.12.</p>
+</section>
+<section id="enhancing-conda-with-mamba">
+<h3><strong>Enhancing Conda with Mamba</strong><a class="headerlink" href="#enhancing-conda-with-mamba" title="Link to this heading">#</a></h3>
+<p>Mamba is a high-performance alternative to Conda for faster package management. Install Mamba in the base environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-n<span class="w"> </span>base<span class="w"> </span>mamba<span class="w"> </span>-c<span class="w"> </span>conda-forge
+</pre></div>
+</div>
+<p>Then, use Mamba to install geospatial packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>geemap<span class="w"> </span>leafmap
 </pre></div>
 </div>
 </section>
+</section>
+<hr class="docutils" />
 <section id="accessing-conda-in-windows-terminal">
-<h2>Accessing Conda in Windows Terminal<a class="headerlink" href="#accessing-conda-in-windows-terminal" title="Link to this heading">#</a></h2>
-<p>If you did not add Conda to your PATH during installation, you can do it manually:</p>
+<h2><strong>Accessing Conda in Windows Terminal</strong><a class="headerlink" href="#accessing-conda-in-windows-terminal" title="Link to this heading">#</a></h2>
+<p>If you opted not to add Conda to your PATH during installation, you can manually configure it:</p>
 <ol class="arabic simple">
-<li><p><strong>Open the Start Menu</strong> and search for “Environment Variables.”</p></li>
-<li><p><strong>Click on “Edit the system environment variables.”</strong></p></li>
-<li><p>In the System Properties window, click on <strong>“Environment Variables.”</strong></p></li>
-<li><p>Under “System Variables,” find the <strong><code class="docutils literal notranslate"><span class="pre">Path</span></code></strong> variable and select it.</p></li>
-<li><p>Click <strong>“Edit”</strong> and then <strong>“New.”</strong></p></li>
-<li><p>Add the following paths to the list:</p>
+<li><p>Open the <strong>Start Menu</strong> and search for “Environment Variables.”</p></li>
+<li><p>Click on <strong>“Edit the system environment variables.”</strong></p></li>
+<li><p>In the System Properties window, click <strong>“Environment Variables.”</strong></p></li>
+<li><p>Under “System Variables,” locate the <code class="docutils literal notranslate"><span class="pre">Path</span></code> variable and click <strong>“Edit.”</strong></p></li>
+<li><p>Add the following paths to the list (replace <code class="docutils literal notranslate"><span class="pre">&lt;YourUsername&gt;</span></code> with your actual username):</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;YourUsername&gt;\miniconda3\Scripts</span></code></p></li>
 </ul>
 </li>
-<li><p>Click <strong>“OK”</strong> to close all windows.</p></li>
+<li><p>Click <strong>“OK”</strong> to save and close all windows.</p></li>
 </ol>
 <p><img alt="image" src="https://github.com/user-attachments/assets/427ea290-8ea8-42a5-b070-854696f71fc5" /></p>
-</section>
-<section id="common-commands">
-<h2>Common Commands<a class="headerlink" href="#common-commands" title="Link to this heading">#</a></h2>
-<p>Here are some common commands to manage environments and packages using conda:</p>
-<section id="creating-and-managing-environments">
-<h3>Creating and Managing Environments<a class="headerlink" href="#creating-and-managing-environments" title="Link to this heading">#</a></h3>
-<ul>
-<li><p><strong>Create a new environment:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+<section id="testing-the-configuration">
+<h3><strong>Testing the Configuration</strong><a class="headerlink" href="#testing-the-configuration" title="Link to this heading">#</a></h3>
+<p>Open a new terminal or Windows Command Prompt and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>--version
 </pre></div>
 </div>
-<p>Replace <code class="docutils literal notranslate"><span class="pre">myenv</span></code> with your desired environment name and <code class="docutils literal notranslate"><span class="pre">python=3.11</span></code> with the version of Python you need.</p>
+<p>If you see the version number, the configuration was successful.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="common-commands">
+<h2><strong>Common Commands</strong><a class="headerlink" href="#common-commands" title="Link to this heading">#</a></h2>
+<section id="environment-management">
+<h3><strong>Environment Management</strong><a class="headerlink" href="#environment-management" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>Create a new environment:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">myenv</span></code> with your desired environment name and <code class="docutils literal notranslate"><span class="pre">python=3.12</span></code> with the version of Python you need.</p>
 </li>
 <li><p><strong>Activate an environment:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>myenv
@@ -595,8 +574,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </li>
 </ul>
 </section>
-<section id="installing-and-managing-packages">
-<h3>Installing and Managing Packages<a class="headerlink" href="#installing-and-managing-packages" title="Link to this heading">#</a></h3>
+<section id="package-management">
+<h3><strong>Package Management</strong><a class="headerlink" href="#package-management" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Install a package in the current environment:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>numpy
@@ -640,23 +619,36 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </li>
 </ul>
 </section>
-<section id="using-mamba-faster-package-management">
-<h3>Using Mamba (Faster Package Management)<a class="headerlink" href="#using-mamba-faster-package-management" title="Link to this heading">#</a></h3>
-<p>After installing Mamba, you can use it for faster package management:</p>
+<hr class="docutils" />
+<section id="using-mamba-for-faster-package-management">
+<h3><strong>Using Mamba for Faster Package Management</strong><a class="headerlink" href="#using-mamba-for-faster-package-management" title="Link to this heading">#</a></h3>
+<p>Mamba is particularly useful for managing large or complex environments efficiently:</p>
 <ul>
-<li><p><strong>Install mamba in the base environment:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-n<span class="w"> </span>base<span class="w"> </span>mamba<span class="w"> </span>-c<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-</li>
-<li><p><strong>Install packages using mamba:</strong></p>
+<li><p><strong>Install packages with Mamba:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>geemap<span class="w"> </span>leafmap
 </pre></div>
 </div>
 </li>
+<li><p><strong>Create environments with Mamba:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12
+</pre></div>
+</div>
+</li>
 </ul>
-<p>These commands should help you effectively manage your Python environments and packages using Miniconda.</p>
 </section>
+</section>
+<hr class="docutils" />
+<section id="best-practices">
+<h2><strong>Best Practices</strong><a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Isolate Environments:</strong> Always use separate environments for different projects to avoid dependency conflicts.</p></li>
+<li><p><strong>Use Conda-Forge:</strong> Prefer the Conda-Forge channel for up-to-date and community-supported packages.</p></li>
+<li><p><strong>Regularly Update:</strong> Keep your environments updated to ensure compatibility and security.</p></li>
+<li><p><strong>Document Dependencies:</strong> Use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">--export</span> <span class="pre">&gt;</span> <span class="pre">requirements.txt</span></code> to record package dependencies for easy sharing.</p></li>
+<li><p><strong>Use Mamba:</strong> Switch to Mamba for faster environment and package management, especially in complex workflows.</p></li>
+</ol>
+<hr class="docutils" />
+<p>Miniconda is a powerful tool for managing Python environments and packages, making it an excellent choice for geospatial projects. By mastering Conda and Mamba, you can streamline your workflows and ensure reproducibility across your projects.</p>
 </section>
 </section>
 
@@ -724,15 +716,27 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-in-windows-terminal">Accessing Conda in Windows Terminal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">Common Commands</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-managing-environments">Creating and Managing Environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-managing-packages">Installing and Managing Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mamba-faster-package-management">Using Mamba (Faster Package Management)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-miniconda"><strong>Why Use Miniconda?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation"><strong>Verify Installation</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-miniconda"><strong>Getting Started with Miniconda</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-first-environment"><strong>Creating Your First Environment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancing-conda-with-mamba"><strong>Enhancing Conda with Mamba</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-in-windows-terminal"><strong>Accessing Conda in Windows Terminal</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-configuration"><strong>Testing the Configuration</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands"><strong>Common Commands</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management"><strong>Environment Management</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-management"><strong>Package Management</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mamba-for-faster-package-management"><strong>Using Mamba for Faster Package Management</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices"><strong>Best Practices</strong></a></li>
 </ul>
   </nav></div>
 
