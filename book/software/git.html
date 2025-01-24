@@ -422,9 +422,34 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-git"><strong>Why Use Git?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation"><strong>Verify Installation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration"><strong>Configuration</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-username-and-email"><strong>Set Username and Email</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-configuration"><strong>Check Your Configuration</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage"><strong>Basic Usage</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-a-new-repository"><strong>Initialize a New Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-files-to-staging"><strong>Add Files to Staging</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-changes"><strong>Commit Changes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-a-remote-repository"><strong>Connect to a Remote Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changes-to-a-remote-repository"><strong>Push Changes to a Remote Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-from-a-remote-repository"><strong>Pull Changes from a Remote Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-an-existing-repository"><strong>Clone an Existing Repository</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-and-merging"><strong>Branching and Merging</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-branch"><strong>Create a New Branch</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-between-branches"><strong>Switch Between Branches</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-branches"><strong>Merge Branches</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-git-commands-cheat-sheet"><strong>Common Git Commands Cheat Sheet</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices"><strong>Best Practices</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -438,57 +463,214 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="git">
 <h1>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h1>
-<p>Git is a distributed version control system that is widely used for source code management. It is designed to handle everything from small to very large projects with speed and efficiency. Git is easy to learn and has a tiny footprint with lightning-fast performance.</p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<p>To install Git, go to the <a class="reference external" href="https://git-scm.com">Git website</a> and download the installer for your operating system. After downloading the installer, run it and follow the installation instructions.</p>
+<p>Git is a distributed version control system that is widely used for source code management. It is designed to handle everything from small to very large projects with speed and efficiency. Git is essential for collaboration, version tracking, and maintaining project history.</p>
+<hr class="docutils" />
+<section id="why-use-git">
+<h2><strong>Why Use Git?</strong><a class="headerlink" href="#why-use-git" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Collaboration:</strong> Multiple developers can work on the same project without overwriting each other’s changes.</p></li>
+<li><p><strong>Version Control:</strong> Git keeps a history of all changes, enabling you to revert to previous versions if needed.</p></li>
+<li><p><strong>Branching and Merging:</strong> You can work on new features or bug fixes in isolated branches and merge them back when complete.</p></li>
+<li><p><strong>Distributed Workflow:</strong> Unlike centralized version control systems, every developer has a full copy of the repository.</p></li>
+</ul>
 </section>
+<hr class="docutils" />
+<section id="installation">
+<h2><strong>Installation</strong><a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To install Git:</p>
+<ol class="arabic simple">
+<li><p>Visit the <a class="reference external" href="https://git-scm.com">Git website</a> and download the installer for your operating system.</p></li>
+<li><p>Run the downloaded installer and follow the installation instructions. During installation, you may be prompted to:</p>
+<ul class="simple">
+<li><p>Set up your default text editor (e.g., VS Code).</p></li>
+<li><p>Adjust your PATH environment variable (recommended).</p></li>
+</ul>
+</li>
+</ol>
+<section id="verify-installation">
+<h3><strong>Verify Installation</strong><a class="headerlink" href="#verify-installation" title="Link to this heading">#</a></h3>
+<p>After installation, verify that Git is installed correctly by running the following command in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>You should see the installed version of Git.</p>
+</section>
+</section>
+<hr class="docutils" />
 <section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
-<p>After installing Git, you need to configure your username and email address. Open the terminal and run the following commands:</p>
+<h2><strong>Configuration</strong><a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<p>After installing Git, you need to configure some basic settings.</p>
+<section id="set-username-and-email">
+<h3><strong>Set Username and Email</strong><a class="headerlink" href="#set-username-and-email" title="Link to this heading">#</a></h3>
+<p>Run these commands to configure your name and email (these will appear in your commits):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Your Name&quot;</span>
 git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;Your Email&quot;</span>
 </pre></div>
 </div>
-<p>To check your configuration, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--list
+</section>
+<section id="check-your-configuration">
+<h3><strong>Check Your Configuration</strong><a class="headerlink" href="#check-your-configuration" title="Link to this heading">#</a></h3>
+<p>To view your current Git configuration, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--list
 </pre></div>
 </div>
+<p>This will display all globally set options.</p>
 </section>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<p>To create a new Git repository, navigate to the project directory and run the following commands:</p>
+</section>
+<hr class="docutils" />
+<section id="basic-usage">
+<h2><strong>Basic Usage</strong><a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
+<section id="initialize-a-new-repository">
+<h3><strong>Initialize a New Repository</strong><a class="headerlink" href="#initialize-a-new-repository" title="Link to this heading">#</a></h3>
+<p>To create a new Git repository:</p>
+<ol class="arabic">
+<li><p>Navigate to your project directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
+</pre></div>
+</div>
+</li>
+<li><p>Initialize the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>init
 </pre></div>
 </div>
-<p>To add files to the staging area, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+<p>This creates a <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder in your directory, which stores all version control information.</p>
+</li>
+</ol>
+</section>
+<section id="add-files-to-staging">
+<h3><strong>Add Files to Staging</strong><a class="headerlink" href="#add-files-to-staging" title="Link to this heading">#</a></h3>
+<p>Add files to the staging area (prepare them for commit):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>&lt;file_name&gt;<span class="w">  </span><span class="c1"># Add a specific file</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">            </span><span class="c1"># Add all changes in the current directory</span>
 </pre></div>
 </div>
-<p>To commit the changes, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+</section>
+<section id="commit-changes">
+<h3><strong>Commit Changes</strong><a class="headerlink" href="#commit-changes" title="Link to this heading">#</a></h3>
+<p>Create a snapshot of your staged changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Descriptive commit message&quot;</span>
 </pre></div>
 </div>
-<p>To push the changes to a remote repository, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master
+<p><strong>Tip:</strong> Use clear, concise commit messages that describe what you changed.</p>
+</section>
+<section id="connect-to-a-remote-repository">
+<h3><strong>Connect to a Remote Repository</strong><a class="headerlink" href="#connect-to-a-remote-repository" title="Link to this heading">#</a></h3>
+<p>To link your local repository to a remote repository (e.g., on GitHub):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;repository_url&gt;
 </pre></div>
 </div>
-<p>To pull changes from a remote repository, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull
+<p>Verify the remote connection:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>-v
 </pre></div>
 </div>
-<p>To clone a remote repository, run the following command:</p>
+</section>
+<section id="push-changes-to-a-remote-repository">
+<h3><strong>Push Changes to a Remote Repository</strong><a class="headerlink" href="#push-changes-to-a-remote-repository" title="Link to this heading">#</a></h3>
+<p>Push your commits to the remote repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">  </span><span class="c1"># Push the current branch and set upstream</span>
+</pre></div>
+</div>
+</section>
+<section id="pull-changes-from-a-remote-repository">
+<h3><strong>Pull Changes from a Remote Repository</strong><a class="headerlink" href="#pull-changes-from-a-remote-repository" title="Link to this heading">#</a></h3>
+<p>Update your local repository with the latest changes from the remote:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+<section id="clone-an-existing-repository">
+<h3><strong>Clone an Existing Repository</strong><a class="headerlink" href="#clone-an-existing-repository" title="Link to this heading">#</a></h3>
+<p>Copy an existing repository to your local machine:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>&lt;repository_url&gt;
 </pre></div>
 </div>
-<p>To create a new branch, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>new_branch
+<p>This creates a new directory containing the repository.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="branching-and-merging">
+<h2><strong>Branching and Merging</strong><a class="headerlink" href="#branching-and-merging" title="Link to this heading">#</a></h2>
+<p>Branches allow you to work on new features or fixes without affecting the main codebase.</p>
+<section id="create-a-new-branch">
+<h3><strong>Create a New Branch</strong><a class="headerlink" href="#create-a-new-branch" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature_branch
 </pre></div>
 </div>
-<p>To switch to an existing branch, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>existing_branch
+<p>This creates and switches to a new branch named <code class="docutils literal notranslate"><span class="pre">feature_branch</span></code>.</p>
+</section>
+<section id="switch-between-branches">
+<h3><strong>Switch Between Branches</strong><a class="headerlink" href="#switch-between-branches" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>main
 </pre></div>
 </div>
+<p>Switch to an existing branch.</p>
+</section>
+<section id="merge-branches">
+<h3><strong>Merge Branches</strong><a class="headerlink" href="#merge-branches" title="Link to this heading">#</a></h3>
+<p>To merge changes from one branch into another:</p>
+<ol class="arabic">
+<li><p>Switch to the target branch (e.g., <code class="docutils literal notranslate"><span class="pre">main</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>main
+</pre></div>
+</div>
+</li>
+<li><p>Merge the feature branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>merge<span class="w"> </span>feature_branch
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Tip:</strong> Resolve any merge conflicts manually, then stage and commit the resolved files.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="common-git-commands-cheat-sheet">
+<h2><strong>Common Git Commands Cheat Sheet</strong><a class="headerlink" href="#common-git-commands-cheat-sheet" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p></td>
+<td><p>Show the status of your working directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></p></td>
+<td><p>View commit history</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></p></td>
+<td><p>Show changes not yet staged</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></p></td>
+<td><p>List all branches in the repository</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code></p></td>
+<td><p>Temporarily save changes without committing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">branch_name</span></code></p></td>
+<td><p>Reapply commits from one branch onto another</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-a</span> <span class="pre">v1.0</span> <span class="pre">-m</span> <span class="pre">&quot;Tag</span> <span class="pre">msg&quot;</span></code></p></td>
+<td><p>Create an annotated tag</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="best-practices">
+<h2><strong>Best Practices</strong><a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Commit Often:</strong> Make small, logical commits with meaningful messages.</p></li>
+<li><p><strong>Branching:</strong> Use branches for features, fixes, and experiments. Keep <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> clean and deployable.</p></li>
+<li><p><strong>Code Reviews:</strong> Push changes to remote branches and create pull requests for review.</p></li>
+<li><p><strong>Document Workflow:</strong> Define naming conventions for branches (e.g., <code class="docutils literal notranslate"><span class="pre">feature/</span></code>, <code class="docutils literal notranslate"><span class="pre">bugfix/</span></code>) and commits.</p></li>
+<li><p><strong>Avoid Large Commits:</strong> Commit only related changes in a single commit.</p></li>
+<li><p><strong>Pull Before Push:</strong> Always pull the latest changes before pushing to avoid conflicts.</p></li>
+</ol>
+<hr class="docutils" />
+<p>This guide covers essential Git concepts and commands to get you started with version control. With consistent practice and adherence to best practices, you can harness Git to streamline collaboration and maintain a robust project history.</p>
 </section>
 </section>
 
@@ -556,9 +738,34 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-git"><strong>Why Use Git?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation"><strong>Verify Installation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration"><strong>Configuration</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-username-and-email"><strong>Set Username and Email</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-configuration"><strong>Check Your Configuration</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage"><strong>Basic Usage</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-a-new-repository"><strong>Initialize a New Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-files-to-staging"><strong>Add Files to Staging</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-changes"><strong>Commit Changes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-a-remote-repository"><strong>Connect to a Remote Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changes-to-a-remote-repository"><strong>Push Changes to a Remote Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-from-a-remote-repository"><strong>Pull Changes from a Remote Repository</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-an-existing-repository"><strong>Clone an Existing Repository</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-and-merging"><strong>Branching and Merging</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-branch"><strong>Create a New Branch</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-between-branches"><strong>Switch Between Branches</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-branches"><strong>Merge Branches</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-git-commands-cheat-sheet"><strong>Common Git Commands Cheat Sheet</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices"><strong>Best Practices</strong></a></li>
 </ul>
   </nav></div>
 
