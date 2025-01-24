@@ -188,6 +188,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis.html">QGIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google Colab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlab.html">JupyterLab</a></li>
 </ul>
@@ -422,28 +423,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development">1. <strong>Important Extensions for Geospatial Development</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs">2. <strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development"><strong>Important Extensions for Geospatial Development</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs"><strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-microsoft-python-data-science-extension-pack">Example: <strong>Microsoft Python Data Science Extension Pack</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install">How to Install:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-extension-packs">Other Useful Extension Packs:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions">3. <strong>Additional Useful Extensions</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github">4. <strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions"><strong>Additional Useful Extensions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github"><strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-enable-settings-sync">Steps to Enable Settings Sync:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-to-sync">Why Use GitHub to Sync?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts">5. <strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts"><strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing">Editing:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-layout">Markdown and Layout:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts">6. <strong>References for Keyboard Shortcuts</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started">7. <strong>Tips for Getting Started</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts"><strong>References for Keyboard Shortcuts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started"><strong>Tips for Getting Started</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -468,8 +470,16 @@ document.write(`
 </ul>
 <p>VS Code also supports an extensive library of <strong>extensions</strong> to enhance functionality, allowing you to tailor the editor to meet your specific needs.</p>
 <hr class="docutils" />
+<section id="installation">
+<h2><strong>Installation</strong><a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Download and Install</strong>: Visit the <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code website</a> and download the installer for your operating system (Windows, macOS, or Linux). Follow the installation instructions provided on the website.</p></li>
+<li><p><strong>Launch VS Code</strong>: After installation, open Visual Studio Code.</p></li>
+<li><p><strong>Verify Installation</strong>: Ensure that VS Code is installed correctly by checking the version. Open the terminal or command prompt and type <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">--version</span></code>. You should see the installed version number.</p></li>
+</ol>
+</section>
 <section id="important-extensions-for-geospatial-development">
-<h2>1. <strong>Important Extensions for Geospatial Development</strong><a class="headerlink" href="#important-extensions-for-geospatial-development" title="Link to this heading">#</a></h2>
+<h2><strong>Important Extensions for Geospatial Development</strong><a class="headerlink" href="#important-extensions-for-geospatial-development" title="Link to this heading">#</a></h2>
 <p>These extensions are critical for Python and Jupyter-based geospatial workflows:</p>
 <ul class="simple">
 <li><p><strong><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></strong>: Essential for Python development, offering linting, debugging, and IntelliSense.</p></li>
@@ -479,7 +489,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="vs-code-extension-packs">
-<h2>2. <strong>VS Code Extension Packs</strong><a class="headerlink" href="#vs-code-extension-packs" title="Link to this heading">#</a></h2>
+<h2><strong>VS Code Extension Packs</strong><a class="headerlink" href="#vs-code-extension-packs" title="Link to this heading">#</a></h2>
 <p>An <strong><a class="reference external" href="https://marketplace.visualstudio.com/search?target=VSCode&amp;amp;category=Extension%20Packs&amp;amp;sortBy=Installs">extension pack</a></strong> is a curated collection of related extensions bundled together to enhance a specific workflow or domain. These packs save time by providing all the essential tools in a single installation.</p>
 <section id="example-microsoft-python-data-science-extension-pack">
 <h3>Example: <strong>Microsoft Python Data Science Extension Pack</strong><a class="headerlink" href="#example-microsoft-python-data-science-extension-pack" title="Link to this heading">#</a></h3>
@@ -511,7 +521,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="additional-useful-extensions">
-<h2>3. <strong>Additional Useful Extensions</strong><a class="headerlink" href="#additional-useful-extensions" title="Link to this heading">#</a></h2>
+<h2><strong>Additional Useful Extensions</strong><a class="headerlink" href="#additional-useful-extensions" title="Link to this heading">#</a></h2>
 <p>Enhance your development experience with the following extensions:</p>
 <ul class="simple">
 <li><p><strong>autoDocstring</strong>: Automatically generate Python docstrings to document your functions.</p></li>
@@ -533,7 +543,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="syncing-settings-and-extensions-with-github">
-<h2>4. <strong>Syncing Settings and Extensions with GitHub</strong><a class="headerlink" href="#syncing-settings-and-extensions-with-github" title="Link to this heading">#</a></h2>
+<h2><strong>Syncing Settings and Extensions with GitHub</strong><a class="headerlink" href="#syncing-settings-and-extensions-with-github" title="Link to this heading">#</a></h2>
 <p>One of the powerful features of VS Code is its ability to sync your settings, extensions, and configurations across multiple devices. This is especially useful if you work on different computers.</p>
 <section id="steps-to-enable-settings-sync">
 <h3>Steps to Enable Settings Sync:<a class="headerlink" href="#steps-to-enable-settings-sync" title="Link to this heading">#</a></h3>
@@ -568,7 +578,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="essential-keyboard-shortcuts">
-<h2>5. <strong>Essential Keyboard Shortcuts</strong><a class="headerlink" href="#essential-keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<h2><strong>Essential Keyboard Shortcuts</strong><a class="headerlink" href="#essential-keyboard-shortcuts" title="Link to this heading">#</a></h2>
 <p>Master these shortcuts to boost your productivity in VS Code:</p>
 <section id="navigation">
 <h3>Navigation:<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h3>
@@ -614,7 +624,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="references-for-keyboard-shortcuts">
-<h2>6. <strong>References for Keyboard Shortcuts</strong><a class="headerlink" href="#references-for-keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<h2><strong>References for Keyboard Shortcuts</strong><a class="headerlink" href="#references-for-keyboard-shortcuts" title="Link to this heading">#</a></h2>
 <p>Expand your efficiency by learning more shortcuts:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Visual Studio Code Keyboard Shortcuts for Windows</a></p></li>
@@ -623,7 +633,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="tips-for-getting-started">
-<h2>7. <strong>Tips for Getting Started</strong><a class="headerlink" href="#tips-for-getting-started" title="Link to this heading">#</a></h2>
+<h2><strong>Tips for Getting Started</strong><a class="headerlink" href="#tips-for-getting-started" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Install Extensions</strong>: Open the Extensions view (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+X</span></code>) and search for the ones listed above.</p></li>
 <li><p><strong>Customize Your Setup</strong>: Change themes, fonts, and settings to suit your workflow via <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Settings</span></code>.</p></li>
@@ -698,28 +708,29 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development">1. <strong>Important Extensions for Geospatial Development</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs">2. <strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><strong>Installation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-extensions-for-geospatial-development"><strong>Important Extensions for Geospatial Development</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-extension-packs"><strong>VS Code Extension Packs</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-microsoft-python-data-science-extension-pack">Example: <strong>Microsoft Python Data Science Extension Pack</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install">How to Install:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-extension-packs">Other Useful Extension Packs:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions">3. <strong>Additional Useful Extensions</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github">4. <strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-useful-extensions"><strong>Additional Useful Extensions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-settings-and-extensions-with-github"><strong>Syncing Settings and Extensions with GitHub</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-enable-settings-sync">Steps to Enable Settings Sync:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-to-sync">Why Use GitHub to Sync?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts">5. <strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-keyboard-shortcuts"><strong>Essential Keyboard Shortcuts</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing">Editing:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-layout">Markdown and Layout:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts">6. <strong>References for Keyboard Shortcuts</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started">7. <strong>Tips for Getting Started</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-keyboard-shortcuts"><strong>References for Keyboard Shortcuts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-getting-started"><strong>Tips for Getting Started</strong></a></li>
 </ul>
   </nav></div>
 
