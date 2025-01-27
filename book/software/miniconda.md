@@ -94,6 +94,12 @@ If you see the version number, the configuration was successful.
 
 ### **Environment Management**
 
+- **Disable auto-activation of the base environment:**
+
+  ```bash
+  conda config --set auto_activate_base false
+  ```
+
 - **Create a new environment:**
 
   ```bash
