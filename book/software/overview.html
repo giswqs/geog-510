@@ -512,7 +512,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-google-colab">Why Use Google Colab?</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-package-repositories">Python Package Repositories</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-packages">Install Python Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">uv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pixi">pixi</a></li>
 </ul>
             </nav>
         </div>
@@ -556,6 +559,16 @@ document.write(`
 <p>To get started, visit <a class="reference external" href="https://colab.research.google.com">colab.research.google.com</a> and sign in with your Google account.</p>
 </section>
 </section>
+<section id="python-package-repositories">
+<h2>Python Package Repositories<a class="headerlink" href="#python-package-repositories" title="Link to this heading">#</a></h2>
+<p>There are four primary repositories for installing Python packages:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://pypi.org/">PyPI (Python Package Index)</a></strong>: The official repository for Python packages, accessible via <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p></li>
+<li><p><strong><a class="reference external" href="https://anaconda.org/anaconda/repo">Anaconda Cloud</a></strong>: An official platform for hosting and sharing Conda packages.</p></li>
+<li><p><strong><a class="reference external" href="https://conda-forge.org/packages/">Conda-Forge</a></strong>: A community-driven collection of Conda packages for various domains.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com">GitHub</a></strong>: A platform for hosting code repositories, including Python packages.</p></li>
+</ul>
+</section>
 <section id="install-python-packages">
 <h2>Install Python Packages<a class="headerlink" href="#install-python-packages" title="Link to this heading">#</a></h2>
 <p>There are different ways to install Python packages. The most common methods are using <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Here are some examples:</p>
@@ -573,6 +586,29 @@ document.write(`
 </div>
 <p>To install packages from a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="uv">
+<h2>uv<a class="headerlink" href="#uv" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.astral.sh/uv/">uv</a> is an extremely fast Python package and project manager, written in Rust. For packages that can be installed from PyPI, <code class="docutils literal notranslate"><span class="pre">uv</span></code> is a great alternative to <code class="docutils literal notranslate"><span class="pre">pip</span></code>. To install <code class="docutils literal notranslate"><span class="pre">uv</span></code>, follow the instructions in the <a class="reference external" href="https://docs.astral.sh/uv/getting-started/installation/">official documentation</a> to install uv on your system.</p>
+<p>Once installed, you can use <code class="docutils literal notranslate"><span class="pre">uv</span></code> to create a new environment and install packages as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
+uv<span class="w"> </span>venv
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.12
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class="w"> </span>leafmap
+uv<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+</section>
+<section id="pixi">
+<h2>pixi<a class="headerlink" href="#pixi" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pixi.sh/">pixi</a> is another Python package manager that is written in Rust. It is designed to be fast and efficient, and it can be used as an alternative to <code class="docutils literal notranslate"><span class="pre">conda</span></code>. To install <code class="docutils literal notranslate"><span class="pre">pixi</span></code>, follow the instructions in the <a class="reference external" href="https://pixi.sh/latest/#installation">official documentation</a> to install pixi on your system.</p>
+<p>Once installed, you can use <code class="docutils literal notranslate"><span class="pre">pixi</span></code> to create a new environment and install packages as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
+pixi<span class="w"> </span>init
+pixi<span class="w"> </span>add<span class="w"> </span>jupyterlab<span class="w"> </span>leafmap
+pixi<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
 </section>
@@ -647,7 +683,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-google-colab">Why Use Google Colab?</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-package-repositories">Python Package Repositories</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-packages">Install Python Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">uv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pixi">pixi</a></li>
 </ul>
   </nav></div>
 

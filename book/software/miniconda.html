@@ -547,6 +547,11 @@ conda<span class="w"> </span>activate<span class="w"> </span>geo
 <section id="environment-management">
 <h3><strong>Environment Management</strong><a class="headerlink" href="#environment-management" title="Link to this heading">#</a></h3>
 <ul>
+<li><p><strong>Disable auto-activation of the base environment:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>auto_activate_base<span class="w"> </span><span class="nb">false</span>
+</pre></div>
+</div>
+</li>
 <li><p><strong>Create a new environment:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12
 </pre></div>

@@ -41,6 +41,16 @@ Geospatial analysis often involves large datasets and computationally intensive 
 
 To get started, visit [colab.research.google.com](https://colab.research.google.com) and sign in with your Google account.
 
+## Python Package Repositories
+
+There are four primary repositories for installing Python packages:
+
+- **[PyPI (Python Package Index)](https://pypi.org/)**: The official repository for Python packages, accessible via `pip`.
+- **[Anaconda Cloud](https://anaconda.org/anaconda/repo)**: An official platform for hosting and sharing Conda packages.
+- **[Conda-Forge](https://conda-forge.org/packages/)**: A community-driven collection of Conda packages for various domains.
+- **[GitHub](https://github.com)**: A platform for hosting code repositories, including Python packages.
+
+
 ## Install Python Packages
 
 There are different ways to install Python packages. The most common methods are using `pip` or `conda`. Here are some examples:
@@ -67,4 +77,31 @@ To install packages from a `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
+```
+
+## uv
+
+[uv](https://docs.astral.sh/uv/) is an extremely fast Python package and project manager, written in Rust. For packages that can be installed from PyPI, `uv` is a great alternative to `pip`. To install `uv`, follow the instructions in the [official documentation](https://docs.astral.sh/uv/getting-started/installation/) to install uv on your system.
+
+Once installed, you can use `uv` to create a new environment and install packages as follows:
+
+```bash
+cd /path/to/your/project
+uv venv
+uv venv --python 3.12
+uv pip install jupyterlab leafmap
+uv run jupyter lab
+```
+
+## pixi
+
+[pixi](https://pixi.sh/) is another Python package manager that is written in Rust. It is designed to be fast and efficient, and it can be used as an alternative to `conda`. To install `pixi`, follow the instructions in the [official documentation](https://pixi.sh/latest/#installation) to install pixi on your system.
+
+Once installed, you can use `pixi` to create a new environment and install packages as follows:
+
+```bash
+cd /path/to/your/project
+pixi init
+pixi add jupyterlab leafmap
+pixi run jupyter lab
 ```
