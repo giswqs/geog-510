@@ -31,7 +31,7 @@ This lab will guide you through creating a Python environment, working with Git 
 2. Create a new file named `test.md` in the `test-markdown` branch.
 3. Add a title to the file using the `#` symbol.
 4. Add various sections to the file using headers (`##`, `###`, etc.).
-5. Add vairous types of content to the file, such as text, lists, links, images, and code blocks.
+5. Add various types of content to the file, such as text, lists, links, images, and code blocks.
 6. Commit the changes and push the branch to the remote repository.
 7. Create a PR to merge the changes from `test-markdown` into the `main` branch.
 8. Merge the PR and delete the `test-markdown` branch.
