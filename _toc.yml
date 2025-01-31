@@ -20,6 +20,7 @@ parts:
       - file: book/software/git
       - file: book/software/miniconda
       - file: book/software/qgis
+      - file: book/software/markdown
       - file: book/software/colab
       - file: book/software/jupyterlab
   - caption: Python Basics
