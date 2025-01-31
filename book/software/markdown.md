@@ -1,4 +1,4 @@
-# Introduction to Markdown
+# Markdown
 
 ## What is Markdown?
 
