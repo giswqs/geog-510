@@ -257,73 +257,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-510/main?urlpath=tree/book/labs/lab_01.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/labs/lab_01.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -349,7 +282,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/labs/lab_01.ipynb" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/labs/lab_01.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -396,7 +329,7 @@
       
       
       
-      <li><a href="../../_sources/book/labs/lab_01.ipynb" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_01.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +339,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -490,16 +423,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-variable-assignment-and-basic-operations">Exercise 1: Variable Assignment and Basic Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">Exercise 2: Working with Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-using-lists">Exercise 3: Using Lists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-using-tuples">Exercise 4: Using Tuples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-working-with-sets">Exercise 5: Working with Sets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-working-with-dictionaries">Exercise 6: Working with Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-nested-data-structures">Exercise 7: Nested Data Structures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-list-operations">Exercise 8: List Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-dictionary-operations">Exercise 9: Dictionary Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-practical-application">Exercise 10: Practical Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-new-python-environment">Exercise 1: Create a New Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-git-repository">Exercise 2: Create a New Git Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-a-new-markdown-file">Exercise 3: Create a New Markdown File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-create-a-github-issue">Exercise 4: Create a GitHub Issue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-use-github-discussions">Exercise 5: Use GitHub Discussions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-submit">What to Submit</a></li>
 </ul>
             </nav>
         </div>
@@ -513,129 +442,80 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-1">
 <h1>Lab 1<a class="headerlink" href="#lab-1" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/labs/lab_01.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-<section id="exercise-1-variable-assignment-and-basic-operations">
-<h2>Exercise 1: Variable Assignment and Basic Operations<a class="headerlink" href="#exercise-1-variable-assignment-and-basic-operations" title="Link to this heading">#</a></h2>
-<p>Create variables to store the following geospatial data:</p>
-<ul class="simple">
-<li><p>The latitude and longitude of New York City: 40.7128, -74.0060.</p></li>
-<li><p>The population of New York City: 8,336,817.</p></li>
-<li><p>The area of New York City in square kilometers: 783.8.</p></li>
-</ul>
-<p>Perform the following tasks:</p>
+<p>This lab will guide you through creating a Python environment, working with Git and GitHub, and using GitHub features such as issues and discussions.</p>
+<section id="exercise-1-create-a-new-python-environment">
+<h2>Exercise 1: Create a New Python Environment<a class="headerlink" href="#exercise-1-create-a-new-python-environment" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Calculate and print the population density of New York City (population per square kilometer).</p></li>
-<li><p>Print the coordinates in the format “Latitude: [latitude], Longitude: [longitude]”.</p></li>
+<li><p>Create a new vairtual environment named <code class="docutils literal notranslate"><span class="pre">test</span></code> using conda, mamba, or uv.</p></li>
+<li><p>Activate the environment.</p></li>
+<li><p>Install a Python package of named <a class="reference external" href="https://geospatial.gishub.org">geospatial</a>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> to verify the package is installed.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">&quot;import</span> <span class="pre">geospatial;</span> <span class="pre">print(geospatial.__version__)&quot;</span></code> to verify the package is working correctly.</p></li>
+<li><p>Deactivate the environment.</p></li>
+<li><p>Remove the environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">--all</span></code>.</p></li>
 </ol>
 </section>
-<section id="exercise-2-working-with-strings">
-<h2>Exercise 2: Working with Strings<a class="headerlink" href="#exercise-2-working-with-strings" title="Link to this heading">#</a></h2>
-<p>Create a string variable to store the name of a city, such as “San Francisco”. Perform the following operations:</p>
+<section id="exercise-2-create-a-new-git-repository">
+<h2>Exercise 2: Create a New Git Repository<a class="headerlink" href="#exercise-2-create-a-new-git-repository" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Convert the string to lowercase and print the result.</p></li>
-<li><p>Convert the string to uppercase and print the result.</p></li>
-<li><p>Replace “San” with “Los” in the city name and print the new string.</p></li>
+<li><p>Create a new GitHub repository named <code class="docutils literal notranslate"><span class="pre">geog510-test</span></code> using the GitHub website.</p></li>
+<li><p>Set the repository to public and initialize it with a README file.</p></li>
+<li><p>Clone the repository to your local machine using Git.</p></li>
+<li><p>Create a new file named <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> in the repository and add some text to it.</p></li>
+<li><p>Commit the changes and push them to the remote repository.</p></li>
+<li><p>Create a new branch named <code class="docutils literal notranslate"><span class="pre">test-branch</span></code> and switch to it.</p></li>
+<li><p>Make some changes to the <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> file and commit them.</p></li>
+<li><p>Push the new branch to the remote repository.</p></li>
+<li><p>Create a pull request (PR) on GitHub to merge the changes from <code class="docutils literal notranslate"><span class="pre">test-branch</span></code> into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p></li>
+<li><p>Merge the PR and delete the <code class="docutils literal notranslate"><span class="pre">test-branch</span></code> branch.</p></li>
 </ol>
 </section>
-<section id="exercise-3-using-lists">
-<h2>Exercise 3: Using Lists<a class="headerlink" href="#exercise-3-using-lists" title="Link to this heading">#</a></h2>
-<p>Create a list of tuples, where each tuple contains the name of a city and its corresponding latitude and longitude:</p>
-<ul class="simple">
-<li><p>New York City: (40.7128, -74.0060)</p></li>
-<li><p>Los Angeles: (34.0522, -118.2437)</p></li>
-<li><p>Chicago: (41.8781, -87.6298)</p></li>
-</ul>
-<p>Perform the following tasks:</p>
+<section id="exercise-3-create-a-new-markdown-file">
+<h2>Exercise 3: Create a New Markdown File<a class="headerlink" href="#exercise-3-create-a-new-markdown-file" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Add a new city (e.g., Miami: (25.7617, -80.1918)) to the list.</p></li>
-<li><p>Print the entire list of cities.</p></li>
-<li><p>Slice the list to print only the first two cities.</p></li>
+<li><p>Create a new branch named <code class="docutils literal notranslate"><span class="pre">test-markdown</span></code> in the local <code class="docutils literal notranslate"><span class="pre">geog510-test</span></code> repository.</p></li>
+<li><p>Create a new file named <code class="docutils literal notranslate"><span class="pre">test.md</span></code> in the <code class="docutils literal notranslate"><span class="pre">test-markdown</span></code> branch.</p></li>
+<li><p>Add a title to the file using the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol.</p></li>
+<li><p>Add various sections to the file using headers (<code class="docutils literal notranslate"><span class="pre">##</span></code>, <code class="docutils literal notranslate"><span class="pre">###</span></code>, etc.).</p></li>
+<li><p>Add various types of content to the file, such as text, lists, links, images, and code blocks.</p></li>
+<li><p>Commit the changes and push the branch to the remote repository.</p></li>
+<li><p>Create a PR to merge the changes from <code class="docutils literal notranslate"><span class="pre">test-markdown</span></code> into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p></li>
+<li><p>Merge the PR and delete the <code class="docutils literal notranslate"><span class="pre">test-markdown</span></code> branch.</p></li>
+<li><p>View the rendered Markdown file on GitHub.</p></li>
 </ol>
 </section>
-<section id="exercise-4-using-tuples">
-<h2>Exercise 4: Using Tuples<a class="headerlink" href="#exercise-4-using-tuples" title="Link to this heading">#</a></h2>
-<p>Create a tuple to store the coordinates (latitude, longitude) of the Eiffel Tower: (48.8584, 2.2945). Perform the following tasks:</p>
+<section id="exercise-4-create-a-github-issue">
+<h2>Exercise 4: Create a GitHub Issue<a class="headerlink" href="#exercise-4-create-a-github-issue" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Access and print the latitude and longitude values from the tuple.</p></li>
-<li><p>Try to change the latitude value to 48.8585. What happens? Explain why.</p></li>
+<li><p>Navigate to your <code class="docutils literal notranslate"><span class="pre">geog510-test</span></code> repository on GitHub.</p></li>
+<li><p>Go to the <strong>Issues</strong> tab and click <strong>New issue</strong>.</p></li>
+<li><p>Provide a title and a detailed description.</p></li>
+<li><p>Make sure the description includes various types of content, such as text, lists, links, images, and code blocks.</p></li>
+<li><p>Assign the issue to yourself and add a label.</p></li>
+<li><p>Submit the issue.</p></li>
+<li><p>Add a comment to the issue, then close it.</p></li>
 </ol>
 </section>
-<section id="exercise-5-working-with-sets">
-<h2>Exercise 5: Working with Sets<a class="headerlink" href="#exercise-5-working-with-sets" title="Link to this heading">#</a></h2>
-<p>Create a set of countries you have visited, such as {“USA”, “France”, “Germany”}. Perform the following tasks:</p>
+<section id="exercise-5-use-github-discussions">
+<h2>Exercise 5: Use GitHub Discussions<a class="headerlink" href="#exercise-5-use-github-discussions" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Add a new country to the set.</p></li>
-<li><p>Try to add the same country again. What happens?</p></li>
-<li><p>Print the updated set.</p></li>
+<li><p>Enable <strong>GitHub Discussions</strong> for your <code class="docutils literal notranslate"><span class="pre">geog510-test</span></code> repository.</p></li>
+<li><p>Create a new discussion topic under the <strong>Q&amp;A</strong> category.</p></li>
+<li><p>Add a title and description to the discussion.</p></li>
+<li><p>Make sure the description includes various types of content, such as text, lists, links, images, and code blocks.</p></li>
+<li><p>Post the discussion and reply to it.</p></li>
+<li><p>Mark a reply as the accepted answer.</p></li>
+<li><p>Close the discussion.</p></li>
 </ol>
 </section>
-<section id="exercise-6-working-with-dictionaries">
-<h2>Exercise 6: Working with Dictionaries<a class="headerlink" href="#exercise-6-working-with-dictionaries" title="Link to this heading">#</a></h2>
-<p>Create a dictionary to store information about a specific geospatial feature, such as a river:</p>
-<ul class="simple">
-<li><p>Name: “Amazon River”</p></li>
-<li><p>Length: 6400 km</p></li>
-<li><p>Countries: [“Brazil”, “Peru”, “Colombia”]</p></li>
-</ul>
-<p>Perform the following tasks:</p>
+<section id="what-to-submit">
+<h2>What to Submit<a class="headerlink" href="#what-to-submit" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Add a new key-value pair to the dictionary to store the river’s average discharge (e.g., 209,000 m³/s).</p></li>
-<li><p>Update the length of the river to 6992 km.</p></li>
-<li><p>Print the dictionary.</p></li>
-</ol>
-</section>
-<section id="exercise-7-nested-data-structures">
-<h2>Exercise 7: Nested Data Structures<a class="headerlink" href="#exercise-7-nested-data-structures" title="Link to this heading">#</a></h2>
-<p>Create a dictionary to represent a city that contains the city’s name, population, and coordinates (latitude, longitude):</p>
-<ul class="simple">
-<li><p>Name: “Tokyo”</p></li>
-<li><p>Population: 13,515,271</p></li>
-<li><p>Coordinates: (35.6895, 139.6917)</p></li>
-</ul>
-<p>Perform the following tasks:</p>
-<ol class="arabic simple">
-<li><p>Access and print the population of the city.</p></li>
-<li><p>Access and print the city’s latitude.</p></li>
-<li><p>Update the population to 14,000,000 and print the updated dictionary.</p></li>
-</ol>
-</section>
-<section id="exercise-8-list-operations">
-<h2>Exercise 8: List Operations<a class="headerlink" href="#exercise-8-list-operations" title="Link to this heading">#</a></h2>
-<p>Given the list of cities from Exercise 3, perform the following operations:</p>
-<ol class="arabic simple">
-<li><p>Sort the list of cities alphabetically by name.</p></li>
-<li><p>Create a new list that contains only the city names.</p></li>
-<li><p>Remove the last city from the original list and print the updated list.</p></li>
-</ol>
-</section>
-<section id="exercise-9-dictionary-operations">
-<h2>Exercise 9: Dictionary Operations<a class="headerlink" href="#exercise-9-dictionary-operations" title="Link to this heading">#</a></h2>
-<p>Using the dictionary from Exercise 6, perform the following tasks:</p>
-<ol class="arabic simple">
-<li><p>Check if the key “Length” exists in the dictionary.</p></li>
-<li><p>Print all the keys in the dictionary.</p></li>
-<li><p>Print all the values in the dictionary.</p></li>
-</ol>
-</section>
-<section id="exercise-10-practical-application">
-<h2>Exercise 10: Practical Application<a class="headerlink" href="#exercise-10-practical-application" title="Link to this heading">#</a></h2>
-<p>Imagine you have a list of tuples, each representing a location with its name, latitude, and longitude:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">locations</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;Mount Everest&quot;</span><span class="p">,</span> <span class="mf">27.9881</span><span class="p">,</span> <span class="mf">86.9250</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;K2&quot;</span><span class="p">,</span> <span class="mf">35.8808</span><span class="p">,</span> <span class="mf">76.5155</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Kangchenjunga&quot;</span><span class="p">,</span> <span class="mf">27.7025</span><span class="p">,</span> <span class="mf">88.1475</span><span class="p">),</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Perform the following tasks:</p>
-<ol class="arabic simple">
-<li><p>Create a new list that contains only the names of the locations.</p></li>
-<li><p>Create a dictionary where the keys are location names and the values are tuples of their coordinates.</p></li>
-<li><p>Print the latitude of “K2” using the dictionary.</p></li>
+<li><p>Exercise 1: Write the output of <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">&quot;import</span> <span class="pre">geospatial;</span> <span class="pre">print(geospatial.__version__)&quot;</span></code>.</p></li>
+<li><p>Exercise 2: A link to the GitHub pull request.</p></li>
+<li><p>Exercise 3: A link to the Markdown file on GitHub.</p></li>
+<li><p>Exercise 4: A link to the GitHub issue.</p></li>
+<li><p>Exercise 5: A link to the GitHub discussion.</p></li>
 </ol>
 </section>
 </section>
@@ -695,16 +575,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-variable-assignment-and-basic-operations">Exercise 1: Variable Assignment and Basic Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">Exercise 2: Working with Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-using-lists">Exercise 3: Using Lists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-using-tuples">Exercise 4: Using Tuples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-working-with-sets">Exercise 5: Working with Sets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-working-with-dictionaries">Exercise 6: Working with Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-nested-data-structures">Exercise 7: Nested Data Structures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-list-operations">Exercise 8: List Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-dictionary-operations">Exercise 9: Dictionary Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-practical-application">Exercise 10: Practical Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-new-python-environment">Exercise 1: Create a New Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-git-repository">Exercise 2: Create a New Git Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-a-new-markdown-file">Exercise 3: Create a New Markdown File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-create-a-github-issue">Exercise 4: Create a GitHub Issue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-use-github-discussions">Exercise 5: Use GitHub Discussions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-submit">What to Submit</a></li>
 </ul>
   </nav></div>
 
