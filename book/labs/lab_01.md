@@ -1,170 +1,66 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.2
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 # Lab 1
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/labs/lab_01.ipynb)
+This lab will guide you through creating a Python environment, working with Git and GitHub, and using GitHub features such as issues and discussions.
 
-+++
+## Exercise 1: Create a New Python Environment
 
-## Exercise 1: Variable Assignment and Basic Operations
+1. Create a new vairtual environment named `test` using conda, mamba, or uv.
+2. Activate the environment.
+3. Install a Python package of named [geospatial](https://geospatial.gishub.org).
+4. Run `conda list` or `pip list` to verify the package is installed.
+5. Run `python -c "import geospatial; print(geospatial.__version__)"` to verify the package is working correctly.
+6. Deactivate the environment.
+7. Remove the environment using `conda remove --name test --all`.
 
-Create variables to store the following geospatial data:
+## Exercise 2: Create a New Git Repository
 
-- The latitude and longitude of New York City: 40.7128, -74.0060.
-- The population of New York City: 8,336,817.
-- The area of New York City in square kilometers: 783.8.
+1. Create a new GitHub repository named `geog510-test` using the GitHub website.
+2. Set the repository to public and initialize it with a README file.
+3. Clone the repository to your local machine using Git.
+4. Create a new file named `test.txt` in the repository and add some text to it.
+5. Commit the changes and push them to the remote repository.
+6. Create a new branch named `test-branch` and switch to it.
+7. Make some changes to the `test.txt` file and commit them.
+8. Push the new branch to the remote repository.
+9. Create a pull request (PR) on GitHub to merge the changes from `test-branch` into the `main` branch.
+10. Merge the PR and delete the `test-branch` branch.
 
-Perform the following tasks:
+## Exercise 3: Create a New Markdown File
 
-1. Calculate and print the population density of New York City (population per square kilometer).
-2. Print the coordinates in the format "Latitude: [latitude], Longitude: [longitude]".
+1. Create a new branch named `test-markdown` in the local `geog510-test` repository.
+2. Create a new file named `test.md` in the `test-markdown` branch.
+3. Add a title to the file using the `#` symbol.
+4. Add various sections to the file using headers (`##`, `###`, etc.).
+5. Add vairous types of content to the file, such as text, lists, links, images, and code blocks.
+6. Commit the changes and push the branch to the remote repository.
+7. Create a PR to merge the changes from `test-markdown` into the `main` branch.
+8. Merge the PR and delete the `test-markdown` branch.
+9. View the rendered Markdown file on GitHub.
 
-```{code-cell} ipython3
+## Exercise 4: Create a GitHub Issue
 
-```
+1. Navigate to your `geog510-test` repository on GitHub.
+2. Go to the **Issues** tab and click **New issue**.
+3. Provide a title and a detailed description.
+4. Make sure the description includes various types of content, such as text, lists, links, images, and code blocks.
+5. Assign the issue to yourself and add a label.
+6. Submit the issue.
+7. Add a comment to the issue, then close it.
 
-## Exercise 2: Working with Strings
+## Exercise 5: Use GitHub Discussions
 
-Create a string variable to store the name of a city, such as "San Francisco". Perform the following operations:
+1. Enable **GitHub Discussions** for your `geog510-test` repository.
+2. Create a new discussion topic under the **Q&A** category.
+3. Add a title and description to the discussion.
+4. Make sure the description includes various types of content, such as text, lists, links, images, and code blocks.
+5. Post the discussion and reply to it.
+6. Mark a reply as the accepted answer.
+7. Close the discussion.
 
-1. Convert the string to lowercase and print the result.
-2. Convert the string to uppercase and print the result.
-3. Replace "San" with "Los" in the city name and print the new string.
+## What to Submit
 
-```{code-cell} ipython3
-
-```
-
-## Exercise 3: Using Lists
-
-Create a list of tuples, where each tuple contains the name of a city and its corresponding latitude and longitude:
-
-- New York City: (40.7128, -74.0060)
-- Los Angeles: (34.0522, -118.2437)
-- Chicago: (41.8781, -87.6298)
-
-Perform the following tasks:
-
-1. Add a new city (e.g., Miami: (25.7617, -80.1918)) to the list.
-2. Print the entire list of cities.
-3. Slice the list to print only the first two cities.
-
-```{code-cell} ipython3
-
-```
-
-## Exercise 4: Using Tuples
-
-Create a tuple to store the coordinates (latitude, longitude) of the Eiffel Tower: (48.8584, 2.2945). Perform the following tasks:
-
-1. Access and print the latitude and longitude values from the tuple.
-2. Try to change the latitude value to 48.8585. What happens? Explain why.
-
-```{code-cell} ipython3
-
-```
-
-## Exercise 5: Working with Sets
-
-Create a set of countries you have visited, such as {"USA", "France", "Germany"}. Perform the following tasks:
-
-1. Add a new country to the set.
-2. Try to add the same country again. What happens?
-3. Print the updated set.
-
-```{code-cell} ipython3
-
-```
-
-## Exercise 6: Working with Dictionaries
-
-Create a dictionary to store information about a specific geospatial feature, such as a river:
-
-- Name: "Amazon River"
-- Length: 6400 km
-- Countries: ["Brazil", "Peru", "Colombia"]
-
-Perform the following tasks:
-
-1. Add a new key-value pair to the dictionary to store the river's average discharge (e.g., 209,000 m³/s).
-2. Update the length of the river to 6992 km.
-3. Print the dictionary.
-
-```{code-cell} ipython3
-
-```
-
-## Exercise 7: Nested Data Structures
-
-Create a dictionary to represent a city that contains the city's name, population, and coordinates (latitude, longitude):
-
-- Name: "Tokyo"
-- Population: 13,515,271
-- Coordinates: (35.6895, 139.6917)
-
-Perform the following tasks:
-
-1. Access and print the population of the city.
-2. Access and print the city's latitude.
-3. Update the population to 14,000,000 and print the updated dictionary.
-
-```{code-cell} ipython3
-
-```
-
-## Exercise 8: List Operations
-
-Given the list of cities from Exercise 3, perform the following operations:
-
-1. Sort the list of cities alphabetically by name.
-2. Create a new list that contains only the city names.
-3. Remove the last city from the original list and print the updated list.
-
-```{code-cell} ipython3
-
-```
-
-## Exercise 9: Dictionary Operations
-
-Using the dictionary from Exercise 6, perform the following tasks:
-
-1. Check if the key "Length" exists in the dictionary.
-2. Print all the keys in the dictionary.
-3. Print all the values in the dictionary.
-
-```{code-cell} ipython3
-
-```
-
-## Exercise 10: Practical Application
-
-Imagine you have a list of tuples, each representing a location with its name, latitude, and longitude:
-
-```{code-cell} ipython3
-locations = [
-    ("Mount Everest", 27.9881, 86.9250),
-    ("K2", 35.8808, 76.5155),
-    ("Kangchenjunga", 27.7025, 88.1475)
-]
-```
-
-Perform the following tasks:
-
-1. Create a new list that contains only the names of the locations.
-2. Create a dictionary where the keys are location names and the values are tuples of their coordinates.
-3. Print the latitude of "K2" using the dictionary.
-
-```{code-cell} ipython3
-
-```
+1. Exercise 1: Write the output of `python -c "import geospatial; print(geospatial.__version__)"`.
+2. Exercise 2: A link to the GitHub pull request.
+3. Exercise 3: A link to the Markdown file on GitHub.
+4. Exercise 4: A link to the GitHub issue.
+5. Exercise 5: A link to the GitHub discussion.
