@@ -62,8 +62,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. Get Started" href="../python/01_get_started.html" />
-    <link rel="prev" title="Google Colab" href="colab.html" />
+    <link rel="next" title="Google Colab" href="colab.html" />
+    <link rel="prev" title="Markdown" href="markdown.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,8 +190,8 @@
 <li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qgis.html">QGIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown</a></li>
-<li class="toctree-l1"><a class="reference internal" href="colab.html">Google Colab</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab.html">Google Colab</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="nav bd-sidenav">
@@ -443,14 +443,19 @@ document.write(`
 <p>JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<p>To install JupyterLab, you can use the following commands:</p>
+<p>To install JupyterLab, you can use either <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>jupyterlab
 </pre></div>
 </div>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<p>To start JupyterLab, you can use the following command:</p>
+<p>To start JupyterLab, you can use the following command in your terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
@@ -518,20 +523,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="colab.html"
+       href="markdown.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Google Colab</p>
+        <p class="prev-next-title">Markdown</p>
       </div>
     </a>
     <a class="right-next"
-       href="../python/01_get_started.html"
+       href="colab.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Get Started</p>
+        <p class="prev-next-title">Google Colab</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
