@@ -4,15 +4,24 @@ JupyterLab is a web-based interactive development environment for Jupyter notebo
 
 ## Installation
 
-To install JupyterLab, you can use the following commands:
+To install JupyterLab, you can use either `pip` or `conda`:
+
+Using `pip`:
 
 ```bash
 pip install jupyterlab
 ```
 
+Using `conda`:
+
+```bash
+conda install -c conda-forge jupyterlab
+```
+
+
 ## Usage
 
-To start JupyterLab, you can use the following command:
+To start JupyterLab, you can use the following command in your terminal:
 
 ```bash
 jupyter lab

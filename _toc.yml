@@ -21,8 +21,8 @@ parts:
       - file: book/software/miniconda
       - file: book/software/qgis
       - file: book/software/markdown
-      - file: book/software/colab
       - file: book/software/jupyterlab
+      - file: book/software/colab
   - caption: Python Basics
     numbered: true
     maxdepth: 2
