@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Markdown &#8212; Geographic Software Design</title>
+    <title>Cookiecutter &#8212; Geographic Software Design</title>
   
   
   
@@ -57,13 +57,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/software/markdown';</script>
-    <link rel="canonical" href="https://geog-510.gishub.org/book/software/markdown.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/software/cookiecutter';</script>
+    <link rel="canonical" href="https://geog-510.gishub.org/book/software/cookiecutter.html" />
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="JupyterLab" href="jupyterlab.html" />
-    <link rel="prev" title="QGIS" href="qgis.html" />
+    <link rel="next" title="1. Get Started" href="../python/01_get_started.html" />
+    <link rel="prev" title="Google Colab" href="colab.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,10 +189,10 @@
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="miniconda.html">Miniconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qgis.html">QGIS</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlab.html">JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google Colab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cookiecutter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="nav bd-sidenav">
@@ -285,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/software/markdown.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/software/cookiecutter.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/software/markdown.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/software/cookiecutter.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +332,7 @@
       
       
       
-      <li><a href="../../_sources/book/software/markdown.md" target="_blank"
+      <li><a href="../../_sources/book/software/cookiecutter.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -416,7 +416,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Markdown</h1>
+    <h1>Cookiecutter</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -426,31 +426,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-markdown">What is Markdown?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-markdown">Why Use Markdown?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-vs-code-extensions">Useful VS Code Extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-markdown-syntax">Basic Markdown Syntax</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#headings">1. Headings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emphasis">2. Emphasis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3. Lists</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list">Unordered List</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list">Ordered List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pip">Use pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-conda">Use conda</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">4. Links</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#images">5. Images</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks">6. Code Blocks</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-code">Inline Code</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#block-code">Block Code</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockquotes">7. Blockquotes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">8. Tables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-rule">9. Horizontal Rule</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-lists-github-flavored-markdown">10. Task Lists (GitHub Flavored Markdown)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strikethrough">11. Strikethrough</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-html">12. Inline HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-instructions">Step-by-Step Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-package-structure">1. Generate the Package Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-repository-on-github">2. Create a Repository on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-github-actions-permissions">3. Configure GitHub Actions Permissions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-repository">4. Clone the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-files-from-the-cookiecutter-template">5. Copy Files from the Cookiecutter Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push-changes">6. Commit and Push Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-pypi-api-token">7. Create a PyPI API Token</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-pypi-credentials-to-github-secrets">8. Add PyPI Credentials to GitHub Secrets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-github-release">9. Create a GitHub Release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-github-pages">10. Enable GitHub Pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-versioning-with-bump-my-version">11. Manage Versioning with bump-my-version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-version-tags-and-changes">12. Push Version Tags and Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-github-release">13. Create a New GitHub Release</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
@@ -465,188 +461,153 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="markdown">
-<h1>Markdown<a class="headerlink" href="#markdown" title="Link to this heading">#</a></h1>
-<section id="what-is-markdown">
-<h2>What is Markdown?<a class="headerlink" href="#what-is-markdown" title="Link to this heading">#</a></h2>
-<p>Markdown is a lightweight markup language designed to format plain text efficiently. It is widely used for documentation, writing README files, and creating content for web applications such as Jupyter Notebooks, GitHub, and blogs.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="cookiecutter">
+<h1>Cookiecutter<a class="headerlink" href="#cookiecutter" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> is a command-line utility that generates projects from templates. It automates the creation of a project structure with predefined files and directories, ensuring consistency and saving time when starting new projects. This tool is particularly useful for developers who want to maintain a standardized setup across multiple projects.</p>
+<p><strong>Example Python Package Template:</strong> <a class="reference external" href="https://github.com/opengeos/cookiecutter-pypackage">opengeos/cookiecutter-pypackage</a></p>
 </section>
-<section id="why-use-markdown">
-<h2>Why Use Markdown?<a class="headerlink" href="#why-use-markdown" title="Link to this heading">#</a></h2>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<p>This guide provides a step-by-step walkthrough for creating a Python package, configuring it for distribution, and managing versioning and releases. Follow these instructions to streamline your workflow.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>Before proceeding, install the required tools using pip or conda:</p>
+<section id="use-pip">
+<h3>Use pip<a class="headerlink" href="#use-pip" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cookiecutter<span class="w"> </span>bump-my-version
+</pre></div>
+</div>
+</section>
+<section id="use-conda">
+<h3>Use conda<a class="headerlink" href="#use-conda" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>cookiecutter<span class="w"> </span>bump-my-version
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-by-step-instructions">
+<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Link to this heading">#</a></h2>
+<section id="generate-the-package-structure">
+<h3>1. Generate the Package Structure<a class="headerlink" href="#generate-the-package-structure" title="Link to this heading">#</a></h3>
+<p>Use Cookiecutter to create the initial structure of your Python package. This command clones a template repository and sets up the necessary files and directories. Follow the prompts to customize your package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cookiecutter<span class="w"> </span>gh:opengeos/cookiecutter-pypackage
+</pre></div>
+</div>
+</section>
+<section id="create-a-repository-on-github">
+<h3>2. Create a Repository on GitHub<a class="headerlink" href="#create-a-repository-on-github" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://github.com">GitHub</a> and create a new empty repository. Makre the repository name the same as your package name.</p></li>
+<li><p>Do NOT initialize it with a README, license, or .gitignore file.</p></li>
+</ol>
+</section>
+<section id="configure-github-actions-permissions">
+<h3>3. Configure GitHub Actions Permissions<a class="headerlink" href="#configure-github-actions-permissions" title="Link to this heading">#</a></h3>
+<p>Enable GitHub Actions to perform read and write operations for your repository:</p>
+<ol class="arabic simple">
+<li><p>Go to your repository on GitHub.</p></li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">Settings</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Actions</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">General</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Workflow</span> <span class="pre">permissions</span></code>.</p></li>
+<li><p>Adjust the settings to allow <strong>read and write operations</strong>.</p></li>
+</ol>
+</section>
+<section id="clone-the-repository">
+<h3>4. Clone the Repository<a class="headerlink" href="#clone-the-repository" title="Link to this heading">#</a></h3>
+<p>Clone the newly created GitHub repository to your local machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>your-repository-url<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="copy-files-from-the-cookiecutter-template">
+<h3>5. Copy Files from the Cookiecutter Template<a class="headerlink" href="#copy-files-from-the-cookiecutter-template" title="Link to this heading">#</a></h3>
+<p>Copy the generated files from the Cookiecutter template into your cloned repository.</p>
+</section>
+<section id="commit-and-push-changes">
+<h3>6. Commit and Push Changes<a class="headerlink" href="#commit-and-push-changes" title="Link to this heading">#</a></h3>
+<p>Commit the changes and push them to your GitHub repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+<section id="create-a-pypi-api-token">
+<h3>7. Create a PyPI API Token<a class="headerlink" href="#create-a-pypi-api-token" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Visit <a class="reference external" href="https://pypi.org">pypi.org</a> and log in or create an account.</p></li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Settings</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">Tokens</span></code>.</p></li>
+<li><p>Create a new API token with the <code class="docutils literal notranslate"><span class="pre">Entire</span> <span class="pre">account</span></code> scope. Copy the token for later use.</p></li>
+</ol>
+</section>
+<section id="add-pypi-credentials-to-github-secrets">
+<h3>8. Add PyPI Credentials to GitHub Secrets<a class="headerlink" href="#add-pypi-credentials-to-github-secrets" title="Link to this heading">#</a></h3>
+<p>Store your PyPI credentials securely in your GitHub repository:</p>
+<ol class="arabic simple">
+<li><p>Go to your repository on GitHub.</p></li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">Settings</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Secrets</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">repository</span> <span class="pre">secret</span></code>.</p></li>
+<li><p>Add the following secrets:</p></li>
+</ol>
 <ul class="simple">
-<li><p><strong>Simple and easy to learn</strong>: Uses human-readable syntax.</p></li>
-<li><p><strong>Lightweight</strong>: No special software required, just a plain text editor.</p></li>
-<li><p><strong>Widely supported</strong>: Used in GitHub, Jupyter, and documentation platforms like MkDocs.</p></li>
-<li><p><strong>Flexible</strong>: Can be converted to HTML, PDF, and other formats.</p></li>
-<li><p><strong>Enhances productivity</strong>: Streamlines writing and formatting for technical and non-technical users alike.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PYPI_USERNAME</span></code>: Use <code class="docutils literal notranslate"><span class="pre">__token__</span></code> as the value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PYPI_PASSWORD</span></code>: Use the API token you copied earlier.</p></li>
 </ul>
 </section>
-<section id="useful-vs-code-extensions">
-<h2>Useful VS Code Extensions<a class="headerlink" href="#useful-vs-code-extensions" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Markdown All in One</strong>: Provides shortcuts, live preview, and enhanced editing features.</p></li>
-<li><p><strong>Markdown Shortcuts</strong>: Keyboard shortcuts for common Markdown tasks.</p></li>
-<li><p><strong>Prettier - Code formatter</strong>: Formats Markdown files for consistency.</p></li>
-<li><p><strong>Markdown PDF</strong>: Converts Markdown to PDF, HTML, and other formats.</p></li>
-</ul>
+<section id="create-a-github-release">
+<h3>9. Create a GitHub Release<a class="headerlink" href="#create-a-github-release" title="Link to this heading">#</a></h3>
+<p>Trigger the deployment of your package by creating a release on GitHub:</p>
+<ol class="arabic simple">
+<li><p>Go to the <code class="docutils literal notranslate"><span class="pre">Releases</span></code> section in your GitHub repository.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Draft</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">release</span></code>.</p></li>
+<li><p>Follow the prompts to create the release.</p></li>
+</ol>
 </section>
-<section id="keyboard-shortcuts">
-<h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">K</span> <span class="pre">+</span> <span class="pre">V</span></code>: Preview Markdown.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">B</span></code>: Bold text.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">I</span></code>: Italicize text.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">L</span></code>: Create a hyperlink.</p></li>
-</ul>
+<section id="enable-github-pages">
+<h3>10. Enable GitHub Pages<a class="headerlink" href="#enable-github-pages" title="Link to this heading">#</a></h3>
+<p>To host documentation or other static content, enable GitHub Pages:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">Settings</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Pages</span></code>.</p></li>
+<li><p>Select the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch as the source.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Save</span></code>.</p></li>
+</ol>
 </section>
-<section id="basic-markdown-syntax">
-<h2>Basic Markdown Syntax<a class="headerlink" href="#basic-markdown-syntax" title="Link to this heading">#</a></h2>
-<section id="headings">
-<h3>1. Headings<a class="headerlink" href="#headings" title="Link to this heading">#</a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">#</span></code> for headings:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Heading 1</span>
-
-<span class="gu">## Heading 2</span>
-
-<span class="gu">### Heading 3</span>
-
-<span class="gu">#### Heading 4</span>
-
-<span class="gu">##### Heading 5</span>
-
-<span class="gu">###### Heading 6</span>
+<section id="manage-versioning-with-bump-my-version">
+<h3>11. Manage Versioning with bump-my-version<a class="headerlink" href="#manage-versioning-with-bump-my-version" title="Link to this heading">#</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">bump-my-version</span></code> to handle version updates for your package:</p>
+<ol class="arabic simple">
+<li><p>Perform a dry run to preview changes:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bump-my-version<span class="w"> </span>bump<span class="w"> </span><span class="o">[</span>patch/minor/major<span class="o">]</span><span class="w"> </span>--dry-run<span class="w"> </span>--verbose
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Apply the version bump:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bump-my-version<span class="w"> </span>bump<span class="w"> </span><span class="o">[</span>patch/minor/major<span class="o">]</span>
 </pre></div>
 </div>
 </section>
-<section id="emphasis">
-<h3>2. Emphasis<a class="headerlink" href="#emphasis" title="Link to this heading">#</a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">*</span></code> or <code class="docutils literal notranslate"><span class="pre">_</span></code> for italic, and <code class="docutils literal notranslate"><span class="pre">**</span></code> or <code class="docutils literal notranslate"><span class="pre">__</span></code> for bold:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="ge">*Italic*</span> or <span class="ge">_Italic_</span>
-<span class="gs">**Bold**</span> or <span class="gs">__Bold__</span>
+<section id="push-version-tags-and-changes">
+<h3>12. Push Version Tags and Changes<a class="headerlink" href="#push-version-tags-and-changes" title="Link to this heading">#</a></h3>
+<p>After updating the version, push the changes and tags to GitHub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>--tags
+git<span class="w"> </span>push
 </pre></div>
 </div>
 </section>
-<section id="lists">
-<h3>3. Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h3>
-<section id="unordered-list">
-<h4>Unordered List<a class="headerlink" href="#unordered-list" title="Link to this heading">#</a></h4>
-<p>Use <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, or <code class="docutils literal notranslate"><span class="pre">+</span></code> for bullet points:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">-</span><span class="w"> </span>Item 1
-<span class="k">-</span><span class="w"> </span>Item 2
-<span class="w">  </span><span class="k">-</span><span class="w"> </span>Sub-item 1
-<span class="w">  </span><span class="k">-</span><span class="w"> </span>Sub-item 2
-</pre></div>
-</div>
-</section>
-<section id="ordered-list">
-<h4>Ordered List<a class="headerlink" href="#ordered-list" title="Link to this heading">#</a></h4>
-<p>Use numbers followed by a period:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">1.</span> First item
-<span class="k">2.</span> Second item
-<span class="w">   </span><span class="k">1.</span> Sub-item 1
-<span class="w">   </span><span class="k">2.</span> Sub-item 2
-</pre></div>
-</div>
-</section>
-</section>
-<section id="links">
-<h3>4. Links<a class="headerlink" href="#links" title="Link to this heading">#</a></h3>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>[<span class="nt">geog-510</span>](<span class="na">https://geog-510.gishub.org</span>)
-</pre></div>
-</div>
-</section>
-<section id="images">
-<h3>5. Images<a class="headerlink" href="#images" title="Link to this heading">#</a></h3>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>![<span class="nt">GeoSoft Design</span>](<span class="na">https://assets.gishub.org/images/geosoft-design.webp</span>)
-</pre></div>
-</div>
-<p><img alt="GeoSoft Design" src="https://assets.gishub.org/images/geosoft-design.webp" /></p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>![<span class="nt">zootopia</span>](<span class="na">https://i.imgur.com/ZBwwcjo.gif</span>)
-</pre></div>
-</div>
-<p><img alt="zootopia" src="https://i.imgur.com/ZBwwcjo.gif" /></p>
-</section>
-<section id="code-blocks">
-<h3>6. Code Blocks<a class="headerlink" href="#code-blocks" title="Link to this heading">#</a></h3>
-<section id="inline-code">
-<h4>Inline Code<a class="headerlink" href="#inline-code" title="Link to this heading">#</a></h4>
-<p>Use backticks:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="sb">`print(&quot;Hello, World!&quot;)`</span>
-</pre></div>
-</div>
-</section>
-<section id="block-code">
-<h4>Block Code<a class="headerlink" href="#block-code" title="Link to this heading">#</a></h4>
-<p>Use triple backticks:</p>
-<p>Markdown:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>This is a markdown block
-</pre></div>
-</div>
-<p>Text:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>This is a text block.
-</pre></div>
-</div>
-<p>Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Bash:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="blockquotes">
-<h3>7. Blockquotes<a class="headerlink" href="#blockquotes" title="Link to this heading">#</a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">&gt; </span><span class="ge">This is a blockquote.</span>
-</pre></div>
-</div>
-</section>
-<section id="tables">
-<h3>8. Tables<a class="headerlink" href="#tables" title="Link to this heading">#</a></h3>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>| Column 1 | Column 2 | Column 3 |
-| -------- | -------- | -------- |
-| Data 1   | Data 2   | Data 3   |
-| Data A   | Data B   | Data C   |
-</pre></div>
-</div>
-</section>
-<section id="horizontal-rule">
-<h3>9. Horizontal Rule<a class="headerlink" href="#horizontal-rule" title="Link to this heading">#</a></h3>
-<p>Use three <code class="docutils literal notranslate"><span class="pre">---</span></code>, <code class="docutils literal notranslate"><span class="pre">***</span></code>, or <code class="docutils literal notranslate"><span class="pre">___</span></code>:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
-</pre></div>
-</div>
-</section>
-<section id="task-lists-github-flavored-markdown">
-<h3>10. Task Lists (GitHub Flavored Markdown)<a class="headerlink" href="#task-lists-github-flavored-markdown" title="Link to this heading">#</a></h3>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">- [x]</span> Task 1
-<span class="k">- [ ]</span> Task 2
-<span class="k">- [ ]</span> Task 3
-</pre></div>
-</div>
-</section>
-<section id="strikethrough">
-<h3>11. Strikethrough<a class="headerlink" href="#strikethrough" title="Link to this heading">#</a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">~~</span></code> to strike through text:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gd">~~This is struck-through text.~~</span>
-</pre></div>
-</div>
-<p>~~This is struck-through text.~~</p>
-</section>
-<section id="inline-html">
-<h3>12. Inline HTML<a class="headerlink" href="#inline-html" title="Link to this heading">#</a></h3>
-<p>Use inline HTML for additional customization:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>&lt;div style=&quot;color:red;&quot;&gt;This text is red.&lt;/div&gt;
-</pre></div>
-</div>
-<div style="color:red;">This text is red.</div>
+<section id="create-a-new-github-release">
+<h3>13. Create a New GitHub Release<a class="headerlink" href="#create-a-new-github-release" title="Link to this heading">#</a></h3>
+<p>Finally, create a new release on GitHub to reflect the updated version:</p>
+<ol class="arabic simple">
+<li><p>Repeat the process described in <strong>Step 9</strong>.</p></li>
+</ol>
 </section>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
-<p>Markdown is a simple yet powerful way to format text. Mastering it will help you write better documentation, create well-structured notes, and collaborate effectively on platforms like GitHub and Jupyter Notebooks. By leveraging Markdown’s full feature set, you can enhance productivity and streamline content creation.</p>
+<p>By following this guide, you can efficiently set up, configure, and manage a Python package using Cookiecutter and related tools. This workflow ensures consistency, automates repetitive tasks, and simplifies the process of distributing your package.</p>
+<p>For more information, refer to the official documentation of <a class="reference external" href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> and <a class="reference external" href="https://github.com/callowayproject/bump-my-version">bump-my-version</a>.</p>
 </section>
 </section>
 
@@ -681,20 +642,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="qgis.html"
+       href="colab.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">QGIS</p>
+        <p class="prev-next-title">Google Colab</p>
       </div>
     </a>
     <a class="right-next"
-       href="jupyterlab.html"
+       href="../python/01_get_started.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">JupyterLab</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Get Started</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -714,31 +675,27 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-markdown">What is Markdown?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-markdown">Why Use Markdown?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-vs-code-extensions">Useful VS Code Extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-markdown-syntax">Basic Markdown Syntax</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#headings">1. Headings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emphasis">2. Emphasis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3. Lists</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list">Unordered List</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list">Ordered List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pip">Use pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-conda">Use conda</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">4. Links</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#images">5. Images</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks">6. Code Blocks</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-code">Inline Code</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#block-code">Block Code</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockquotes">7. Blockquotes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">8. Tables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-rule">9. Horizontal Rule</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-lists-github-flavored-markdown">10. Task Lists (GitHub Flavored Markdown)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strikethrough">11. Strikethrough</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-html">12. Inline HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-instructions">Step-by-Step Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-package-structure">1. Generate the Package Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-repository-on-github">2. Create a Repository on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-github-actions-permissions">3. Configure GitHub Actions Permissions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-repository">4. Clone the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-files-from-the-cookiecutter-template">5. Copy Files from the Cookiecutter Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push-changes">6. Commit and Push Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-pypi-api-token">7. Create a PyPI API Token</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-pypi-credentials-to-github-secrets">8. Add PyPI Credentials to GitHub Secrets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-github-release">9. Create a GitHub Release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-github-pages">10. Enable GitHub Pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-versioning-with-bump-my-version">11. Manage Versioning with bump-my-version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-version-tags-and-changes">12. Push Version Tags and Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-github-release">13. Create a New GitHub Release</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
