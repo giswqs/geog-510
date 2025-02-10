@@ -23,6 +23,7 @@ parts:
       - file: book/software/markdown
       - file: book/software/jupyterlab
       - file: book/software/colab
+      - file: book/software/cookiecutter
   - caption: Python Basics
     numbered: true
     maxdepth: 2
