@@ -108,9 +108,13 @@ Create a package release and distribute it to PyPI.
 ## Summary
 
 In this lab, you have:
+
 ✅ Created a Python package using Cookiecutter
+
 ✅ Set up pre-commit hooks for automated code quality checks
+
 ✅ Enabled MkDocs for documentation
+
 ✅ Released and published your package on PyPI
 
 Now, your package is ready for distribution and use by the geospatial community! 🚀
