@@ -105,6 +105,16 @@ Create a package release and distribute it to PyPI.
 
 ---
 
+## Submission Requirements
+
+Submit the following information:
+
+1. A link to your package repository on GitHub.
+2. A link to the pre-commit yaml file in your repository.
+3. A link to the online documentation site for your package.
+4. A link to the GitHub release page for your package.
+5. A link to your package on PyPI.
+
 ## Summary
 
 In this lab, you have:
