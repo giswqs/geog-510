@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# folium
+# Folium
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/folium.ipynb)
 
@@ -61,7 +61,7 @@ folium.Marker(
     [37.7749, -122.4194],
     popup="San Francisco",
     tooltip="Click for info",
-    icon=folium.Icon(color="blue", icon="info-sign")
+    icon=folium.Icon(color="blue", icon="info-sign"),
 ).add_to(m)
 
 m.save("map_with_marker.html")
@@ -84,7 +84,7 @@ geojson_data = {
             "geometry": {"type": "Point", "coordinates": [-122.4194, 37.7749]},
             "properties": {"name": "San Francisco"},
         }
-    ]
+    ],
 }
 
 m = folium.Map(location=[37.7749, -122.4194], zoom_start=10)
@@ -98,10 +98,9 @@ m
 import pandas as pd
 
 # Sample data: FIPS codes and values
-data = pd.DataFrame({
-    "FIPS": ["06075"],  # San Francisco county FIPS code
-    "Value": [100]
-})
+data = pd.DataFrame(
+    {"FIPS": ["06075"], "Value": [100]}  # San Francisco county FIPS code
+)
 
 m = folium.Map(location=[37.7749, -122.4194], zoom_start=6)
 folium.Choropleth(
@@ -112,7 +111,7 @@ folium.Choropleth(
     fill_color="YlGn",
     fill_opacity=0.7,
     line_opacity=0.2,
-    legend_name="Sample Data"
+    legend_name="Sample Data",
 ).add_to(m)
 
 m

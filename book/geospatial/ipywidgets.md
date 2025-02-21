@@ -11,9 +11,9 @@ kernelspec:
   name: python3
 ---
 
-**Introduction to ipywidgets**
+# Ipywidgets
 
-https://ipywidgets.readthedocs.io
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/ipywidgets.ipynb)
 
 +++
 
@@ -262,10 +262,6 @@ date_picker
 date_picker.value
 ```
 
-
-
-+++
-
 ### Color picker
 
 ```{code-cell} ipython3
@@ -403,138 +399,3 @@ m.add_widget(box)
 ```{code-cell} ipython3
 m.controls = m.controls[:-1]
 ```
-
-
-```{code-cell} ipython3
-import geohey
-import ipywidgets as widgets
-from ipyleaflet import WidgetControl
-```
-
-## Creating a toolbar button
-
-```{code-cell} ipython3
-widget_width = "250px"
-padding = "0px 0px 0px 5px"  # upper, right, bottom, left
-
-toolbar_button = widgets.ToggleButton(
-    value=False,
-    tooltip="Toolbar",
-    icon="wrench",
-    layout=widgets.Layout(width="28px", height="28px", padding=padding),
-)
-
-close_button = widgets.ToggleButton(
-    value=False,
-    tooltip="Close the tool",
-    icon="times",
-    button_style="primary",
-    layout=widgets.Layout(height="28px", width="28px", padding=padding),
-)
-```
-
-```{code-cell} ipython3
-toolbar = widgets.HBox([toolbar_button])
-toolbar
-```
-
-## Adding toolbar event
-
-```{code-cell} ipython3
-def toolbar_click(change):
-    if change["new"]:
-        toolbar.children = [toolbar_button, close_button]
-    else:
-        toolbar.children = [toolbar_button]
-
-
-toolbar_button.observe(toolbar_click, "value")
-```
-
-```{code-cell} ipython3
-def close_click(change):
-    if change["new"]:
-        toolbar_button.close()
-        close_button.close()
-        toolbar.close()
-
-
-close_button.observe(close_click, "value")
-toolbar
-```
-
-## Adding toolbar grid
-
-```{code-cell} ipython3
-rows = 2
-cols = 2
-grid = widgets.GridspecLayout(
-    rows, cols, grid_gap="0px", layout=widgets.Layout(width="62px")
-)
-```
-
-icons: https://fontawesome.com/v4.7.0/icons/
-
-```{code-cell} ipython3
-icons = ["folder-open", "map", "info", "question"]
-
-for i in range(rows):
-    for j in range(cols):
-        grid[i, j] = widgets.Button(
-            description="",
-            button_style="primary",
-            icon=icons[i * rows + j],
-            layout=widgets.Layout(width="28px", padding="0px"),
-        )
-grid
-```
-
-```{code-cell} ipython3
-toolbar = widgets.VBox([toolbar_button])
-```
-
-```{code-cell} ipython3
-def toolbar_click(change):
-    if change["new"]:
-        toolbar.children = [widgets.HBox([close_button, toolbar_button]), grid]
-    else:
-        toolbar.children = [toolbar_button]
-
-
-toolbar_button.observe(toolbar_click, "value")
-toolbar
-```
-
-## Adding toolbar to ipyleaflet
-
-```{code-cell} ipython3
-toolbar_ctrl = WidgetControl(widget=toolbar, position="topright")
-```
-
-```{code-cell} ipython3
-m = geohey.Map()
-m.add(toolbar_ctrl)
-m
-```
-
-```{code-cell} ipython3
-output = widgets.Output()
-output_ctrl = WidgetControl(widget=output, position="bottomright")
-m.add(output_ctrl)
-```
-
-```{code-cell} ipython3
-def tool_click(b):
-    with output:
-        output.clear_output()
-        print(f"You clicked the {b.icon} button")
-```
-
-```{code-cell} ipython3
-for i in range(rows):
-    for j in range(cols):
-        tool = grid[i, j]
-        tool.on_click(tool_click)
-```
-
-![](https://i.imgur.com/3LbyC1Y.gif)

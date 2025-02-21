@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# localtileserver
+# Localtileserver
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/localtileserver.ipynb)
 
@@ -35,7 +35,12 @@ pip install localtileserver
 Then, import the required modules:
 
 ```{code-cell} ipython3
-from localtileserver import TileClient, get_leaflet_tile_layer, get_folium_tile_layer, examples
+from localtileserver import (
+    TileClient,
+    get_leaflet_tile_layer,
+    get_folium_tile_layer,
+    examples,
+)
 ```
 
 ## 2. Serving a Local Raster File
@@ -76,7 +81,9 @@ To display raster data on an **ipyleaflet** map:
 from ipyleaflet import Map
 
 client = examples.get_elevation()
-tile_layer = get_leaflet_tile_layer(client, indexes=1, vmin=-5000, vmax=5000, opacity=0.65)
+tile_layer = get_leaflet_tile_layer(
+    client, indexes=1, vmin=-5000, vmax=5000, opacity=0.65
+)
 
 m = Map(zoom=3)
 m.add(tile_layer)
@@ -150,6 +157,7 @@ For debugging, generate a system report:
 
 ```{code-cell} ipython3
 import localtileserver
+
 print(localtileserver.Report())
 ```
 

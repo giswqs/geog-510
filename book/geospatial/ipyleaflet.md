@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# ipyleaflet
+# Ipyleaflet
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/ipyleaflet.ipynb)
 
@@ -65,7 +65,7 @@ Different tile layers can be used to change the appearance of the map.
 ```{code-cell} ipython3
 from ipyleaflet import TileLayer
 
-m.add_layer(TileLayer(url='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'))
+m.add_layer(TileLayer(url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"))
 m
 ```
 
@@ -86,13 +86,10 @@ data = {
     "features": [
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-122.4194, 37.7749]
-            },
-            "properties": {"name": "San Francisco"}
+            "geometry": {"type": "Point", "coordinates": [-122.4194, 37.7749]},
+            "properties": {"name": "San Francisco"},
         }
-    ]
+    ],
 }
 
 gj = GeoJSON(data=data)
@@ -108,8 +105,10 @@ from ipyleaflet import Choropleth
 import pandas as pd
 
 # Example data
-geojson_url = "https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json"
-data = {'USA': 100, 'CAN': 50, 'MEX': 75}
+geojson_url = (
+    "https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json"
+)
+data = {"USA": 100, "CAN": 50, "MEX": 75}
 
 choro = Choropleth(geo_data=geojson_url, choro_data=data, key_on="id")
 m.add_layer(choro)
@@ -132,12 +131,14 @@ Widgets enable real-time interaction with the map.
 ```{code-cell} ipython3
 from ipywidgets import FloatSlider
 
-zoom_slider = FloatSlider(description='Zoom Level', min=1, max=20, value=m.zoom)
+zoom_slider = FloatSlider(description="Zoom Level", min=1, max=20, value=m.zoom)
+
 
 def zoom_change(change):
-    m.zoom = change['new']
+    m.zoom = change["new"]
 
-zoom_slider.observe(zoom_change, 'value')
+
+zoom_slider.observe(zoom_change, "value")
 zoom_slider
 ```
 
