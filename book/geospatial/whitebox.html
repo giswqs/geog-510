@@ -1,0 +1,1553 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>18. Whitebox &#8212; Geographic Software Design</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/geospatial/whitebox';</script>
+    <link rel="canonical" href="https://geog-510.gishub.org/book/geospatial/whitebox.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="19. Xarray" href="xarray.html" />
+    <link rel="prev" title="17. Geemap" href="geemap.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Geographic Software Design - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Geographic Software Design - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/instructor.html">Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/textbooks.html">Textbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/videos.html">Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgments.html">Acknowledgments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../software/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vscode.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/miniconda.html">Miniconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/qgis.html">QGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/jupyterlab.html">JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/colab.html">Google Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/cookiecutter.html">Cookiecutter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/01_get_started.html">1. Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/02_variables.html">2. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/03_data_structures.html">3. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/04_string_operations.html">4. String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/05_looping.html">5. Looping and Control Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/06_functions_classes.html">6. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/07_files.html">7. Files and Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/08_numpy_pandas.html">8. Intro to NumPy and Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">9. Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">10. GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folium.html">11. Folium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipyleaflet.html">12. Ipyleaflet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rasterio.html">13. Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localtileserver.html">14. Localtileserver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipywidgets.html">15. Ipywidgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leafmap.html">16. Leafmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geemap.html">17. Geemap</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Whitebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarray.html">19. Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rioxarray.html">20. Rioxarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/instructions.html">Submission Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_01.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_02.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_03.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_04.html">Lab 4</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-510/main?urlpath=tree/book/geospatial/whitebox.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/whitebox.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/geospatial/whitebox.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/geospatial/whitebox.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/geospatial/whitebox.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Whitebox</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">18.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">18.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">18.3. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-whitebox">18.3.1. What is Whitebox?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-whitebox-do">18.3.2. What can Whitebox do?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-whitebox-different">18.3.3. How is Whitebox different?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources-for-whitebox">18.4. Useful Resources for Whitebox</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">18.5. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">18.6. Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-watershed-analysis">18.7. Part 1: Watershed Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-interactive-maps">18.7.1. Create Interactive Maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-watershed-data">18.7.2. Download Watershed Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-display-dem">18.7.3. Download and Display DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-dem-metadata">18.7.4. Get DEM metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-colorbar">18.7.5. Add colorbar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-whiteboxtools">18.7.6. Initialize WhiteboxTools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-working-directory">18.7.7. Set working directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-dem">18.7.8. Smooth DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-hillshade">18.7.9. Create hillshade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-no-flow-cells">18.7.10. Find no-flow cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-depressions">18.7.11. Fill depressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineate-flow-direction">18.7.12. Delineate flow direction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-flow-accumulation">18.7.13. Calculate flow accumulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-streams">18.7.14. Extract streams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-distance-to-outlet">18.7.15. Calculate distance to outlet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorize-streams">18.7.16. Vectorize streams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineate-the-longest-flow-path">18.7.17. Delineate the longest flow path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-pour-point">18.7.18. Generate a pour point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snap-pour-point-to-stream">18.7.19. Snap pour point to stream</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineate-watershed">18.7.20. Delineate watershed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-watershed-raster-to-vector">18.7.21. Convert watershed raster to vector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-lidar-data-analysis">18.8. Part 2: LiDAR Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-whitebox">18.8.1. Set up whitebox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-sample-dataset">18.8.2. Download a sample dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-las-laz-data">18.8.3. Read LAS/LAZ data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upgrade-file-version">18.8.4. Upgrade file version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-las-data">18.8.5. Write LAS data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-analysis">18.8.6. Histogram analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-lidar-data">18.8.7. Visualize LiDAR data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-outliers">18.8.8. Remove outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-lidar-data-after-removing-outliers">18.8.9. Visualize LiDAR data after removing outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dsm">18.8.10. Create DSM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-dsm">18.8.11. Visualize DSM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dem">18.8.12. Create DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-dem">18.8.13. Visualize DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-chm">18.8.14. Create CHM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">18.9. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="whitebox">
+<h1><span class="section-number">18. </span>Whitebox<a class="headerlink" href="#whitebox" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/whitebox.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<section id="overview">
+<h2><span class="section-number">18.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lecture, we will explore the use of <a class="reference external" href="https://github.com/jblindsay/whitebox-tools"><strong>WhiteboxTools</strong></a>, a powerful open-source library for performing geospatial analysis. Specifically, we will focus on two key applications: <strong>watershed analysis</strong> and <strong>LiDAR data analysis</strong>. You will learn how to manipulate geospatial data using Python, conduct hydrological analysis, and derive digital elevation models (DEMs) and canopy height models (CHMs) from LiDAR data.</p>
+<p>This lecture is structured into two main sections:</p>
+<ol class="arabic simple">
+<li><p><strong>Watershed Analysis</strong>: Using DEMs and hydrological tools to delineate watersheds, calculate flow accumulation, and extract stream networks.</p></li>
+<li><p><strong>LiDAR Data Analysis</strong>: Processing LiDAR point cloud data to derive DEMs, DSMs, and CHMs while removing outliers and improving data quality.</p></li>
+</ol>
+<p>By the end of this session, you will have gained hands-on experience with <strong>WhiteboxTools</strong> and <strong>leafmap</strong>, allowing you to perform a wide range of geospatial and hydrological analyses.</p>
+</section>
+<section id="learning-objectives">
+<h2><span class="section-number">18.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lecture, you will be able to:</p>
+<ul class="simple">
+<li><p>Install and configure <strong>WhiteboxTools</strong> and <strong>leafmap</strong> for geospatial analysis.</p></li>
+<li><p>Create interactive maps to visualize basemaps and geospatial datasets.</p></li>
+<li><p>Perform watershed analysis by delineating watersheds, flow directions, and stream networks.</p></li>
+<li><p>Manipulate and analyze Digital Elevation Models (DEMs) to conduct hydrological modeling.</p></li>
+<li><p>Process and analyze LiDAR data to generate <strong>Digital Surface Models (DSMs)</strong>, <strong>Digital Elevation Models (DEMs)</strong>, and <strong>Canopy Height Models (CHMs)</strong>.</p></li>
+<li><p>Integrate <strong>WhiteboxTools</strong> with Python workflows to automate geospatial analysis.</p></li>
+</ul>
+</section>
+<section id="introduction">
+<h2><span class="section-number">18.3. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Below is a brief introduction to Whitebox, a powerful open-source library for geospatial analysis. For more information, please refer to the whiteboxgeo website: <a class="reference external" href="https://www.whiteboxgeo.com">https://www.whiteboxgeo.com</a>.</p>
+<section id="what-is-whitebox">
+<h3><span class="section-number">18.3.1. </span>What is Whitebox?<a class="headerlink" href="#what-is-whitebox" title="Link to this heading">#</a></h3>
+<p>Whitebox is geospatial data analysis software originally developed at the University of Guelph‘s Geomorphometry and Hydrogeomatics Research Group (<a class="reference external" href="https://jblindsay.github.io/ghrg/index.html">GHRG</a>) directed by Dr. John Lindsay. Whitebox contains over 550 tools for processing many types of geospatial data. It has many great features such as its extensive use of parallel computing, it doesn’t need other libraries to be installed (e.g., GDAL), it can be used from scripting environments, and it easily plugs into other geographical information system (GIS) software. The Whitebox Toolset Extension provides even more power.</p>
+</section>
+<section id="what-can-whitebox-do">
+<h3><span class="section-number">18.3.2. </span>What can Whitebox do?<a class="headerlink" href="#what-can-whitebox-do" title="Link to this heading">#</a></h3>
+<p>Whitebox can be used to perform common GIS and remote sensing analysis tasks. Whitebox also contains advanced tooling for spatial hydrological analysis and LiDAR data processing. Whitebox is not a cartographic or spatial data visualization package; instead it’s meant to serve as an analytical back-end for other data visualization software, like QGIS and ArcGIS.</p>
+</section>
+<section id="how-is-whitebox-different">
+<h3><span class="section-number">18.3.3. </span>How is Whitebox different?<a class="headerlink" href="#how-is-whitebox-different" title="Link to this heading">#</a></h3>
+<p>Whitebox doesn’t compete with QGIS, ArcGIS/Pro, and ArcPy but rather it extends them. You can plug WhiteboxTools into QGIS and ArcGIS and it’ll provide hundreds of additional tools for analyzing all kinds of geospatial data. You can also call Whitebox functions from Python scripts using <a class="reference external" href="https://www.whiteboxgeo.com/whitebox-workflows-for-python">Whitebox Workflows</a> (WbW). Combine WbW with ArcPy to more effectively automate your data analysis workflows and streamline your geoprocessing solutions.</p>
+<p>There are many tools in Whitebox that you won’t find elsewhere. You can think of Whitebox as a portable, cross-platform GIS analysis powerhouse, allowing you to extend your preferred GIS or to embed Whitebox capabilities into your automated scripted workflows. Oh, and it’s fast, really fast!</p>
+</section>
+</section>
+<section id="useful-resources-for-whitebox">
+<h2><span class="section-number">18.4. </span>Useful Resources for Whitebox<a class="headerlink" href="#useful-resources-for-whitebox" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>GitHub Repository: <a class="github reference external" href="https://github.com/jblindsay/whitebox-tools">jblindsay/whitebox-tools</a></p></li>
+<li><p>WhiteboxGeo: <a class="reference external" href="https://www.whiteboxgeo.com">https://www.whiteboxgeo.com</a></p></li>
+<li><p>User Manual: <a class="reference external" href="https://whiteboxgeo.com/manual/wbt_book/preface.html">https://whiteboxgeo.com/manual/wbt_book/preface.html</a></p></li>
+<li><p>Whitebox Workflows for Python: <a class="reference external" href="https://www.whiteboxgeo.com/whitebox-workflows-for-python">https://www.whiteboxgeo.com/whitebox-workflows-for-python</a></p></li>
+<li><p>Whitebox Workflows for Python Pro: <a class="reference external" href="https://www.whiteboxgeo.com/whitebox-workflows-professional">https://www.whiteboxgeo.com/whitebox-workflows-professional</a></p></li>
+<li><p>Python Frontend: <a class="github reference external" href="https://github.com/opengeos/whitebox-python">opengeos/whitebox-python</a></p></li>
+<li><p>Jupyter Frontend: <a class="github reference external" href="https://github.com/opengeos/whiteboxgui">opengeos/whiteboxgui</a></p></li>
+<li><p>R Frontend: <a class="github reference external" href="https://github.com/opengeos/whiteboxR">opengeos/whiteboxR</a></p></li>
+<li><p>ArcGIS Toolbox: <a class="github reference external" href="https://github.com/opengeos/WhiteboxTools-ArcGIS">opengeos/WhiteboxTools-ArcGIS</a></p></li>
+<li><p>QGIS Plugin: <a class="reference external" href="https://plugins.qgis.org/plugins/whitebox_workflows_for_qgis">https://plugins.qgis.org/plugins/whitebox_workflows_for_qgis</a></p></li>
+</ul>
+</section>
+<section id="installation">
+<h2><span class="section-number">18.5. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To get started, we need to install the required packages, such as <code class="docutils literal notranslate"><span class="pre">leafmap</span></code>, and <code class="docutils literal notranslate"><span class="pre">whitebox</span></code>. Uncomment the following lines to install the packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install &quot;leafmap[raster]&quot; &quot;leafmap[lidar]&quot; mapclassify</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install numpy==1.26.4</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-libraries">
+<h2><span class="section-number">18.6. </span>Import libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">leafmap</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some of the raster datasets generated by whitebox will be int32 type with a nodata value of -32768. To make it easier to visualize these datasets, we set the nodata value as an environment variable, which will be used by leafmap to set the nodata value when visualizing the raster datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NODATA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-32768&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="part-1-watershed-analysis">
+<h2><span class="section-number">18.7. </span>Part 1: Watershed Analysis<a class="headerlink" href="#part-1-watershed-analysis" title="Link to this heading">#</a></h2>
+<section id="create-interactive-maps">
+<h3><span class="section-number">18.7.1. </span>Create Interactive Maps<a class="headerlink" href="#create-interactive-maps" title="Link to this heading">#</a></h3>
+<p>To perform watershed analysis, we first create an interactive map using <strong>leafmap</strong>. This step allows us to visualize different basemaps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;OpenTopoMap&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;USGS 3DEP Elevation&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;USGS Hydrography&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-watershed-data">
+<h3><span class="section-number">18.7.2. </span>Download Watershed Data<a class="headerlink" href="#download-watershed-data" title="Link to this heading">#</a></h3>
+<p>Next, we download watershed data for the <strong>Calapooia River basin</strong> in Oregon. We’ll use the latitude and longitude of a point in the basin to extract watershed boundary data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="mf">44.361169</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">122.821802</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_marker</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">])</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download the watershed data and visualize it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">lon</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">lat</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">get_wbd</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_geometry</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Save the watershed boundary to a <strong>GeoJSON</strong> file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;basin.geojson&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-and-display-dem">
+<h3><span class="section-number">18.7.3. </span>Download and Display DEM<a class="headerlink" href="#download-and-display-dem" title="Link to this heading">#</a></h3>
+<p>We download a <strong>Digital Elevation Model (DEM)</strong> from the USGS 3DEP Elevation service to analyze the terrain of the watershed. The DEM will be used to delineate watersheds, calculate flow accumulation, and extract stream networks. The <code class="docutils literal notranslate"><span class="pre">leafmap.get_3dep_dem()</span></code> function returns the DEM as an <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code> object. Optionally, you can save the DEM to a GeoTIFF file by setting the <code class="docutils literal notranslate"><span class="pre">output</span></code> parameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">get_3dep_dem</span><span class="p">(</span>
+    <span class="n">gdf</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;dem.tif&quot;</span><span class="p">,</span>
+    <span class="n">dst_crs</span><span class="o">=</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">,</span>
+    <span class="n">to_cog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the DEM on the map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;dem.tif&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-dem-metadata">
+<h3><span class="section-number">18.7.4. </span>Get DEM metadata<a class="headerlink" href="#get-dem-metadata" title="Link to this heading">#</a></h3>
+<p>We can get the metadata of the DEM, such as the spatial resolution, bounding box, and coordinate reference system (CRS).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">image_metadata</span><span class="p">(</span><span class="s2">&quot;dem.tif&quot;</span><span class="p">)</span>
+<span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get a summary statistics of the DEM.</p>
+</section>
+<section id="add-colorbar">
+<h3><span class="section-number">18.7.5. </span>Add colorbar<a class="headerlink" href="#add-colorbar" title="Link to this heading">#</a></h3>
+<p>Add a colorbar to the map to show the elevation values. Use the <code class="docutils literal notranslate"><span class="pre">image_min_max()</span></code> function to get the minimum and maximum values of the DEM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">image_min_max</span><span class="p">(</span><span class="s2">&quot;dem.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_colormap</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="s2">&quot;60&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Elevation (m)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-whiteboxtools">
+<h3><span class="section-number">18.7.6. </span>Initialize WhiteboxTools<a class="headerlink" href="#initialize-whiteboxtools" title="Link to this heading">#</a></h3>
+<p>Initialize the WhiteboxTools class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">WhiteboxTools</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the WhiteboxTools version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">version</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display the WhiteboxTools interface, which lists all available tools. You can use this interface to search for specific tools. You can also run any tool using the interface. However, we will use the Python API to run the tools.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">whiteboxgui</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-working-directory">
+<h3><span class="section-number">18.7.7. </span>Set working directory<a class="headerlink" href="#set-working-directory" title="Link to this heading">#</a></h3>
+<p>Set the working directory to save the intermediate and output files. Set <code class="docutils literal notranslate"><span class="pre">wbt.version=False</span></code> to suppress the Whitebox processing log.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">set_working_dir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="n">wbt</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="smooth-dem">
+<h3><span class="section-number">18.7.8. </span>Smooth DEM<a class="headerlink" href="#smooth-dem" title="Link to this heading">#</a></h3>
+<p>All WhiteboxTools functions will return 0 if they are successful, and 1 if they are not.</p>
+<p>Smoothing the DEM enhances the quality of subsequent hydrological analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">feature_preserving_smoothing</span><span class="p">(</span><span class="s2">&quot;dem.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;smoothed.tif&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the smoothed DEM and watershed boundary on the map.</p>
+<p>Visualize the smoothed DEM:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Satellite&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;smoothed.tif&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Smoothed DEM&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="s2">&quot;basin.geojson&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Watershed&quot;</span><span class="p">,</span> <span class="n">info_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;USGS Hydrography&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-hillshade">
+<h3><span class="section-number">18.7.9. </span>Create hillshade<a class="headerlink" href="#create-hillshade" title="Link to this heading">#</a></h3>
+<p>Create a hillshade from the smoothed DEM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">hillshade</span><span class="p">(</span><span class="s2">&quot;smoothed.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;hillshade.tif&quot;</span><span class="p">,</span> <span class="n">azimuth</span><span class="o">=</span><span class="mi">315</span><span class="p">,</span> <span class="n">altitude</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Overlay the hillshade on the smoothed DEM with transparency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;hillshade.tif&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Hillshade&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.6</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="find-no-flow-cells">
+<h3><span class="section-number">18.7.10. </span>Find no-flow cells<a class="headerlink" href="#find-no-flow-cells" title="Link to this heading">#</a></h3>
+<p>Find cells with undefined flow, i.e. no valid flow direction, based on the D8 flow direction algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">find_no_flow_cells</span><span class="p">(</span><span class="s2">&quot;smoothed.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;noflow.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the no-flow cells on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;noflow.tif&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;No Flow Cells&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fill-depressions">
+<h3><span class="section-number">18.7.11. </span>Fill depressions<a class="headerlink" href="#fill-depressions" title="Link to this heading">#</a></h3>
+<p>First, we fill any depressions in the DEM to ensure proper flow simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">fill_depressions</span><span class="p">(</span><span class="s2">&quot;smoothed.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;filled.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can use depression breaching to fill the depressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">breach_depressions</span><span class="p">(</span><span class="s2">&quot;smoothed.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;breached.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">find_no_flow_cells</span><span class="p">(</span><span class="s2">&quot;breached.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;noflow2.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;noflow2.tif&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;No Flow Cells after Breaching&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="delineate-flow-direction">
+<h3><span class="section-number">18.7.12. </span>Delineate flow direction<a class="headerlink" href="#delineate-flow-direction" title="Link to this heading">#</a></h3>
+<p>Next, we delineate the flow direction based on the D8 algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">d8_pointer</span><span class="p">(</span><span class="s2">&quot;breached.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;flow_direction.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-flow-accumulation">
+<h3><span class="section-number">18.7.13. </span>Calculate flow accumulation<a class="headerlink" href="#calculate-flow-accumulation" title="Link to this heading">#</a></h3>
+<p>Now, calculate <strong>flow accumulation</strong> to understand how water collects across the landscape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">d8_flow_accumulation</span><span class="p">(</span><span class="s2">&quot;breached.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;flow_accum.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;flow_accum.tif&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Flow Accumulation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extract-streams">
+<h3><span class="section-number">18.7.14. </span>Extract streams<a class="headerlink" href="#extract-streams" title="Link to this heading">#</a></h3>
+<p>Extract the stream network using the flow accumulation data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">extract_streams</span><span class="p">(</span><span class="s2">&quot;flow_accum.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;streams.tif&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;streams.tif&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Streams&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-distance-to-outlet">
+<h3><span class="section-number">18.7.15. </span>Calculate distance to outlet<a class="headerlink" href="#calculate-distance-to-outlet" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">distance_to_outlet</span><span class="p">(</span>
+    <span class="s2">&quot;flow_direction.tif&quot;</span><span class="p">,</span> <span class="n">streams</span><span class="o">=</span><span class="s2">&quot;streams.tif&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;distance_to_outlet.tif&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;distance_to_outlet.tif&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Distance to Outlet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vectorize-streams">
+<h3><span class="section-number">18.7.16. </span>Vectorize streams<a class="headerlink" href="#vectorize-streams" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">raster_streams_to_vector</span><span class="p">(</span>
+    <span class="s2">&quot;streams.tif&quot;</span><span class="p">,</span> <span class="n">d8_pntr</span><span class="o">=</span><span class="s2">&quot;flow_direction.tif&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;streams.shp&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The raster_streams_to_vector tool has a bug. The output vector file is missing the coordinate system. Use <code class="docutils literal notranslate"><span class="pre">leafmap.vector_set_crs()</span></code> to set the coordinate system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">vector_set_crs</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;streams.shp&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;streams.shp&quot;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_shp</span><span class="p">(</span>
+    <span class="s2">&quot;streams.shp&quot;</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Streams Vector&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="n">info_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can turn on the USGS Hydrography basemap to visualize the stream network and compare it with the extracted stream network.</p>
+</section>
+<section id="delineate-the-longest-flow-path">
+<h3><span class="section-number">18.7.17. </span>Delineate the longest flow path<a class="headerlink" href="#delineate-the-longest-flow-path" title="Link to this heading">#</a></h3>
+<p>You can delineate the longest flow path in the watershed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">basins</span><span class="p">(</span><span class="s2">&quot;flow_direction.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;basins.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">longest_flowpath</span><span class="p">(</span>
+    <span class="n">dem</span><span class="o">=</span><span class="s2">&quot;breached.tif&quot;</span><span class="p">,</span> <span class="n">basins</span><span class="o">=</span><span class="s2">&quot;basins.tif&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;longest_flowpath.shp&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Select only the longest flow path.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">select_largest</span><span class="p">(</span>
+    <span class="s2">&quot;longest_flowpath.shp&quot;</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;LENGTH&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;longest_flowpath.shp&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_shp</span><span class="p">(</span>
+    <span class="s2">&quot;longest_flowpath.shp&quot;</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Longest Flowpath&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-a-pour-point">
+<h3><span class="section-number">18.7.18. </span>Generate a pour point<a class="headerlink" href="#generate-a-pour-point" title="Link to this heading">#</a></h3>
+<p>To delineate a watershed, you need to specify a pour point. You can use the outlet of the longest flow path as the pour point or specify a different point. Use the drawing tool to place a marker on the map to specify the pour point. If no marker is placed, the default pour point below will be used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">user_roi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">save_draw_features</span><span class="p">(</span><span class="s2">&quot;pour_point.shp&quot;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="mf">44.284642</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">122.611217</span>
+    <span class="n">leafmap</span><span class="o">.</span><span class="n">coords_to_vector</span><span class="p">([</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;pour_point.shp&quot;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">add_marker</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="snap-pour-point-to-stream">
+<h3><span class="section-number">18.7.19. </span>Snap pour point to stream<a class="headerlink" href="#snap-pour-point-to-stream" title="Link to this heading">#</a></h3>
+<p>Snap the pour point to the nearest stream.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">snap_pour_points</span><span class="p">(</span>
+    <span class="s2">&quot;pour_point.shp&quot;</span><span class="p">,</span> <span class="s2">&quot;flow_accum.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;pour_point_snapped.shp&quot;</span><span class="p">,</span> <span class="n">snap_dist</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the snapped pour point on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_shp</span><span class="p">(</span><span class="s2">&quot;pour_point_snapped.shp&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Pour Point&quot;</span><span class="p">,</span> <span class="n">info_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="delineate-watershed">
+<h3><span class="section-number">18.7.20. </span>Delineate watershed<a class="headerlink" href="#delineate-watershed" title="Link to this heading">#</a></h3>
+<p>Delineate the watershed using a <strong>pour point</strong> and the flow direction data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">watershed</span><span class="p">(</span><span class="s2">&quot;flow_direction.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;pour_point_snapped.shp&quot;</span><span class="p">,</span> <span class="s2">&quot;watershed.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the watershed boundary on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;watershed.tif&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Watershed&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-watershed-raster-to-vector">
+<h3><span class="section-number">18.7.21. </span>Convert watershed raster to vector<a class="headerlink" href="#convert-watershed-raster-to-vector" title="Link to this heading">#</a></h3>
+<p>You can convert the watershed raster to a vector file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">raster_to_vector_polygons</span><span class="p">(</span><span class="s2">&quot;watershed.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;watershed.shp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the watershed boundary on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_shp</span><span class="p">(</span>
+    <span class="s2">&quot;watershed.shp&quot;</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Watershed Vector&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#ffff00&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="n">info_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-lidar-data-analysis">
+<h2><span class="section-number">18.8. </span>Part 2: LiDAR Data Analysis<a class="headerlink" href="#part-2-lidar-data-analysis" title="Link to this heading">#</a></h2>
+<p>In this section, we will process LiDAR data to derive <strong>Digital Surface Models (DSMs)</strong>, <strong>Digital Elevation Models (DEMs)</strong>, and <strong>Canopy Height Models (CHMs)</strong>. We will also remove outliers and improve the quality of the LiDAR data.</p>
+<section id="set-up-whitebox">
+<h3><span class="section-number">18.8.1. </span>Set up whitebox<a class="headerlink" href="#set-up-whitebox" title="Link to this heading">#</a></h3>
+<p>First, we set up the WhiteboxTools and leafmap libraries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">leafmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">WhiteboxTools</span><span class="p">()</span>
+<span class="n">wbt</span><span class="o">.</span><span class="n">set_working_dir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="n">wbt</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-a-sample-dataset">
+<h3><span class="section-number">18.8.2. </span>Download a sample dataset<a class="headerlink" href="#download-a-sample-dataset" title="Link to this heading">#</a></h3>
+<p>We download a sample LiDAR dataset for <strong>Madison</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/lidar/madison.zip&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;madison.las&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;madison.zip&quot;</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-las-laz-data">
+<h3><span class="section-number">18.8.3. </span>Read LAS/LAZ data<a class="headerlink" href="#read-las-laz-data" title="Link to this heading">#</a></h3>
+<p>Load and inspect the LiDAR data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">laz</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">read_lidar</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">laz</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">laz</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="upgrade-file-version">
+<h3><span class="section-number">18.8.4. </span>Upgrade file version<a class="headerlink" href="#upgrade-file-version" title="Link to this heading">#</a></h3>
+<p>Upgrade the LAS file version to 1.4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">las</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">convert_lidar</span><span class="p">(</span><span class="n">laz</span><span class="p">,</span> <span class="n">file_version</span><span class="o">=</span><span class="s2">&quot;1.4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">las</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="write-las-data">
+<h3><span class="section-number">18.8.5. </span>Write LAS data<a class="headerlink" href="#write-las-data" title="Link to this heading">#</a></h3>
+<p>Save the LAS data to a new file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">write_lidar</span><span class="p">(</span><span class="n">las</span><span class="p">,</span> <span class="s2">&quot;madison.las&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="histogram-analysis">
+<h3><span class="section-number">18.8.6. </span>Histogram analysis<a class="headerlink" href="#histogram-analysis" title="Link to this heading">#</a></h3>
+<p>Plot the histogram of the LiDAR data. The histogram shows the distribution of the LiDAR points based on their elevation values. The tool generates a histogram of the LiDAR data and saves it to an HTM file. You can open the HTM file in a web browser to view the histogram.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">lidar_histogram</span><span class="p">(</span><span class="s2">&quot;madison.las&quot;</span><span class="p">,</span> <span class="s2">&quot;histogram.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize-lidar-data">
+<h3><span class="section-number">18.8.7. </span>Visualize LiDAR data<a class="headerlink" href="#visualize-lidar-data" title="Link to this heading">#</a></h3>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">view_lidar()</span></code> function to visualize the LiDAR data in 3D. Note that the <code class="docutils literal notranslate"><span class="pre">view_lidar()</span></code> function may not work in some environments, such as Google Colab.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">view_lidar</span><span class="p">(</span><span class="s2">&quot;madison.las&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remove-outliers">
+<h3><span class="section-number">18.8.8. </span>Remove outliers<a class="headerlink" href="#remove-outliers" title="Link to this heading">#</a></h3>
+<p>Remove outliers from the LiDAR dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">lidar_elevation_slice</span><span class="p">(</span><span class="s2">&quot;madison.las&quot;</span><span class="p">,</span> <span class="s2">&quot;madison_rm.las&quot;</span><span class="p">,</span> <span class="n">minz</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxz</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize-lidar-data-after-removing-outliers">
+<h3><span class="section-number">18.8.9. </span>Visualize LiDAR data after removing outliers<a class="headerlink" href="#visualize-lidar-data-after-removing-outliers" title="Link to this heading">#</a></h3>
+<p>We can visualize the LiDAR data after removing the outliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">view_lidar</span><span class="p">(</span><span class="s2">&quot;madison_rm.las&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-dsm">
+<h3><span class="section-number">18.8.10. </span>Create DSM<a class="headerlink" href="#create-dsm" title="Link to this heading">#</a></h3>
+<p>Using the LiDAR data to create a <strong>Digital Surface Model (DSM)</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">lidar_digital_surface_model</span><span class="p">(</span>
+    <span class="s2">&quot;madison_rm.las&quot;</span><span class="p">,</span> <span class="s2">&quot;dsm.tif&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">minz</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxz</span><span class="o">=</span><span class="mi">450</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The DSM generated by whitebox is missing the coordinate system. Use <code class="docutils literal notranslate"><span class="pre">leafmap.raster_set_crs()</span></code> to set the coordinate system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">add_crs</span><span class="p">(</span><span class="s2">&quot;dsm.tif&quot;</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="mi">2255</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize-dsm">
+<h3><span class="section-number">18.8.11. </span>Visualize DSM<a class="headerlink" href="#visualize-dsm" title="Link to this heading">#</a></h3>
+<p>Visualize the DSM on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Satellite&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;dsm.tif&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DSM&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-dem">
+<h3><span class="section-number">18.8.12. </span>Create DEM<a class="headerlink" href="#create-dem" title="Link to this heading">#</a></h3>
+<p>We can create a bare-earth DEM from the DSM. The tool is typically applied to LiDAR DEMs which frequently contain numerous off-terrain objects (OTOs) such as buildings, trees and other vegetation, cars, fences and other anthropogenic objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wbt</span><span class="o">.</span><span class="n">remove_off_terrain_objects</span><span class="p">(</span><span class="s2">&quot;dsm.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;dem.tif&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">15.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize-dem">
+<h3><span class="section-number">18.8.13. </span>Visualize DEM<a class="headerlink" href="#visualize-dem" title="Link to this heading">#</a></h3>
+<p>Visualize the bear-earth DEM on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;dem.tif&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-chm">
+<h3><span class="section-number">18.8.14. </span>Create CHM<a class="headerlink" href="#create-chm" title="Link to this heading">#</a></h3>
+<p>We can a <strong>Canopy Height Model (CHM)</strong> by subtracting the DEM from the DSM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chm</span> <span class="o">=</span> <span class="n">wbt</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="s2">&quot;dsm.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;dem.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;chm.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the CHM on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="s2">&quot;chm.tif&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;gist_earth&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;CHM&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer_manager</span><span class="p">()</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2><span class="section-number">18.9. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>This lecture provided a comprehensive introduction to <strong>WhiteboxTools</strong>, an open-source geospatial analysis library with a focus on hydrological and LiDAR data analysis. Through this session, students learned to install and configure WhiteboxTools in Python, integrate it with <strong>leafmap</strong> for interactive mapping, and apply it to specific geospatial tasks.</p>
+<p>Key takeaways from this lecture include:</p>
+<ul class="simple">
+<li><p><strong>Watershed Analysis</strong>: The lecture covered watershed delineation using Digital Elevation Models (DEMs), including techniques like flow direction, flow accumulation, stream extraction, and watershed boundary delineation.</p></li>
+<li><p><strong>LiDAR Data Processing</strong>: Students were introduced to LiDAR data manipulation, including the derivation of Digital Surface Models (DSMs), Digital Elevation Models (DEMs), and Canopy Height Models (CHMs), along with methods for outlier removal and terrain quality improvement.</p></li>
+</ul>
+<p>By completing the hands-on exercises, students gained practical experience with WhiteboxTools for geospatial processing, preparing them to apply these techniques in varied real-world GIS workflows.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "giswqs/geog-510",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/geospatial"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="geemap.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Geemap</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="xarray.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Xarray</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">18.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">18.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">18.3. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-whitebox">18.3.1. What is Whitebox?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-whitebox-do">18.3.2. What can Whitebox do?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-whitebox-different">18.3.3. How is Whitebox different?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources-for-whitebox">18.4. Useful Resources for Whitebox</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">18.5. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">18.6. Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-watershed-analysis">18.7. Part 1: Watershed Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-interactive-maps">18.7.1. Create Interactive Maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-watershed-data">18.7.2. Download Watershed Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-display-dem">18.7.3. Download and Display DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-dem-metadata">18.7.4. Get DEM metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-colorbar">18.7.5. Add colorbar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-whiteboxtools">18.7.6. Initialize WhiteboxTools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-working-directory">18.7.7. Set working directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-dem">18.7.8. Smooth DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-hillshade">18.7.9. Create hillshade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-no-flow-cells">18.7.10. Find no-flow cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-depressions">18.7.11. Fill depressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineate-flow-direction">18.7.12. Delineate flow direction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-flow-accumulation">18.7.13. Calculate flow accumulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-streams">18.7.14. Extract streams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-distance-to-outlet">18.7.15. Calculate distance to outlet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorize-streams">18.7.16. Vectorize streams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineate-the-longest-flow-path">18.7.17. Delineate the longest flow path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-pour-point">18.7.18. Generate a pour point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snap-pour-point-to-stream">18.7.19. Snap pour point to stream</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineate-watershed">18.7.20. Delineate watershed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-watershed-raster-to-vector">18.7.21. Convert watershed raster to vector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-lidar-data-analysis">18.8. Part 2: LiDAR Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-whitebox">18.8.1. Set up whitebox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-sample-dataset">18.8.2. Download a sample dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-las-laz-data">18.8.3. Read LAS/LAZ data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upgrade-file-version">18.8.4. Upgrade file version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-las-data">18.8.5. Write LAS data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-analysis">18.8.6. Histogram analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-lidar-data">18.8.7. Visualize LiDAR data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-outliers">18.8.8. Remove outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-lidar-data-after-removing-outliers">18.8.9. Visualize LiDAR data after removing outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dsm">18.8.10. Create DSM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-dsm">18.8.11. Visualize DSM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dem">18.8.12. Create DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-dem">18.8.13. Visualize DEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-chm">18.8.14. Create CHM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">18.9. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

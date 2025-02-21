@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>9. Get Started &#8212; Geographic Software Design</title>
+    <title>12. Ipyleaflet &#8212; Geographic Software Design</title>
   
   
   
@@ -57,13 +57,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/geospatial/get_started';</script>
-    <link rel="canonical" href="https://geog-510.gishub.org/book/geospatial/get_started.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/geospatial/ipyleaflet';</script>
+    <link rel="canonical" href="https://geog-510.gishub.org/book/geospatial/ipyleaflet.html" />
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. GeoPandas" href="geopandas.html" />
-    <link rel="prev" title="8. Intro to NumPy and Pandas" href="../python/08_numpy_pandas.html" />
+    <link rel="next" title="13. Rasterio" href="rasterio.html" />
+    <link rel="prev" title="11. Folium" href="folium.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -207,10 +207,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">9. Get Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geopandas.html">10. GeoPandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="folium.html">11. Folium</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipyleaflet.html">12. Ipyleaflet</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Ipyleaflet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rasterio.html">13. Rasterio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="localtileserver.html">14. Localtileserver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipywidgets.html">15. Ipywidgets</a></li>
@@ -281,7 +281,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-510/main?urlpath=tree/book/geospatial/get_started.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-510/main?urlpath=tree/book/geospatial/ipyleaflet.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +299,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/get_started.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/ipyleaflet.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +365,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/geospatial/get_started.ipynb" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/geospatial/ipyleaflet.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,7 +382,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/geospatial/get_started.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/geospatial/ipyleaflet.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +412,7 @@
       
       
       
-      <li><a href="../../_sources/book/geospatial/get_started.ipynb" target="_blank"
+      <li><a href="../../_sources/book/geospatial/ipyleaflet.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -496,7 +496,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Get Started</h1>
+    <h1>Ipyleaflet</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -506,28 +506,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">9.2. Setting Up Your Python Environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">9.2.1. uv</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-uv">9.2.1.1. Install uv</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-geospatial">9.2.1.2. Install geospatial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">12.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pixi">9.2.2. pixi</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pixi">9.2.2.1. Install pixi</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-gdal">9.2.2.2. Install gdal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-importing-ipyleaflet">12.2. 1. Installing and Importing ipyleaflet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-basic-map">12.3. 2. Creating a Basic Map</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-parameters">12.3.1. Map Parameters</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">9.2.3. conda</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-miniconda">9.2.3.1. Install Miniconda</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-conda-environment">9.2.3.2. Create a New Conda Environment</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-geospatial-libraries">9.2.3.3. Install Geospatial Libraries</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-your-installation">9.3. Verifying Your Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">9.4. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-markers">12.4. 3. Adding Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-tile-layers">12.5. 4. Adding Tile Layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-geojson-layers">12.6. 5. Adding GeoJSON Layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-choropleth-layer">12.7. 6. Adding a Choropleth Layer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layer-controls">12.8. 7. Adding Layer Controls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-interactive-widgets">12.9. 8. Adding Interactive Widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.10. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">12.11. Further Reading</a></li>
 </ul>
             </nav>
         </div>
@@ -539,148 +534,189 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="get-started">
-<h1><span class="section-number">9. </span>Get Started<a class="headerlink" href="#get-started" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/get_started.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="ipyleaflet">
+<h1><span class="section-number">12. </span>Ipyleaflet<a class="headerlink" href="#ipyleaflet" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/ipyleaflet.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <section id="introduction">
-<h2><span class="section-number">9.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Now that we’ve covered the basics of Python programming, we will begin exploring geospatial data analysis and visualization using Python. This chapter introduces you to key geospatial libraries that form the foundation for working with spatial data in Python.</p>
-<p>Geospatial data analysis is essential for various applications, including environmental monitoring, urban planning, and mapping. Python’s ecosystem offers a robust set of libraries for handling both vector and raster data, performing spatial analysis, and creating interactive maps. Some of the core libraries we will work with include:</p>
+<h2><span class="section-number">12.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p><strong>ipyleaflet</strong> is a Python library that brings the power of <strong>Leaflet.js</strong> to <strong>Jupyter Notebooks</strong>. It allows interactive mapping, geospatial visualization, and dynamic map customization with widgets.</p>
+<section id="learning-objectives">
+<h3><span class="section-number">12.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this lecture, you will:</p>
 <ul class="simple">
-<li><p><strong><a class="reference external" href="https://geopandas.org">GeoPandas</a>:</strong> For handling vector data such as shapefiles, GeoJSON, and performing spatial operations.</p></li>
-<li><p><strong><a class="reference external" href="https://rasterio.readthedocs.io">Rasterio</a>:</strong> To read, analyze, and write raster data (e.g., satellite imagery).</p></li>
-<li><p><strong><a class="reference external" href="https://xarray.pydata.org">Xarray</a>:</strong> For multidimensional array-based data, often used with climate and meteorological datasets.</p></li>
-<li><p><strong><a class="reference external" href="https://leafmap.org">Leafmap</a>:</strong> Simplifies creating interactive maps with minimal code.</p></li>
-<li><p><strong><a class="reference external" href="https://eodagmbh.github.io/py-maplibregl/">MapLibre</a>:</strong> A tool for building interactive, customizable map visualizations using vector tiles.</p></li>
-<li><p><strong><a class="reference external" href="https://github.com/jblindsay/whitebox-tools">WhiteboxTools</a>:</strong> A suite of GIS tools for spatial analysis.</p></li>
-<li><p><strong><a class="reference external" href="https://geemap.org">Geemap</a>:</strong> Combines the power of Google Earth Engine with Python for large-scale geospatial analysis.</p></li>
-<li><p><strong><a class="reference external" href="https://samgeo.gishub.org">Segment-geospatial</a>:</strong> An advanced tool for image segmentation in geospatial analysis.</p></li>
-<li><p><strong><a class="reference external" href="https://hypercoast.org">HyperCoast</a>:</strong> Used for coastal data modeling and analysis.</p></li>
-<li><p><strong><a class="reference external" href="https://duckdb.org">DuckDB</a>:</strong> A fast, embeddable analytical database with powerful spatial query capabilities.</p></li>
-<li><p><strong><a class="reference external" href="https://gdal.org">GDAL</a>:</strong> One of the most widely used libraries for raster and vector data processing.</p></li>
+<li><p>Understand what ipyleaflet is and how it differs from Folium.</p></li>
+<li><p>Learn to create basic maps and add markers.</p></li>
+<li><p>Explore how to use geospatial layers and data.</p></li>
+<li><p>Customize maps with widgets and interactivity.</p></li>
 </ul>
-<p>These libraries will be introduced progressively, and we’ll explore their capabilities through hands-on exercises.</p>
 </section>
-<section id="setting-up-your-python-environment">
-<h2><span class="section-number">9.2. </span>Setting Up Your Python Environment<a class="headerlink" href="#setting-up-your-python-environment" title="Link to this heading">#</a></h2>
-<p>To follow along with the examples and exercises in this book, you need to set up a Python environment with the required geospatial libraries. There are two main ways to set up your Python environment: using <strong>uv</strong> or <strong>conda</strong>.</p>
-<section id="uv">
-<h3><span class="section-number">9.2.1. </span>uv<a class="headerlink" href="#uv" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://github.com/astral-sh/uv">uv</a> is an extremely fast Python package and project manager, written in Rust. It is designed to be a drop-in replacement for pip.</p>
-<section id="install-uv">
-<h4><span class="section-number">9.2.1.1. </span>Install uv<a class="headerlink" href="#install-uv" title="Link to this heading">#</a></h4>
-<p>You can install uv as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># macOS and Linux:</span>
-curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-
-<span class="c1"># Windows:</span>
-powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span>
-
-<span class="c1"># pip</span>
-pip<span class="w"> </span>install<span class="w"> </span>uv
+</section>
+<section id="installing-and-importing-ipyleaflet">
+<h2><span class="section-number">12.2. </span>1. Installing and Importing ipyleaflet<a class="headerlink" href="#installing-and-importing-ipyleaflet" title="Link to this heading">#</a></h2>
+<p>To install ipyleaflet, run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>ipyleaflet
 </pre></div>
 </div>
-</section>
-<section id="install-geospatial">
-<h4><span class="section-number">9.2.1.2. </span>Install geospatial<a class="headerlink" href="#install-geospatial" title="Link to this heading">#</a></h4>
-<p>To install the <a class="reference external" href="https://geospatial.gishub.org">geospatial</a> package, which includes many of the libraries we’ll use in this book, run the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
-
-<span class="c1"># macOS and Linux:</span>
-<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-
-<span class="c1"># Windows:</span>
-.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
-
-uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>geospatial
-uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--find-links<span class="w"> </span>https://girder.github.io/large_image_wheels<span class="w"> </span>gdal<span class="w"> </span>pyproj
-</pre></div>
-</div>
-</section>
-</section>
-<section id="pixi">
-<h3><span class="section-number">9.2.2. </span>pixi<a class="headerlink" href="#pixi" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://pixi.sh">Pixi</a> is a package management tool for installing libraries and applications in a reproducible way. It can install packages from the conda-forge channel, PyPI, and other sources. If you have trouble installing geospatial libraries like gdal using uv, you can try using pixi.</p>
-<section id="install-pixi">
-<h4><span class="section-number">9.2.2.1. </span>Install pixi<a class="headerlink" href="#install-pixi" title="Link to this heading">#</a></h4>
-<p>You can install pixi as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># macOS and Linux:</span>
-curl<span class="w"> </span>-fsSL<span class="w"> </span>https://pixi.sh/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
-
-<span class="c1"># Windows:</span>
-iwr<span class="w"> </span>-useb<span class="w"> </span>https://pixi.sh/install.ps1<span class="w"> </span><span class="p">|</span><span class="w"> </span>iex
-</pre></div>
-</div>
-<p>Close and reopen your terminal or command prompt to make sure the pixi command is available.</p>
-</section>
-<section id="install-gdal">
-<h4><span class="section-number">9.2.2.2. </span>Install gdal<a class="headerlink" href="#install-gdal" title="Link to this heading">#</a></h4>
-<p>To install the gdal and jupyterlab packages,run the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>init
-pixi<span class="w"> </span>add<span class="w"> </span>gdal<span class="w"> </span>jupyterlab
-</pre></div>
-</div>
-<p>After installing the packages, you can open Jupyter Lab to start working with geospatial data:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>lab
-</pre></div>
-</div>
-</section>
-</section>
-<section id="conda">
-<h3><span class="section-number">9.2.3. </span>conda<a class="headerlink" href="#conda" title="Link to this heading">#</a></h3>
-<section id="install-miniconda">
-<h4><span class="section-number">9.2.3.1. </span>Install Miniconda<a class="headerlink" href="#install-miniconda" title="Link to this heading">#</a></h4>
-<p>Miniconda is a lightweight version of Anaconda and provides all the core functionality needed to manage environments. You can download and install it from the official Miniconda page: <a class="reference external" href="https://docs.anaconda.com/miniconda">Miniconda Installation Guide</a>.</p>
-</section>
-<section id="create-a-new-conda-environment">
-<h4><span class="section-number">9.2.3.2. </span>Create a New Conda Environment<a class="headerlink" href="#create-a-new-conda-environment" title="Link to this heading">#</a></h4>
-<p>Once Miniconda is installed, you can create a new environment specifically for geospatial programming. This isolates your geospatial tools from other Python projects, helping avoid version conflicts.</p>
-<p>Run the following commands in your terminal or command prompt:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>geo<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
-conda<span class="w"> </span>activate<span class="w"> </span>geo
-</pre></div>
-</div>
-</section>
-<section id="install-geospatial-libraries">
-<h4><span class="section-number">9.2.3.3. </span>Install Geospatial Libraries<a class="headerlink" href="#install-geospatial-libraries" title="Link to this heading">#</a></h4>
-<p>To manage the installation of multiple geospatial libraries more efficiently, we’ll use mamba, a faster alternative to conda. Install it first, then proceed with the <a class="reference external" href="https://geospatial.gishub.org">geospatial</a> package, which includes many of the libraries we’ll use in this book:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mamba
-mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>geospatial
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section id="verifying-your-installation">
-<h2><span class="section-number">9.3. </span>Verifying Your Installation<a class="headerlink" href="#verifying-your-installation" title="Link to this heading">#</a></h2>
-<p>Once you’ve set up your environment, it’s important to verify that everything is working correctly. Let’s run a simple test using leafmap to ensure the installation is successful.</p>
-<ol class="arabic simple">
-<li><p>Import the <code class="docutils literal notranslate"><span class="pre">leafmap</span></code> library:</p></li>
-</ol>
+<p>Then, import it in Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">leafmap.foliumap</span> <span class="k">as</span> <span class="nn">leafmap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Marker</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Create an interactive map using leafmap.Map() and display it:</p></li>
-</ol>
+</section>
+<section id="creating-a-basic-map">
+<h2><span class="section-number">12.3. </span>2. Creating a Basic Map<a class="headerlink" href="#creating-a-basic-map" title="Link to this heading">#</a></h2>
+<p>A simple ipyleaflet map can be created as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>If everything is set up correctly, you should see an interactive map displayed in your notebook or Jupyter Lab environment. This confirms that your Python environment is ready for geospatial data analysis and visualization.</p>
+<section id="map-parameters">
+<h3><span class="section-number">12.3.1. </span>Map Parameters<a class="headerlink" href="#map-parameters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">center</span></code>: The latitude and longitude of the map center.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zoom</span></code>: The initial zoom level.</p></li>
+</ul>
+</section>
+</section>
+<section id="adding-markers">
+<h2><span class="section-number">12.4. </span>3. Adding Markers<a class="headerlink" href="#adding-markers" title="Link to this heading">#</a></h2>
+<p>Markers help highlight specific locations on the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">))</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-tile-layers">
+<h2><span class="section-number">12.5. </span>4. Adding Tile Layers<a class="headerlink" href="#adding-tile-layers" title="Link to this heading">#</a></h2>
+<p>Different tile layers can be used to change the appearance of the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">TileLayer</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">TileLayer</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://</span><span class="si">{s}</span><span class="s2">.tile.opentopomap.org/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">.png&quot;</span><span class="p">))</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Common tile providers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OpenStreetMap</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Stamen</span> <span class="pre">Terrain</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CartoDB</span> <span class="pre">DarkMatter</span></code></p></li>
+</ul>
+</section>
+<section id="adding-geojson-layers">
+<h2><span class="section-number">12.6. </span>5. Adding GeoJSON Layers<a class="headerlink" href="#adding-geojson-layers" title="Link to this heading">#</a></h2>
+<p>GeoJSON files allow visualization of geospatial boundaries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">GeoJSON</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">122.4194</span><span class="p">,</span> <span class="mf">37.7749</span><span class="p">]},</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">},</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+
+<span class="n">gj</span> <span class="o">=</span> <span class="n">GeoJSON</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">gj</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-choropleth-layer">
+<h2><span class="section-number">12.7. </span>6. Adding a Choropleth Layer<a class="headerlink" href="#adding-a-choropleth-layer" title="Link to this heading">#</a></h2>
+<p>Choropleth maps visualize geographic data distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Choropleth</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Example data</span>
+<span class="n">geojson_url</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json&quot;</span>
+<span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;USA&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;CAN&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;MEX&quot;</span><span class="p">:</span> <span class="mi">75</span><span class="p">}</span>
+
+<span class="n">choro</span> <span class="o">=</span> <span class="n">Choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="n">geojson_url</span><span class="p">,</span> <span class="n">choro_data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">key_on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">choro</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-layer-controls">
+<h2><span class="section-number">12.8. </span>7. Adding Layer Controls<a class="headerlink" href="#adding-layer-controls" title="Link to this heading">#</a></h2>
+<p>To toggle layers dynamically:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">LayersControl</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">LayersControl</span><span class="p">())</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-interactive-widgets">
+<h2><span class="section-number">12.9. </span>8. Adding Interactive Widgets<a class="headerlink" href="#adding-interactive-widgets" title="Link to this heading">#</a></h2>
+<p>Widgets enable real-time interaction with the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">FloatSlider</span>
+
+<span class="n">zoom_slider</span> <span class="o">=</span> <span class="n">FloatSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Zoom Level&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">zoom</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">zoom_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">zoom</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span>
+
+
+<span class="n">zoom_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">zoom_change</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="n">zoom_slider</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="summary">
-<h2><span class="section-number">9.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
-<p>By setting up the Python environment and testing it with a simple map, you have laid the groundwork for more advanced geospatial analysis. In the upcoming chapters, we will dive into specific libraries, their functions, and how they can be applied to real-world geospatial data projects. From basic vector and raster manipulations to creating dynamic visualizations, you’ll progressively gain skills to tackle complex geospatial tasks.</p>
-<p>Make sure to revisit this setup guide if you encounter any issues with your environment, and don’t hesitate to reach out for troubleshooting help!</p>
+<h2><span class="section-number">12.10. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>ipyleaflet</strong> enables interactive mapping in Jupyter Notebooks.</p></li>
+<li><p>Supports <strong>markers, tile layers, GeoJSON, and choropleth maps</strong>.</p></li>
+<li><p>Interactive widgets enhance user experience.</p></li>
+<li><p>Suitable for real-time geospatial data visualization.</p></li>
+</ul>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">12.11. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ipyleaflet.readthedocs.io/en/latest/">ipyleaflet Documentation</a></p></li>
+<li><p><a class="reference external" href="https://leafletjs.com/">Leaflet.js Documentation</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -715,20 +751,20 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../python/08_numpy_pandas.html"
+       href="folium.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Intro to NumPy and Pandas</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Folium</p>
       </div>
     </a>
     <a class="right-next"
-       href="geopandas.html"
+       href="rasterio.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>GeoPandas</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Rasterio</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -748,28 +784,23 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">9.2. Setting Up Your Python Environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">9.2.1. uv</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-uv">9.2.1.1. Install uv</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-geospatial">9.2.1.2. Install geospatial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">12.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pixi">9.2.2. pixi</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pixi">9.2.2.1. Install pixi</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-gdal">9.2.2.2. Install gdal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-importing-ipyleaflet">12.2. 1. Installing and Importing ipyleaflet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-basic-map">12.3. 2. Creating a Basic Map</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-parameters">12.3.1. Map Parameters</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">9.2.3. conda</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-miniconda">9.2.3.1. Install Miniconda</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-conda-environment">9.2.3.2. Create a New Conda Environment</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-geospatial-libraries">9.2.3.3. Install Geospatial Libraries</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-your-installation">9.3. Verifying Your Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">9.4. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-markers">12.4. 3. Adding Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-tile-layers">12.5. 4. Adding Tile Layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-geojson-layers">12.6. 5. Adding GeoJSON Layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-choropleth-layer">12.7. 6. Adding a Choropleth Layer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layer-controls">12.8. 7. Adding Layer Controls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-interactive-widgets">12.9. 8. Adding Interactive Widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.10. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">12.11. Further Reading</a></li>
 </ul>
   </nav></div>
 

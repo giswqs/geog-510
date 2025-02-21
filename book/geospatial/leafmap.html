@@ -1,0 +1,2063 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>16. Leafmap &#8212; Geographic Software Design</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/geospatial/leafmap';</script>
+    <link rel="canonical" href="https://geog-510.gishub.org/book/geospatial/leafmap.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17. Geemap" href="geemap.html" />
+    <link rel="prev" title="15. Ipywidgets" href="ipywidgets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Geographic Software Design - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Geographic Software Design - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/instructor.html">Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/textbooks.html">Textbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/videos.html">Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgments.html">Acknowledgments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../software/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vscode.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/miniconda.html">Miniconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/qgis.html">QGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/jupyterlab.html">JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/colab.html">Google Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/cookiecutter.html">Cookiecutter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/01_get_started.html">1. Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/02_variables.html">2. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/03_data_structures.html">3. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/04_string_operations.html">4. String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/05_looping.html">5. Looping and Control Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/06_functions_classes.html">6. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/07_files.html">7. Files and Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/08_numpy_pandas.html">8. Intro to NumPy and Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">9. Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">10. GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folium.html">11. Folium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipyleaflet.html">12. Ipyleaflet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rasterio.html">13. Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localtileserver.html">14. Localtileserver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipywidgets.html">15. Ipywidgets</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Leafmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geemap.html">17. Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whitebox.html">18. Whitebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarray.html">19. Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rioxarray.html">20. Rioxarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/instructions.html">Submission Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_01.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_02.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_03.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_04.html">Lab 4</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-510/main?urlpath=tree/book/geospatial/leafmap.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/leafmap.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/geospatial/leafmap.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/geospatial/leafmap.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/geospatial/leafmap.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Leafmap</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">16.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">16.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-leafmap">16.3. Install leafmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">16.4. Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-interactive-maps">16.5. Creating interactive maps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-map">16.5.1. Customizing the Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-or-removing-controls">16.5.2. Adding or Removing Controls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-layers">16.5.3. Working with Layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearing-controls-and-layers">16.5.4. Clearing Controls and Layers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-basemaps">16.6. Changing Basemaps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-xyz-tile-layer">16.6.1. Adding an XYZ Tile Layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-wms-tile-layer">16.6.2. Adding a WMS Tile Layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-legend-to-a-map">16.6.3. Adding a Legend to a Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-colorbar-to-visualize-data">16.6.4. Adding a Colorbar to Visualize Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-vector-data">16.7. Visualizing Vector Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-marker">16.7.1. Adding a Marker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-markers">16.7.2. Adding Multiple Markers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-marker-clusters">16.7.3. Adding Marker Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-markers">16.7.4. Customizing Markers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-polylines">16.7.5. Visualizing Polylines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-polyline-styles">16.7.5.1. Customizing Polyline Styles</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-polygons">16.7.6. Visualizing Polygons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-geopandas-geodataframes">16.7.7. Visualizing GeoPandas GeoDataFrames</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-choropleth-maps">16.8. Creating Choropleth Maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-geoparquet-data">16.9. Visualizing GeoParquet Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-and-visualizing-point-data">16.9.1. Loading and Visualizing Point Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-polygon-data">16.9.2. Visualizing Polygon Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-pmtiles">16.10. Visualizing PMTiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-metadata-from-pmtiles">16.10.1. Retrieving Metadata from PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-pmtiles-data">16.10.2. Visualizing PMTiles Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-open-buildings-data-with-pmtiles">16.10.3. Visualizing Open Buildings Data with PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-overture-maps-data">16.10.4. Visualizing Overture Maps Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-raster-data">16.11. Visualizing Raster Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-cloud-optimized-geotiffs-cogs">16.11.1. Visualizing Cloud Optimized GeoTIFFs (COGs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-cloud-optimized-geotiff-cog">16.11.1.1. Adding a Cloud Optimized GeoTIFF (COG)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-cogs">16.11.1.2. Adding Multiple COGs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-split-map-for-comparison">16.11.1.3. Creating a Split Map for Comparison</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-custom-colormap">16.11.1.4. Using a Custom Colormap</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-local-raster-datasets">16.11.2. Visualizing Local Raster Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-visualizing-a-local-raster">16.11.2.1. Downloading and Visualizing a Local Raster</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-a-multi-band-raster">16.11.2.2. Visualizing a Multi-Band Raster</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-pixel-values">16.11.2.3. Inspecting Pixel Values</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-spatiotemporal-asset-catalog-stac-data">16.11.3. Visualizing SpatioTemporal Asset Catalog (STAC) Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-stac-bands">16.11.3.1. Exploring STAC Bands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-stac-layers-to-the-map">16.11.3.2. Adding STAC Layers to the Map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-custom-stac-catalog">16.11.3.3. Using a Custom STAC Catalog</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-s3-integration">16.11.4. AWS S3 Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-datasets-in-an-s3-bucket">16.11.4.1. Accessing Datasets in an S3 Bucket</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-a-raster-dataset-from-s3">16.11.4.2. Visualizing a Raster Dataset from S3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">16.12. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-creating-an-interactive-map">16.12.1. Exercise 1: Creating an Interactive Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-adding-xyz-and-wms-tile-layers">16.12.2. Exercise 2: Adding XYZ and WMS Tile Layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-adding-map-legends">16.12.3. Exercise 3: Adding Map Legends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-creating-marker-clusters">16.12.4. Exercise 4: Creating Marker Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-visualizing-vector-data">16.12.5. Exercise 5: Visualizing Vector Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-visualizing-geoparquet-data">16.12.6. Exercise 6: Visualizing GeoParquet Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-visualizing-pmtiles">16.12.7. Exercise 7: Visualizing PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-visualizing-cloud-optimized-geotiffs-cogs">16.12.8. Exercise 8: Visualizing Cloud Optimized GeoTIFFs (COGs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-visualizing-local-raster-data">16.12.9. Exercise 9: Visualizing Local Raster Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-creating-a-split-map">16.12.10. Exercise 10: Creating a Split Map</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">16.13. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="leafmap">
+<h1><span class="section-number">16. </span>Leafmap<a class="headerlink" href="#leafmap" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/leafmap.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<section id="overview">
+<h2><span class="section-number">16.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This lecture offers a comprehensive introduction to <a class="reference external" href="https://leafmap.org">Leafmap</a>, a powerful, open-source Python package for creating, managing, and analyzing interactive geospatial maps. Leafmap simplifies working with geospatial data by providing a high-level, Pythonic interface that integrates seamlessly with Jupyter environments, such as Google Colab, Jupyter Notebook, and JupyterLab.</p>
+<p>Built on top of several well-established libraries like <a class="reference external" href="https://python-visualization.github.io/folium">folium</a>, <a class="reference external" href="https://ipyleaflet.readthedocs.io">ipyleaflet</a>, <a class="reference external" href="https://eodagmbh.github.io/py-maplibregl">maplibre</a>, <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/topics/geo.html">bokeh</a>, <a class="reference external" href="https://deckgl.readthedocs.io">pydeck</a>, <a class="reference external" href="https://docs.kepler.gl/docs/keplergl-jupyter">kepler.gl</a>, and <a class="reference external" href="https://plotly.com/python/maps">plotly</a>, Leafmap extends their functionalities with a unified API. This extension streamlines the process of visualizing and analyzing geospatial data interactively, minimizing the amount of coding required.</p>
+<p>In this lecture, we will explore Leafmap’s key features, including how to create interactive maps, add and customize basemaps, visualize both vector and raster data, and edit vector layers. Each section provides practical examples and guidance essential for using Leafmap effectively in GIS programming tasks.</p>
+</section>
+<section id="learning-objectives">
+<h2><span class="section-number">16.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lecture, you will be able to:</p>
+<ul class="simple">
+<li><p>Create and customize interactive maps using Leafmap.</p></li>
+<li><p>Add and configure different basemap layers.</p></li>
+<li><p>Visualize and style vector and raster geospatial data.</p></li>
+<li><p>Edit vector data directly on interactive maps.</p></li>
+<li><p>Search for open geospatial datasets and incorporate them into your maps.</p></li>
+</ul>
+</section>
+<section id="install-leafmap">
+<h2><span class="section-number">16.3. </span>Install leafmap<a class="headerlink" href="#install-leafmap" title="Link to this heading">#</a></h2>
+<p>To install Leafmap, uncomment the following line and run the cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install -U leafmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-libraries">
+<h2><span class="section-number">16.4. </span>Import libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h2>
+<p>To get started, import the necessary libraries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">leafmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Leafmap supports multiple plotting backends, including <code class="docutils literal notranslate"><span class="pre">folium</span></code>, <code class="docutils literal notranslate"><span class="pre">ipyleaflet</span></code>, <code class="docutils literal notranslate"><span class="pre">maplibre</span></code>, <code class="docutils literal notranslate"><span class="pre">bokeh</span></code>, <code class="docutils literal notranslate"><span class="pre">pydeck</span></code>, <code class="docutils literal notranslate"><span class="pre">keplergl</span></code>, and <code class="docutils literal notranslate"><span class="pre">plotly</span></code>. The default plotting backend is <code class="docutils literal notranslate"><span class="pre">ipyleaflet</span></code>, offering the most extensive features.</p>
+<p>To switch the plotting backend, uncomment one of the following lines and run the cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import leafmap.foliumap as leafmap</span>
+<span class="c1"># import leafmap.bokehmap as leafmap</span>
+<span class="c1"># import leafmap.maplibregl as leafmap</span>
+<span class="c1"># import leafmap.deck as leafmap</span>
+<span class="c1"># import leafmap.kepler as leafmap</span>
+<span class="c1"># import leafmap.plotlymap as leafmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-interactive-maps">
+<h2><span class="section-number">16.5. </span>Creating interactive maps<a class="headerlink" href="#creating-interactive-maps" title="Link to this heading">#</a></h2>
+<p>Leafmap provides a high-level, Pythonic interface for creating interactive maps. You can create a basic interactive map by calling the <code class="docutils literal notranslate"><span class="pre">Map</span></code> function. The default basemap is <code class="docutils literal notranslate"><span class="pre">OpenStreetMap</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="customizing-the-map">
+<h3><span class="section-number">16.5.1. </span>Customizing the Map<a class="headerlink" href="#customizing-the-map" title="Link to this heading">#</a></h3>
+<p>You can customize the map’s center, zoom level, and height. The <code class="docutils literal notranslate"><span class="pre">center</span></code> takes a tuple of latitude and longitude, <code class="docutils literal notranslate"><span class="pre">zoom</span></code> is an integer, and <code class="docutils literal notranslate"><span class="pre">height</span></code> specifies the map height in pixels. The example below centers the map on the U.S. with a zoom level of 4 and a height of 600 pixels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;600px&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-or-removing-controls">
+<h3><span class="section-number">16.5.2. </span>Adding or Removing Controls<a class="headerlink" href="#adding-or-removing-controls" title="Link to this heading">#</a></h3>
+<p>By default, the map includes controls such as zoom, fullscreen, scale, attribution, and toolbar. You can toggle these controls using parameters like <code class="docutils literal notranslate"><span class="pre">zoom_control</span></code>, <code class="docutils literal notranslate"><span class="pre">fullscreen_control</span></code>, <code class="docutils literal notranslate"><span class="pre">scale_control</span></code>, <code class="docutils literal notranslate"><span class="pre">attribution_control</span></code>, and <code class="docutils literal notranslate"><span class="pre">toolbar_control</span></code> parameters to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The example below disables all controls:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">zoom_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">draw_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">scale_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fullscreen_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">attribution_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">toolbar_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To add a search control to the map, use the <code class="docutils literal notranslate"><span class="pre">m.add_search_control()</span></code> method. The search control allows users to search for places and zoom to them. The example below adds a search control to the map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://nominatim.openstreetmap.org/search?format=json&amp;q=</span><span class="si">{s}</span><span class="s2">&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_search_control</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topleft&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-layers">
+<h3><span class="section-number">16.5.3. </span>Working with Layers<a class="headerlink" href="#working-with-layers" title="Link to this heading">#</a></h3>
+<p>You can access the layers on the map using the <code class="docutils literal notranslate"><span class="pre">layers</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">layers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To add or remove layers, use the <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">remove</span></code> methods. For example, to remove the last layer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="clearing-controls-and-layers">
+<h3><span class="section-number">16.5.4. </span>Clearing Controls and Layers<a class="headerlink" href="#clearing-controls-and-layers" title="Link to this heading">#</a></h3>
+<p>You can clear all controls and layers from the map with <code class="docutils literal notranslate"><span class="pre">clear_controls</span></code> and <code class="docutils literal notranslate"><span class="pre">clear_layers</span></code> methods. First, create a map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, remove all controls:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">clear_controls</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And clear all layers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">clear_layers</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="changing-basemaps">
+<h2><span class="section-number">16.6. </span>Changing Basemaps<a class="headerlink" href="#changing-basemaps" title="Link to this heading">#</a></h2>
+<p>You can easily change the basemap of a map. For example, the following code adds the <code class="docutils literal notranslate"><span class="pre">OpenTopoMap</span></code> basemap:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;OpenTopoMap&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To change basemap interactively, add the <code class="docutils literal notranslate"><span class="pre">basemap</span></code> control to the map with the <code class="docutils literal notranslate"><span class="pre">add_basemap_gui()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap_gui</span><span class="p">()</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="adding-an-xyz-tile-layer">
+<h3><span class="section-number">16.6.1. </span>Adding an XYZ Tile Layer<a class="headerlink" href="#adding-an-xyz-tile-layer" title="Link to this heading">#</a></h3>
+<p>To add custom XYZ tile layers, you can use the <code class="docutils literal notranslate"><span class="pre">add_tile_layer()</span></code> method. The example below adds a Google Satellite layer using an XYZ URL template:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://mt1.google.com/vt/lyrs=y&amp;x=</span><span class="si">{x}</span><span class="s2">&amp;y=</span><span class="si">{y}</span><span class="s2">&amp;z=</span><span class="si">{z}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Google Satellite&quot;</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;Google&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-wms-tile-layer">
+<h3><span class="section-number">16.6.2. </span>Adding a WMS Tile Layer<a class="headerlink" href="#adding-a-wms-tile-layer" title="Link to this heading">#</a></h3>
+<p>Web Map Service (WMS) layers can be added using the <code class="docutils literal notranslate"><span class="pre">add_wms_layer()</span></code> method. The following code adds a WMS layer of NAIP Imagery from the USGS, centered on the U.S. with a zoom level of 4:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://imagery.nationalmap.gov/arcgis/services/USGSNAIPImagery/ImageServer/WMSServer?&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_wms_layer</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">=</span><span class="s2">&quot;USGSNAIPImagery:FalseColorComposite&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;NAIP&quot;</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;USGS&quot;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+    <span class="n">shown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-legend-to-a-map">
+<h3><span class="section-number">16.6.3. </span>Adding a Legend to a Map<a class="headerlink" href="#adding-a-legend-to-a-map" title="Link to this heading">#</a></h3>
+<p>To provide better context for the data layers, you can add a legend to your map. In this example, we add a WMS layer displaying the 2021 NLCD land cover data and a corresponding legend to explain the land cover types:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2021_Land_Cover_L48/wms?&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_wms_layer</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">=</span><span class="s2">&quot;NLCD_2021_Land_Cover_L48&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;NLCD 2021&quot;</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;MRLC&quot;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+    <span class="n">shown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;NLCD Land Cover Type&quot;</span><span class="p">,</span> <span class="n">builtin_legend</span><span class="o">=</span><span class="s2">&quot;NLCD&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-colorbar-to-visualize-data">
+<h3><span class="section-number">16.6.4. </span>Adding a Colorbar to Visualize Data<a class="headerlink" href="#adding-a-colorbar-to-visualize-data" title="Link to this heading">#</a></h3>
+<p>If you need to visualize continuous data like elevation, you can add a colorbar to the map. The example below shows how to add a colorbar with a terrain colormap for elevation, ranging from 0 to 4000 meters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;OpenTopoMap&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_colormap</span><span class="p">(</span>
+    <span class="s2">&quot;terrain&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Elevation&quot;</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of these sections demonstrates different features of the Leafmap library, allowing you to customize maps by adding basemaps, XYZ tiles, WMS layers, legends, and colorbars to enhance map visualization.</p>
+</section>
+</section>
+<section id="visualizing-vector-data">
+<h2><span class="section-number">16.7. </span>Visualizing Vector Data<a class="headerlink" href="#visualizing-vector-data" title="Link to this heading">#</a></h2>
+<p>Leafmap makes it easy to visualize various vector data formats such as GeoJSON, Shapefile, GeoPackage, and others supported by <a class="reference external" href="https://geopandas.org">GeoPandas</a>. The following examples demonstrate different ways to add vector data to your map.</p>
+<section id="adding-a-marker">
+<h3><span class="section-number">16.7.1. </span>Adding a Marker<a class="headerlink" href="#adding-a-marker" title="Link to this heading">#</a></h3>
+<p>You can add individual markers to the map at specific locations. In this example, a draggable marker is placed at the given latitude and longitude.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_marker</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">draggable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-multiple-markers">
+<h3><span class="section-number">16.7.2. </span>Adding Multiple Markers<a class="headerlink" href="#adding-multiple-markers" title="Link to this heading">#</a></h3>
+<p>To add multiple markers at once, use the <code class="docutils literal notranslate"><span class="pre">add_markers()</span></code> method. This example places markers at three different locations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">markers</span><span class="o">=</span><span class="p">[[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="o">-</span><span class="mi">110</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">120</span><span class="p">]])</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-marker-clusters">
+<h3><span class="section-number">16.7.3. </span>Adding Marker Clusters<a class="headerlink" href="#adding-marker-clusters" title="Link to this heading">#</a></h3>
+<p>For a large number of points, you can group them into clusters. This method reduces map clutter by aggregating nearby points. The example below uses a CSV file of world cities to create marker clusters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/world/world_cities.csv&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_marker_cluster</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;World cities&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="customizing-markers">
+<h3><span class="section-number">16.7.4. </span>Customizing Markers<a class="headerlink" href="#customizing-markers" title="Link to this heading">#</a></h3>
+<p>Markers can be customized with colors, icons, and labels. The following example customizes points from a CSV file of U.S. cities, using different icons and adding a legend:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/us/cities.csv&quot;</span>
+<span class="n">regions</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/us/us_regions.geojson&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;US Regions&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_points_from_xy</span><span class="p">(</span>
+    <span class="n">cities</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+    <span class="n">color_column</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span>
+    <span class="n">icon_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gear&quot;</span><span class="p">,</span> <span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="s2">&quot;leaf&quot;</span><span class="p">,</span> <span class="s2">&quot;globe&quot;</span><span class="p">],</span>
+    <span class="n">spin</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">add_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-polylines">
+<h3><span class="section-number">16.7.5. </span>Visualizing Polylines<a class="headerlink" href="#visualizing-polylines" title="Link to this heading">#</a></h3>
+<p>Polyline visualization is useful for displaying linear features such as roads or pipelines. In this example, a GeoJSON file containing submarine cable lines is added to the map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/vector/cables.geojson&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_vector</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Cable lines&quot;</span><span class="p">,</span> <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="customizing-polyline-styles">
+<h4><span class="section-number">16.7.5.1. </span>Customizing Polyline Styles<a class="headerlink" href="#customizing-polyline-styles" title="Link to this heading">#</a></h4>
+<p>You can further customize polylines with a style callback function. This example dynamically changes the color and weight of each polyline based on its properties:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;CartoDB.DarkMatter&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/vector/cables.geojson&quot;</span>
+<span class="n">callback</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">feat</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">feat</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;color&quot;</span><span class="p">],</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_vector</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Cable lines&quot;</span><span class="p">,</span> <span class="n">style_callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-polygons">
+<h3><span class="section-number">16.7.6. </span>Visualizing Polygons<a class="headerlink" href="#visualizing-polygons" title="Link to this heading">#</a></h3>
+<p>To visualize polygon features, you can use the <code class="docutils literal notranslate"><span class="pre">add_vector()</span></code> method. In this example, a GeoJSON file of New York City buildings is added and the map automatically zooms to the layer’s extent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/places/nyc_buildings.geojson&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_vector</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;NYC Buildings&quot;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-geopandas-geodataframes">
+<h3><span class="section-number">16.7.7. </span>Visualizing GeoPandas GeoDataFrames<a class="headerlink" href="#visualizing-geopandas-geodataframes" title="Link to this heading">#</a></h3>
+<p>You can directly visualize GeoPandas GeoDataFrames on the map. In this example, a GeoDataFrame containing building footprints from Las Vegas is displayed with custom styling:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/places/las_vegas_buildings.geojson&quot;</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use the GeoDataFrame.explore() method to visualize the data interactively, which utilizes the folium library. The example below displays the building footprints interactively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To display the GeoDataFrame using Leaflet, use the <code class="docutils literal notranslate"><span class="pre">add_gdf()</span></code> method. The following code adds the building footprints to the map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;HYBRID&quot;</span><span class="p">)</span>
+<span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_gdf</span><span class="p">(</span><span class="n">gdf</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Las Vegas Buildings&quot;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="creating-choropleth-maps">
+<h2><span class="section-number">16.8. </span>Creating Choropleth Maps<a class="headerlink" href="#creating-choropleth-maps" title="Link to this heading">#</a></h2>
+<p>Choropleth maps are useful for visualizing data distributions. The add_data() method allows you to create choropleth maps from various vector formats. Below is an example that visualizes population data using the “Quantiles” classification scheme:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/opengeos/leafmap/master/docs/data/countries.geojson&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;POP_EST&quot;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">legend_title</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use different classification schemes like “EqualInterval” for different data visualizations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;POP_EST&quot;</span><span class="p">,</span>
+    <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;EqualInterval&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+    <span class="n">legend_title</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-geoparquet-data">
+<h2><span class="section-number">16.9. </span>Visualizing GeoParquet Data<a class="headerlink" href="#visualizing-geoparquet-data" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://geoparquet.org">GeoParquet</a> is a columnar format for geospatial data that allows efficient storage and retrieval. The following example demonstrates how to download, read, and visualize GeoParquet files using GeoPandas and Leafmap.</p>
+<section id="loading-and-visualizing-point-data">
+<h3><span class="section-number">16.9.1. </span>Loading and Visualizing Point Data<a class="headerlink" href="#loading-and-visualizing-point-data" title="Link to this heading">#</a></h3>
+<p>First, import the necessary libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download and load a GeoParquet file containing city data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://open.gishub.org/data/duckdb/cities.parquet&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;cities.parquet&quot;</span>
+<span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read the GeoParquet file into a GeoDataFrame and preview the first few rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">GeoDataFrame.explore()</span></code> to visualize the data interactively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can add the data to a Leafmap interactive map and plot the points by specifying their latitude and longitude:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_points_from_xy</span><span class="p">(</span><span class="n">gdf</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-polygon-data">
+<h3><span class="section-number">16.9.2. </span>Visualizing Polygon Data<a class="headerlink" href="#visualizing-polygon-data" title="Link to this heading">#</a></h3>
+<p>For polygon data, such as wetlands, you can follow a similar process. Start by downloading the GeoParquet file containing wetland polygons:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://data.source.coop/giswqs/nwi/wetlands/DC_Wetlands.parquet&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;DC_Wetlands.parquet&quot;</span>
+<span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load the data into a GeoDataFrame and check its coordinate reference system (CRS):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can visualize the polygon data directly using <code class="docutils literal notranslate"><span class="pre">explore()</span></code> with folium:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For visualization with Leafmap, use the following code to add the polygons to the map with the “Satellite” basemap:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Satellite&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_nwi</span><span class="p">(</span><span class="n">gdf</span><span class="p">,</span> <span class="n">col_name</span><span class="o">=</span><span class="s2">&quot;WETLAND_TYPE&quot;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-pmtiles">
+<h2><span class="section-number">16.10. </span>Visualizing PMTiles<a class="headerlink" href="#visualizing-pmtiles" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/protomaps/PMTiles">PMTiles</a> is a single-file archive format for tiled data that enables efficient, serverless map applications. PMTiles archives can be hosted on platforms like S3 and allow low-cost, scalable map hosting without the need for custom servers.</p>
+<section id="retrieving-metadata-from-pmtiles">
+<h3><span class="section-number">16.10.1. </span>Retrieving Metadata from PMTiles<a class="headerlink" href="#retrieving-metadata-from-pmtiles" title="Link to this heading">#</a></h3>
+<p>To visualize PMTiles data, first retrieve metadata such as available layers and bounds. Here’s an example using a PMTiles archive of Florence, Italy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://open.gishub.org/data/pmtiles/protomaps_firenze.pmtiles&quot;</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">pmtiles_metadata</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;layer names: </span><span class="si">{</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;layer_names&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bounds: </span><span class="si">{</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;bounds&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-pmtiles-data">
+<h3><span class="section-number">16.10.2. </span>Visualizing PMTiles Data<a class="headerlink" href="#visualizing-pmtiles-data" title="Link to this heading">#</a></h3>
+<p>You can add PMTiles layers to a Leafmap map by specifying the tile source and defining a custom style. The style specifies how different vector layers, such as buildings and roads, should be rendered:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+
+<span class="n">style</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s2">&quot;sources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;example_source&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vector&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;pmtiles://&quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">,</span>
+            <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;PMTiles&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;layers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;buildings&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;example_source&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source-layer&quot;</span><span class="p">:</span> <span class="s2">&quot;landuse&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;fill&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;paint&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;fill-color&quot;</span><span class="p">:</span> <span class="s2">&quot;steelblue&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;roads&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;example_source&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source-layer&quot;</span><span class="p">:</span> <span class="s2">&quot;roads&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;paint&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;line-color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># style = leafmap.pmtiles_style(url)  # Use default style</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add_pmtiles</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;PMTiles&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">overlay</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-open-buildings-data-with-pmtiles">
+<h3><span class="section-number">16.10.3. </span>Visualizing Open Buildings Data with PMTiles<a class="headerlink" href="#visualizing-open-buildings-data-with-pmtiles" title="Link to this heading">#</a></h3>
+<p>You can also visualize large datasets like the <a class="reference external" href="https://beta.source.coop/repositories/vida/google-microsoft-open-buildings/description">Google-Microsoft Open Buildings data</a> hosted on Source Cooperative. First, check the PMTiles metadata for the building footprints layer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://data.source.coop/vida/google-microsoft-open-buildings/pmtiles/go_ms_building_footprints.pmtiles&quot;</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">pmtiles_metadata</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;layer names: </span><span class="si">{</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;layer_names&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bounds: </span><span class="si">{</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;bounds&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, visualize the building footprints using a custom style for the fill color and opacity:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;CartoDB.DarkMatter&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">style</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s2">&quot;sources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;example_source&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vector&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;pmtiles://&quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">,</span>
+            <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;PMTiles&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;layers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;buildings&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;example_source&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source-layer&quot;</span><span class="p">:</span> <span class="s2">&quot;building_footprints&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;fill&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;paint&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;fill-color&quot;</span><span class="p">:</span> <span class="s2">&quot;#3388ff&quot;</span><span class="p">,</span> <span class="s2">&quot;fill-opacity&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add_pmtiles</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">overlay</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-overture-maps-data">
+<h3><span class="section-number">16.10.4. </span>Visualizing Overture Maps Data<a class="headerlink" href="#visualizing-overture-maps-data" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://overturemaps.org">Overture</a> Maps Foundation provides open-source, high-quality basemaps for web mapping applications. You can visualize Overture Maps data using PMTiles archives. The following example demonstrates how to visualize the building footprints layer from the Overture Maps. For more information, visit the <a class="reference external" href="https://docs.overturemaps.org">Overture Maps website</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">release</span> <span class="o">=</span> <span class="s2">&quot;2024-09-18&quot;</span>
+<span class="n">theme</span> <span class="o">=</span> <span class="s2">&quot;buildings&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/</span><span class="si">{</span><span class="n">release</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">theme</span><span class="si">}</span><span class="s2">.pmtiles&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s2">&quot;sources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;example_source&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vector&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;pmtiles://&quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">,</span>
+            <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;PMTiles&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;layers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Building&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;example_source&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;source-layer&quot;</span><span class="p">:</span> <span class="s2">&quot;building&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;fill&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;paint&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;fill-color&quot;</span><span class="p">:</span> <span class="s2">&quot;#ffff00&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;fill-opacity&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+                <span class="s2">&quot;fill-outline-color&quot;</span><span class="p">:</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">47.65350739</span><span class="p">,</span> <span class="o">-</span><span class="mf">117.59664999</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Satellite&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_pmtiles</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-raster-data">
+<h2><span class="section-number">16.11. </span>Visualizing Raster Data<a class="headerlink" href="#visualizing-raster-data" title="Link to this heading">#</a></h2>
+<p>Leafmap supports various raster data formats, including GeoTIFF, Cloud Optimized GeoTIFF (COG), SpatioTemporal Asset Catalog (STAC), and others. This section demonstrates how to visualize raster data using Leafmap.</p>
+<section id="visualizing-cloud-optimized-geotiffs-cogs">
+<h3><span class="section-number">16.11.1. </span>Visualizing Cloud Optimized GeoTIFFs (COGs)<a class="headerlink" href="#visualizing-cloud-optimized-geotiffs-cogs" title="Link to this heading">#</a></h3>
+<p>A Cloud Optimized GeoTIFF (<a class="reference external" href="https://cogeo.org/">COG</a>) is a regular GeoTIFF file, aimed at being hosted on a HTTP file server, with an internal organization that enables more efficient workflows on the cloud. It does this by leveraging the ability of clients issuing ​HTTP GET range requests to ask for just the parts of a file they need.</p>
+<section id="adding-a-cloud-optimized-geotiff-cog">
+<h4><span class="section-number">16.11.1.1. </span>Adding a Cloud Optimized GeoTIFF (COG)<a class="headerlink" href="#adding-a-cloud-optimized-geotiff-cog" title="Link to this heading">#</a></h4>
+<p>You can load remote COGs directly from a URL. In this example, we load pre-event imagery of the 2020 California fire:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">39.494897</span><span class="p">,</span> <span class="o">-</span><span class="mf">108.507278</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://opendata.digitalglobe.com/events/california-fire-2020/pre-event/2018-02-16/pine-gulch-fire20/1030010076004E00.tif&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_cog_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Fire (pre-event)&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">add_cog_layer()</span></code> method uses the <a class="reference external" href="https://developmentseed.org/titiler">TiTiler</a> demo endpoint (<a class="reference external" href="https://titiler.xyz">https://titiler.xyz</a>) to serve COGs as map tiles. The method also supports custom styling and visualization parameters. Please refer to the <a class="reference external" href="https://developmentseed.org/titiler/endpoints/cog/#api">TiTiler documentation</a> for more information.</p>
+<p>Please note that the <code class="docutils literal notranslate"><span class="pre">add_cog_layer()</span></code> method requires an internet connection to fetch the COG tiles from the TiTiler endpoint. If you need to work offline, you can download the COG and load it as a local GeoTIFF file using the <code class="docutils literal notranslate"><span class="pre">add_raster()</span></code> method covered in the next section.</p>
+<p>To show the image metadata, use the <code class="docutils literal notranslate"><span class="pre">cog_info()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">cog_info</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To check the available bands, use the <code class="docutils literal notranslate"><span class="pre">cog_bands()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">cog_bands</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To get the band statistics, use the <code class="docutils literal notranslate"><span class="pre">cog_stats()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">cog_stats</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="c1"># stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-multiple-cogs">
+<h4><span class="section-number">16.11.1.2. </span>Adding Multiple COGs<a class="headerlink" href="#adding-multiple-cogs" title="Link to this heading">#</a></h4>
+<p>You can visualize and compare multiple COGs by adding them to the same map. Below, we add post-event imagery to the map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://opendata.digitalglobe.com/events/california-fire-2020/post-event/2020-08-14/pine-gulch-fire20/10300100AAC8DD00.tif&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_cog_layer</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Fire (post-event)&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-a-split-map-for-comparison">
+<h4><span class="section-number">16.11.1.3. </span>Creating a Split Map for Comparison<a class="headerlink" href="#creating-a-split-map-for-comparison" title="Link to this heading">#</a></h4>
+<p>Leafmap also provides a convenient way to compare two COGs side by side using a split map. In this example, we create a map comparing pre-event and post-event fire imagery:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">39.494897</span><span class="p">,</span> <span class="o">-</span><span class="mf">108.507278</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">split_map</span><span class="p">(</span>
+    <span class="n">left_layer</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">right_layer</span><span class="o">=</span><span class="n">url2</span><span class="p">,</span> <span class="n">left_label</span><span class="o">=</span><span class="s2">&quot;Pre-event&quot;</span><span class="p">,</span> <span class="n">right_label</span><span class="o">=</span><span class="s2">&quot;Post-event&quot;</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is another example comparing two COGs using a split map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">47.653149</span><span class="p">,</span> <span class="o">-</span><span class="mf">117.59825</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Satellite&quot;</span><span class="p">)</span>
+<span class="n">image1</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/places/wa_building_image.tif&quot;</span>
+<span class="n">image2</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/places/wa_building_masks.tif&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">split_map</span><span class="p">(</span>
+    <span class="n">image2</span><span class="p">,</span>
+    <span class="n">image1</span><span class="p">,</span>
+    <span class="n">left_label</span><span class="o">=</span><span class="s2">&quot;Building Masks&quot;</span><span class="p">,</span>
+    <span class="n">right_label</span><span class="o">=</span><span class="s2">&quot;Aerial Imagery&quot;</span><span class="p">,</span>
+    <span class="n">left_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;colormap_name&quot;</span><span class="p">:</span> <span class="s2">&quot;tab20&quot;</span><span class="p">,</span> <span class="s2">&quot;nodata&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-a-custom-colormap">
+<h4><span class="section-number">16.11.1.4. </span>Using a Custom Colormap<a class="headerlink" href="#using-a-custom-colormap" title="Link to this heading">#</a></h4>
+<p>You can apply a custom colormap to raster data for better visualization. The example below shows how to visualize the <a class="reference external" href="https://www.mrlc.gov/data/nlcd-2021-land-cover-conus">US National Land Cover Database (NLCD)</a> data with a custom colormap:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/nlcd_2021_land_cover_30m.tif&quot;</span>
+<span class="n">colormap</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;11&quot;</span><span class="p">:</span> <span class="s2">&quot;#466b9f&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;12&quot;</span><span class="p">:</span> <span class="s2">&quot;#d1def8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;21&quot;</span><span class="p">:</span> <span class="s2">&quot;#dec5c5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;22&quot;</span><span class="p">:</span> <span class="s2">&quot;#d99282&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;23&quot;</span><span class="p">:</span> <span class="s2">&quot;#eb0000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;24&quot;</span><span class="p">:</span> <span class="s2">&quot;#ab0000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;31&quot;</span><span class="p">:</span> <span class="s2">&quot;#b3ac9f&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;41&quot;</span><span class="p">:</span> <span class="s2">&quot;#68ab5f&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;42&quot;</span><span class="p">:</span> <span class="s2">&quot;#1c5f2c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;43&quot;</span><span class="p">:</span> <span class="s2">&quot;#b5c58f&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;51&quot;</span><span class="p">:</span> <span class="s2">&quot;#af963c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;52&quot;</span><span class="p">:</span> <span class="s2">&quot;#ccb879&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;71&quot;</span><span class="p">:</span> <span class="s2">&quot;#dfdfc2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;72&quot;</span><span class="p">:</span> <span class="s2">&quot;#d1d182&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;73&quot;</span><span class="p">:</span> <span class="s2">&quot;#a3cc51&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;74&quot;</span><span class="p">:</span> <span class="s2">&quot;#82ba9e&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;81&quot;</span><span class="p">:</span> <span class="s2">&quot;#dcd939&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;82&quot;</span><span class="p">:</span> <span class="s2">&quot;#ab6c28&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;#b8d9eb&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;95&quot;</span><span class="p">:</span> <span class="s2">&quot;#6c9fb8&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;650px&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Satellite&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_cog_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;NLCD Land Cover&quot;</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;NLCD Land Cover Type&quot;</span><span class="p">,</span> <span class="n">builtin_legend</span><span class="o">=</span><span class="s2">&quot;NLCD&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer_manager</span><span class="p">()</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-local-raster-datasets">
+<h3><span class="section-number">16.11.2. </span>Visualizing Local Raster Datasets<a class="headerlink" href="#visualizing-local-raster-datasets" title="Link to this heading">#</a></h3>
+<p>Leafmap supports visualizing local GeoTIFF datasets as well. In this example, we download a sample Digital Elevation Model (DEM) dataset and visualize it.</p>
+<section id="downloading-and-visualizing-a-local-raster">
+<h4><span class="section-number">16.11.2.1. </span>Downloading and Visualizing a Local Raster<a class="headerlink" href="#downloading-and-visualizing-a-local-raster" title="Link to this heading">#</a></h4>
+<p>Start by downloading a sample DEM GeoTIFF file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dem_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem_90m.tif&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;dem_90m.tif&quot;</span>
+<span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">dem_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, visualize the raster using the <code class="docutils literal notranslate"><span class="pre">add_raster()</span></code> method with a “terrain” colormap to highlight elevation differences:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also check the minimum and maximum values of the raster:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leafmap</span><span class="o">.</span><span class="n">image_min_max</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Optionally, add a colormap legend to indicate the range of elevation values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_colormap</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4338</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Elevation (m)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Keep in mind that the <code class="docutils literal notranslate"><span class="pre">add_raster()</span></code> method works for both local and remote GeoTIFF files. You can use it to visualize COGs available online or local GeoTIFF files stored on your computer. The example below demonstrates how to visualize the same COG from the previous section as a remote file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">dem_url</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use a custom colormap to visualize the COG by providing a list of colors as the <code class="docutils literal notranslate"><span class="pre">colormap</span></code> parameter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">dem_url</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">],</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-a-multi-band-raster">
+<h4><span class="section-number">16.11.2.2. </span>Visualizing a Multi-Band Raster<a class="headerlink" href="#visualizing-a-multi-band-raster" title="Link to this heading">#</a></h4>
+<p>Multi-band rasters, such as satellite images, can also be visualized. The following example loads a multi-band Landsat image and displays it as an RGB composite:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/cog.tif&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;cog.tif&quot;</span>
+<span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">landsat_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;RGB&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inspecting-pixel-values">
+<h4><span class="section-number">16.11.2.3. </span>Inspecting Pixel Values<a class="headerlink" href="#inspecting-pixel-values" title="Link to this heading">#</a></h4>
+<p>To inspect pixel values interactively, use the <code class="docutils literal notranslate"><span class="pre">m.add(&quot;inspector&quot;)</span></code> method to add an inspector control to the map. The inspector control displays pixel values when you click on the map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">53.407089</span><span class="p">,</span> <span class="mf">6.875480</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;RGB&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;inspector&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-spatiotemporal-asset-catalog-stac-data">
+<h3><span class="section-number">16.11.3. </span>Visualizing SpatioTemporal Asset Catalog (STAC) Data<a class="headerlink" href="#visualizing-spatiotemporal-asset-catalog-stac-data" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://stacspec.org">STAC specification</a> provides a standardized way to describe geospatial information, enabling easier discovery and use. In this section, we will visualize STAC data using Leafmap.</p>
+<section id="exploring-stac-bands">
+<h4><span class="section-number">16.11.3.1. </span>Exploring STAC Bands<a class="headerlink" href="#exploring-stac-bands" title="Link to this heading">#</a></h4>
+<p>To begin, retrieve the available bands for a STAC item. This example uses the <a class="reference external" href="https://stacindex.org/catalogs/spot-orthoimages-canada-2005">SPOT Orthoimages of Canada</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://canada-spot-ortho.s3.amazonaws.com/canada_spot_orthoimages/canada_spot5_orthoimages/S5_2007/S5_11055_6057_20070622/S5_11055_6057_20070622.json&quot;</span>
+<span class="n">leafmap</span><span class="o">.</span><span class="n">stac_bands</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-stac-layers-to-the-map">
+<h4><span class="section-number">16.11.3.2. </span>Adding STAC Layers to the Map<a class="headerlink" href="#adding-stac-layers-to-the-map" title="Link to this heading">#</a></h4>
+<p>Once you have explored the available bands, you can add them to your map. In this example, we visualize both the panchromatic band and false-color composite of the SPOT Orthoimage:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">60.95410</span><span class="p">,</span> <span class="o">-</span><span class="mf">110.90184</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_stac_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pan&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Panchromatic&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_stac_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;B3&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;False color&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-a-custom-stac-catalog">
+<h4><span class="section-number">16.11.3.3. </span>Using a Custom STAC Catalog<a class="headerlink" href="#using-a-custom-stac-catalog" title="Link to this heading">#</a></h4>
+<p>You can integrate custom STAC API endpoints into your map. Simply provide a dictionary of STAC endpoints, where the keys are names and the values are the API URLs. This example demonstrates how to add custom STAC catalogs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">catalogs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Element84 Earth Search&quot;</span><span class="p">:</span> <span class="s2">&quot;https://earth-search.aws.element84.com/v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Microsoft Planetary Computer&quot;</span><span class="p">:</span> <span class="s2">&quot;https://planetarycomputer.microsoft.com/api/stac/v1&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After setting up the catalog source, you can search and display items from the selected STAC collections using a GUI:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set_catalog_source</span><span class="p">(</span><span class="n">catalogs</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_stac_gui</span><span class="p">()</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the catalog panel is open, you can search for items from the custom STAC API endpoints. Simply draw a bounding box on the map or zoom to a location of interest. Click on the <strong>Collections</strong> button to retrieve the collections from the custom STAC API endpoints. Next, select a collection from the dropdown menu. Then, click on the <strong>Items</strong> button to retrieve the items from the selected collection. Finally, click on the <strong>Display</strong> button to add the selected item to the map.</p>
+<p><img alt="" src="https://i.imgur.com/M8IbRsM.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># m.stac_gdf  # The GeoDataFrame of the STAC search results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># m.stac_dict  # The STAC search results as a dictionary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># m.stac_item  # The selected STAC item of the search result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="aws-s3-integration">
+<h3><span class="section-number">16.11.4. </span>AWS S3 Integration<a class="headerlink" href="#aws-s3-integration" title="Link to this heading">#</a></h3>
+<p>Leafmap allows you to visualize raster datasets stored in AWS S3. In this example, we work with datasets from <a class="reference external" href="https://registry.opendata.aws/maxar-open-data/">Maxar Open Data Program on AWS</a>.</p>
+<section id="accessing-datasets-in-an-s3-bucket">
+<h4><span class="section-number">16.11.4.1. </span>Accessing Datasets in an S3 Bucket<a class="headerlink" href="#accessing-datasets-in-an-s3-bucket" title="Link to this heading">#</a></h4>
+<p>To list and access datasets stored in S3, you need to set up AWS credentials as environment variables. Uncomment the following lines and provide your credentials:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># os.environ[&quot;AWS_ACCESS_KEY_ID&quot;] = &quot;YOUR AWS ACCESS ID HERE&quot;</span>
+<span class="c1"># os.environ[&quot;AWS_SECRET_ACCESS_KEY&quot;] = &quot;YOUR AWS ACCESS KEY HERE&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the credentials are set, list the datasets in the bucket:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BUCKET</span> <span class="o">=</span> <span class="s2">&quot;maxar-opendata&quot;</span>
+<span class="n">FOLDER</span> <span class="o">=</span> <span class="s2">&quot;events/Kahramanmaras-turkey-earthquake-23/&quot;</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">s3_list_objects</span><span class="p">(</span><span class="n">BUCKET</span><span class="p">,</span> <span class="n">FOLDER</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;.tif&quot;</span><span class="p">)</span>
+<span class="n">items</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-a-raster-dataset-from-s3">
+<h4><span class="section-number">16.11.4.2. </span>Visualizing a Raster Dataset from S3<a class="headerlink" href="#visualizing-a-raster-dataset-from-s3" title="Link to this heading">#</a></h4>
+<p>Finally, visualize a raster dataset from the S3 bucket by adding it to the map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">37.045802</span><span class="p">,</span> <span class="mf">35.333319</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_cog_layer</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Maxar&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://i.imgur.com/NkTZ6Lj.png" /></p>
+<p>Some S3 buckets may require additional permissions to access the data. For example, for requester pays buckets, you need to set the environment variable <code class="docutils literal notranslate"><span class="pre">AWS_REQUEST_PAYER</span></code> to <code class="docutils literal notranslate"><span class="pre">requester</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;AWS_REQUEST_PAYER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;requester&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The example below shows how to visualize a <a class="reference external" href="https://registry.opendata.aws/naip/">NAIP imagery</a> from a requester pays bucket:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">34.979166</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.920496</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;Satellite&quot;</span><span class="p">)</span>
+<span class="n">src</span> <span class="o">=</span> <span class="s2">&quot;s3://naip-analytic/tn/2021/60cm/rgbir_cog/34084/m_3408401_ne_16_060_20210404.tif&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;NAIP&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">16.12. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-creating-an-interactive-map">
+<h3><span class="section-number">16.12.1. </span>Exercise 1: Creating an Interactive Map<a class="headerlink" href="#exercise-1-creating-an-interactive-map" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Create an interactive map with search functionality that allows users to search for places and zoom to them. Disable the draw control on the map.</p></li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/b930fb63-3bd1-4d7e-9bf8-87e6d398e5c3" /></p>
+</section>
+<section id="exercise-2-adding-xyz-and-wms-tile-layers">
+<h3><span class="section-number">16.12.2. </span>Exercise 2: Adding XYZ and WMS Tile Layers<a class="headerlink" href="#exercise-2-adding-xyz-and-wms-tile-layers" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Add a custom XYZ tile layer (<a class="reference external" href="https://apps.nationalmap.gov/services">USGS Topographic basemap</a>) using the following URL:</p>
+<ul class="simple">
+<li><p>URL: <code class="docutils literal notranslate"><span class="pre">https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}</span></code></p></li>
+</ul>
+</li>
+<li><p>Add two WMS layers to visualize NAIP imagery and NDVI using a USGS WMS service.</p>
+<ul class="simple">
+<li><p>URL: <code class="docutils literal notranslate"><span class="pre">https://imagery.nationalmap.gov/arcgis/services/USGSNAIPImagery/ImageServer/WMSServer?</span></code></p></li>
+<li><p>Layer names: <code class="docutils literal notranslate"><span class="pre">USGSNAIPImagery:FalseColorComposite</span></code>, <code class="docutils literal notranslate"><span class="pre">USGSNAIPImagery:NDVI_Color</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/28dd8511-a0ac-4b44-ab02-9ed791817043" /></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/719c1e07-f955-42d6-985c-b5842c9eac4c" /></p>
+</section>
+<section id="exercise-3-adding-map-legends">
+<h3><span class="section-number">16.12.3. </span>Exercise 3: Adding Map Legends<a class="headerlink" href="#exercise-3-adding-map-legends" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Add the <a class="reference external" href="https://esa-worldcover.org/en">ESA World Cover</a> WMS tile layer to the map.</p>
+<ul class="simple">
+<li><p>URL: <code class="docutils literal notranslate"><span class="pre">https://services.terrascope.be/wms/v2?</span></code></p></li>
+<li><p>Layer name: <code class="docutils literal notranslate"><span class="pre">WORLDCOVER_2021_MAP</span></code></p></li>
+</ul>
+</li>
+<li><p>Add a legend to the map using the leafmap built-in <code class="docutils literal notranslate"><span class="pre">ESA_WorldCover</span></code> legend.</p></li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/be5a9b07-4f6c-4245-9737-31db2df14f7f" /></p>
+</section>
+<section id="exercise-4-creating-marker-clusters">
+<h3><span class="section-number">16.12.4. </span>Exercise 4: Creating Marker Clusters<a class="headerlink" href="#exercise-4-creating-marker-clusters" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Create a marker cluster visualization from a GeoJSON file of building centroids:</p>
+<ul class="simple">
+<li><p>URL: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/places/wa_building_centroids.geojson">opengeos/datasets</a></p></li>
+<li><p>Hint: Read the GeoJSON file using GeoPandas and add “latitude” and “longitude” columns to the GeoDataFrame.</p></li>
+</ul>
+</li>
+<li><p>Create circle markers for each building centroid using the <code class="docutils literal notranslate"><span class="pre">Map.add_circle_markers_from_xy()</span></code> method with the following styling:</p>
+<ul class="simple">
+<li><p>Radius: 5</p></li>
+<li><p>Outline color: “red”</p></li>
+<li><p>Fill color: “yellow”</p></li>
+<li><p>Fill opacity: 0.8</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/d60cbfc7-b8c9-4cab-8852-bc34e82fd665" /></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/637e00ae-89af-495e-84b4-e668e16cce88" /></p>
+</section>
+<section id="exercise-5-visualizing-vector-data">
+<h3><span class="section-number">16.12.5. </span>Exercise 5: Visualizing Vector Data<a class="headerlink" href="#exercise-5-visualizing-vector-data" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Visualize the building polygons GeoJSON file and style it with:</p>
+<ul class="simple">
+<li><p>Outline color: “red”</p></li>
+<li><p>No fill color</p></li>
+<li><p>URL: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/places/wa_overture_buildings.geojson">opengeos/datasets</a></p></li>
+</ul>
+</li>
+<li><p>Visualize the road polylines GeoJSON file and style it with:</p>
+<ul class="simple">
+<li><p>Line color: “red”</p></li>
+<li><p>Line width: 2</p></li>
+<li><p>URL: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/places/las_vegas_roads.geojson">opengeos/datasets</a></p></li>
+</ul>
+</li>
+<li><p>Create a choropleth map of county areas in the US:</p>
+<ul class="simple">
+<li><p>URL: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/us/us_counties.geojson">opengeos/datasets</a></p></li>
+<li><p>Column: <code class="docutils literal notranslate"><span class="pre">CENSUSAREA</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/069eb704-c409-44ee-af9e-7582d1ab23a5" /></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/f28d19a6-4f60-484c-b2f7-c1ecce7ecb26" /></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/3aa9f54f-64d7-4788-89f1-f3ab88c1aa2e" /></p>
+</section>
+<section id="exercise-6-visualizing-geoparquet-data">
+<h3><span class="section-number">16.12.6. </span>Exercise 6: Visualizing GeoParquet Data<a class="headerlink" href="#exercise-6-visualizing-geoparquet-data" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Visualize GeoParquet data of US states:</p>
+<ul class="simple">
+<li><p>URL: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/us/us_states.parquet">opengeos/datasets</a></p></li>
+<li><p>Style: Outline color of “red” with no fill.</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/b6d9ec09-035b-4df7-8ab7-a7b4588f1e71" /></p>
+</section>
+<section id="exercise-7-visualizing-pmtiles">
+<h3><span class="section-number">16.12.7. </span>Exercise 7: Visualizing PMTiles<a class="headerlink" href="#exercise-7-visualizing-pmtiles" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Visualize the Overture Maps building dataset using PMTiles:</p>
+<ul class="simple">
+<li><p>URL: <a class="reference external" href="https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/2024-09-18/buildings.pmtiles">https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/2024-09-18/buildings.pmtiles</a></p></li>
+<li><p>Style: Blue fill with 0.4 opacity, red outline.</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/4ee08461-c962-4c37-8979-7105f588842a" /></p>
+</section>
+<section id="exercise-8-visualizing-cloud-optimized-geotiffs-cogs">
+<h3><span class="section-number">16.12.8. </span>Exercise 8: Visualizing Cloud Optimized GeoTIFFs (COGs)<a class="headerlink" href="#exercise-8-visualizing-cloud-optimized-geotiffs-cogs" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Visualize Digital Elevation Model (DEM) data using the following COG file:</p>
+<ul class="simple">
+<li><p>URL: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/raster/dem.tif">opengeos/datasets</a></p></li>
+<li><p>Apply a terrain colormap to show elevation values.</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/21e1f7dd-466e-4880-94a5-0365bf1495dc" /></p>
+</section>
+<section id="exercise-9-visualizing-local-raster-data">
+<h3><span class="section-number">16.12.9. </span>Exercise 9: Visualizing Local Raster Data<a class="headerlink" href="#exercise-9-visualizing-local-raster-data" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Visualize the following raster datasets using the Map.add_raster() method:</p>
+<ul class="simple">
+<li><p>Aerial Imagery: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/places/wa_building_image.tif">opengeos/datasets</a></p></li>
+<li><p>Building Footprints: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/places/wa_building_masks.tif">opengeos/datasets</a> (use the “tab20” colormap and opacity of 0.7)</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/faf7c345-6a3f-4ca0-8eca-7417e6568867" /></p>
+</section>
+<section id="exercise-10-creating-a-split-map">
+<h3><span class="section-number">16.12.10. </span>Exercise 10: Creating a Split Map<a class="headerlink" href="#exercise-10-creating-a-split-map" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Create a split map to compare imagery of Libya before and after the 2023 flood event:</p>
+<ul class="simple">
+<li><p>Pre-event imagery: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/raster/Libya-2023-07-01.tif">opengeos/datasets</a></p></li>
+<li><p>Post-event imagery: <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/raster/Libya-2023-09-13.tif">opengeos/datasets</a></p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/8cab4f1c-2dba-4652-a644-3ce6be4bbbd2" /></p>
+</section>
+</section>
+<section id="summary">
+<h2><span class="section-number">16.13. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>This chapter has introduced <strong>Leafmap</strong>, a versatile Python library for creating, managing, and analyzing interactive geospatial maps. It covers essential tools for GIS programming, allowing for streamlined workflows in handling spatial data. Leafmap’s integration with Jupyter environments enables users to visualize and analyze geospatial data with minimal code.</p>
+<p>Key takeaways from this chapter include:</p>
+<ol class="arabic simple">
+<li><p><strong>Setting Up Leafmap</strong>: Instructions for installing and importing Leafmap, alongside switching between supported plotting backends.</p></li>
+<li><p><strong>Interactive Map Customization</strong>: Techniques to create and customize maps, add various basemaps, and control map elements like zoom, scale, and toolbar settings.</p></li>
+<li><p><strong>Data Layer Management</strong>: Methods for adding/removing layers, customizing basemaps, and incorporating layers like WMS and XYZ tiles for expanded data visualization.</p></li>
+<li><p><strong>Vector and Raster Data Visualization</strong>: Examples on adding vector data (points, lines, polygons) from formats like GeoJSON and GeoParquet and visualizing raster formats like GeoTIFF, COG, and STAC.</p></li>
+<li><p><strong>Advanced Data Interactions</strong>: How to use specialized formats and datasets, such as PMTiles, Open Buildings data, and STAC API catalogs, and AWS S3 data integration for remote geospatial data.</p></li>
+</ol>
+<p>This chapter provides the foundational knowledge to effectively use Leafmap in GIS projects, making it an invaluable tool for visualizing and analyzing diverse geospatial datasets within Python.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "giswqs/geog-510",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/geospatial"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ipywidgets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Ipywidgets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="geemap.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Geemap</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">16.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">16.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-leafmap">16.3. Install leafmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">16.4. Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-interactive-maps">16.5. Creating interactive maps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-map">16.5.1. Customizing the Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-or-removing-controls">16.5.2. Adding or Removing Controls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-layers">16.5.3. Working with Layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearing-controls-and-layers">16.5.4. Clearing Controls and Layers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-basemaps">16.6. Changing Basemaps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-xyz-tile-layer">16.6.1. Adding an XYZ Tile Layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-wms-tile-layer">16.6.2. Adding a WMS Tile Layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-legend-to-a-map">16.6.3. Adding a Legend to a Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-colorbar-to-visualize-data">16.6.4. Adding a Colorbar to Visualize Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-vector-data">16.7. Visualizing Vector Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-marker">16.7.1. Adding a Marker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-markers">16.7.2. Adding Multiple Markers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-marker-clusters">16.7.3. Adding Marker Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-markers">16.7.4. Customizing Markers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-polylines">16.7.5. Visualizing Polylines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-polyline-styles">16.7.5.1. Customizing Polyline Styles</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-polygons">16.7.6. Visualizing Polygons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-geopandas-geodataframes">16.7.7. Visualizing GeoPandas GeoDataFrames</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-choropleth-maps">16.8. Creating Choropleth Maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-geoparquet-data">16.9. Visualizing GeoParquet Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-and-visualizing-point-data">16.9.1. Loading and Visualizing Point Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-polygon-data">16.9.2. Visualizing Polygon Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-pmtiles">16.10. Visualizing PMTiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-metadata-from-pmtiles">16.10.1. Retrieving Metadata from PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-pmtiles-data">16.10.2. Visualizing PMTiles Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-open-buildings-data-with-pmtiles">16.10.3. Visualizing Open Buildings Data with PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-overture-maps-data">16.10.4. Visualizing Overture Maps Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-raster-data">16.11. Visualizing Raster Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-cloud-optimized-geotiffs-cogs">16.11.1. Visualizing Cloud Optimized GeoTIFFs (COGs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-cloud-optimized-geotiff-cog">16.11.1.1. Adding a Cloud Optimized GeoTIFF (COG)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-cogs">16.11.1.2. Adding Multiple COGs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-split-map-for-comparison">16.11.1.3. Creating a Split Map for Comparison</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-custom-colormap">16.11.1.4. Using a Custom Colormap</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-local-raster-datasets">16.11.2. Visualizing Local Raster Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-visualizing-a-local-raster">16.11.2.1. Downloading and Visualizing a Local Raster</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-a-multi-band-raster">16.11.2.2. Visualizing a Multi-Band Raster</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-pixel-values">16.11.2.3. Inspecting Pixel Values</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-spatiotemporal-asset-catalog-stac-data">16.11.3. Visualizing SpatioTemporal Asset Catalog (STAC) Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-stac-bands">16.11.3.1. Exploring STAC Bands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-stac-layers-to-the-map">16.11.3.2. Adding STAC Layers to the Map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-custom-stac-catalog">16.11.3.3. Using a Custom STAC Catalog</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-s3-integration">16.11.4. AWS S3 Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-datasets-in-an-s3-bucket">16.11.4.1. Accessing Datasets in an S3 Bucket</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-a-raster-dataset-from-s3">16.11.4.2. Visualizing a Raster Dataset from S3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">16.12. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-creating-an-interactive-map">16.12.1. Exercise 1: Creating an Interactive Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-adding-xyz-and-wms-tile-layers">16.12.2. Exercise 2: Adding XYZ and WMS Tile Layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-adding-map-legends">16.12.3. Exercise 3: Adding Map Legends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-creating-marker-clusters">16.12.4. Exercise 4: Creating Marker Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-visualizing-vector-data">16.12.5. Exercise 5: Visualizing Vector Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-visualizing-geoparquet-data">16.12.6. Exercise 6: Visualizing GeoParquet Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-visualizing-pmtiles">16.12.7. Exercise 7: Visualizing PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-visualizing-cloud-optimized-geotiffs-cogs">16.12.8. Exercise 8: Visualizing Cloud Optimized GeoTIFFs (COGs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-visualizing-local-raster-data">16.12.9. Exercise 9: Visualizing Local Raster Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-creating-a-split-map">16.12.10. Exercise 10: Creating a Split Map</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">16.13. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
