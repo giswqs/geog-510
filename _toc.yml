@@ -42,6 +42,21 @@ parts:
     maxdepth: 2
     chapters:
       - file: book/geospatial/get_started
+      - file: book/geospatial/geopandas
+      - file: book/geospatial/folium
+      - file: book/geospatial/ipyleaflet
+      - file: book/geospatial/rasterio
+      - file: book/geospatial/localtileserver
+      - file: book/geospatial/ipywidgets
+      - file: book/geospatial/streamlit
+      - file: book/geospatial/solara
+      - file: book/geospatial/leafmap
+      - file: book/geospatial/geemap
+      - file: book/geospatial/geemap
+      - file: book/geospatial/whitebox
+      - file: book/geospatial/xarray
+      - file: book/geospatial/rioxarray
+
   - caption: Labs
     numbered: false
     maxdepth: 2
