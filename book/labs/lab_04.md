@@ -155,7 +155,7 @@ Imagine you have a list of tuples, each representing a location with its name, l
 locations = [
     ("Mount Everest", 27.9881, 86.9250),
     ("K2", 35.8808, 76.5155),
-    ("Kangchenjunga", 27.7025, 88.1475)
+    ("Kangchenjunga", 27.7025, 88.1475),
 ]
 ```
 
@@ -268,3 +268,7 @@ Perform the following tasks:
 ```{code-cell} ipython3
 
 ```
+
+## Submission Requirements
+
+Complete the exercises above and and upload the notebook to your GitHub repository. Make sure the notebook has a Colab badge at the top so that it can be easily opened in Google Colab. Submit the URL of the notebook to Canvas.
