@@ -147,5 +147,3 @@ This exercise requires you to combine the power of NumPy, Pandas, and GeoPandas 
 ## Submission Requirements
 
 Complete the exercises above and and upload the notebook to your GitHub repository. Make sure the notebook has a Colab badge at the top so that it can be easily opened in Google Colab. Submit the URL of the notebook to Canvas.
-
-
