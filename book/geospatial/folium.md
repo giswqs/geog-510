@@ -6,7 +6,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.16.7
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: geo
   language: python
   name: python3
 ---
@@ -42,7 +42,9 @@ import folium
 A Folium map is centered on a specific latitude and longitude.
 
 ```{code-cell} ipython3
-m = folium.Map(location=[37.7749, -122.4194], zoom_start=10)
+m = folium.Map(
+    location=[37.7749, -122.4194], zoom_start=10, tiles="CartoDB dark matter"
+)
 m.save("map.html")  # Save map as an HTML file
 m  # Display the map in Jupyter Notebook
 ```
@@ -50,7 +52,7 @@ m  # Display the map in Jupyter Notebook
 ### Map Parameters
 - `location`: Center of the map (latitude, longitude).
 - `zoom_start`: Initial zoom level.
-- `tiles`: The map style (default: `"OpenStreetMap"`).
+- `tiles`: The map style (default: `"OpenStreetMap"`). Try other styles like `Esri.WorldImagery`, `CartoDB positron`, or `CartoDB dark_matter`.
 
 ## 3. Adding Markers and Popups
 Folium allows adding markers to highlight specific locations.
@@ -69,13 +71,12 @@ m
 ```
 
 ## 4. Adding GeoJSON and Choropleth Layers
-Folium supports **GeoJSON** and **Choropleth** layers for visualizing geographic data.
+
+Folium supports **GeoJSON** and **Choropleth** layers for visualizing geographic data. You can create GeoJSON data using the [geojson.io](https://geojson.io/) website or any other tool.
 
 ### Adding a GeoJSON Layer
 
 ```{code-cell} ipython3
-import json
-
 geojson_data = {
     "type": "FeatureCollection",
     "features": [
@@ -92,26 +93,72 @@ folium.GeoJson(geojson_data, name="GeoJSON Layer").add_to(m)
 m
 ```
 
+```{code-cell} ipython3
+geojson_data = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "coordinates": [
+                    [
+                        [-122.44429382986985, 37.81964485838134],
+                        [-122.53122643397364, 37.788427732684966],
+                        [-122.50990691298375, 37.68952854933407],
+                        [-122.49092010922561, 37.64775768422055],
+                        [-122.35255325612343, 37.648179496058006],
+                        [-122.33880916574914, 37.720239370115394],
+                        [-122.36423573112428, 37.786798465627456],
+                        [-122.39984452556665, 37.8209585063379],
+                        [-122.44429382986985, 37.81964485838134],
+                    ]
+                ],
+                "type": "Polygon",
+            },
+        }
+    ],
+}
+
+m = folium.Map(location=[37.7749, -122.4194], zoom_start=10)
+folium.GeoJson(geojson_data, name="GeoJSON Layer").add_to(m)
+m
+```
+
 ### Creating a Choropleth Map
 
 ```{code-cell} ipython3
-import pandas as pd
+import requests
 
-# Sample data: FIPS codes and values
-data = pd.DataFrame(
-    {"FIPS": ["06075"], "Value": [100]}  # San Francisco county FIPS code
+m = folium.Map([43, -100], zoom_start=4)
+
+us_states = requests.get(
+    "https://raw.githubusercontent.com/python-visualization/folium-example-data/main/us_states.json"
+).json()
+
+folium.Choropleth(
+    geo_data=us_states,
+    fill_opacity=0.3,
+    line_weight=2,
+).add_to(m)
+
+m
+```
+
+```{code-cell} ipython3
+import pandas
+
+state_data = pandas.read_csv(
+    "https://raw.githubusercontent.com/python-visualization/folium-example-data/main/us_unemployment_oct_2012.csv"
 )
 
-m = folium.Map(location=[37.7749, -122.4194], zoom_start=6)
+m = folium.Map([43, -100], zoom_start=4)
+
 folium.Choropleth(
-    geo_data="https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json",
-    data=data,
-    columns=["FIPS", "Value"],
+    geo_data=us_states,
+    data=state_data,
+    columns=["State", "Unemployment"],
     key_on="feature.id",
-    fill_color="YlGn",
-    fill_opacity=0.7,
-    line_opacity=0.2,
-    legend_name="Sample Data",
 ).add_to(m)
 
 m
@@ -121,7 +168,7 @@ m
 Folium allows switching between different map tiles:
 
 ```{code-cell} ipython3
-m = folium.Map(location=[37.7749, -122.4194], zoom_start=10)
+m = folium.Map(location=[37.7749, -122.4194], zoom_start=10, tiles="Esri.WorldImagery")
 m
 ```
 
