@@ -575,7 +575,9 @@ document.write(`
 <p>A Folium map is centered on a specific latitude and longitude.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;CartoDB dark matter&quot;</span>
+<span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;map.html&quot;</span><span class="p">)</span>  <span class="c1"># Save map as an HTML file</span>
 <span class="n">m</span>  <span class="c1"># Display the map in Jupyter Notebook</span>
 </pre></div>
@@ -587,7 +589,7 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">location</span></code>: Center of the map (latitude, longitude).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zoom_start</span></code>: Initial zoom level.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tiles</span></code>: The map style (default: <code class="docutils literal notranslate"><span class="pre">&quot;OpenStreetMap&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tiles</span></code>: The map style (default: <code class="docutils literal notranslate"><span class="pre">&quot;OpenStreetMap&quot;</span></code>). Try other styles like <code class="docutils literal notranslate"><span class="pre">Esri.WorldImagery</span></code>, <code class="docutils literal notranslate"><span class="pre">CartoDB</span> <span class="pre">positron</span></code>, or <code class="docutils literal notranslate"><span class="pre">CartoDB</span> <span class="pre">dark_matter</span></code>.</p></li>
 </ul>
 </section>
 </section>
@@ -613,14 +615,12 @@ document.write(`
 </section>
 <section id="adding-geojson-and-choropleth-layers">
 <h2><span class="section-number">11.5. </span>4. Adding GeoJSON and Choropleth Layers<a class="headerlink" href="#adding-geojson-and-choropleth-layers" title="Link to this heading">#</a></h2>
-<p>Folium supports <strong>GeoJSON</strong> and <strong>Choropleth</strong> layers for visualizing geographic data.</p>
+<p>Folium supports <strong>GeoJSON</strong> and <strong>Choropleth</strong> layers for visualizing geographic data. You can create GeoJSON data using the <a class="reference external" href="https://geojson.io/">geojson.io</a> website or any other tool.</p>
 <section id="adding-a-geojson-layer">
 <h3><span class="section-number">11.5.1. </span>Adding a GeoJSON Layer<a class="headerlink" href="#adding-a-geojson-layer" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">geojson_data</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geojson_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
     <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -638,28 +638,80 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geojson_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.44429382986985</span><span class="p">,</span> <span class="mf">37.81964485838134</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.53122643397364</span><span class="p">,</span> <span class="mf">37.788427732684966</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.50990691298375</span><span class="p">,</span> <span class="mf">37.68952854933407</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.49092010922561</span><span class="p">,</span> <span class="mf">37.64775768422055</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.35255325612343</span><span class="p">,</span> <span class="mf">37.648179496058006</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.33880916574914</span><span class="p">,</span> <span class="mf">37.720239370115394</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.36423573112428</span><span class="p">,</span> <span class="mf">37.786798465627456</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.39984452556665</span><span class="p">,</span> <span class="mf">37.8209585063379</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="mf">122.44429382986985</span><span class="p">,</span> <span class="mf">37.81964485838134</span><span class="p">],</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">geojson_data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GeoJSON Layer&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="creating-a-choropleth-map">
 <h3><span class="section-number">11.5.2. </span>Creating a Choropleth Map<a class="headerlink" href="#creating-a-choropleth-map" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="c1"># Sample data: FIPS codes and values</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;FIPS&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;06075&quot;</span><span class="p">],</span> <span class="s2">&quot;Value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">]}</span>  <span class="c1"># San Francisco county FIPS code</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">([</span><span class="mi">43</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">us_states</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/python-visualization/folium-example-data/main/us_states.json&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
+    <span class="n">geo_data</span><span class="o">=</span><span class="n">us_states</span><span class="p">,</span>
+    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">line_weight</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="n">state_data</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/python-visualization/folium-example-data/main/us_unemployment_oct_2012.csv&quot;</span>
 <span class="p">)</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">([</span><span class="mi">43</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
 <span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
-    <span class="n">geo_data</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json&quot;</span><span class="p">,</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;FIPS&quot;</span><span class="p">,</span> <span class="s2">&quot;Value&quot;</span><span class="p">],</span>
+    <span class="n">geo_data</span><span class="o">=</span><span class="n">us_states</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">state_data</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;State&quot;</span><span class="p">,</span> <span class="s2">&quot;Unemployment&quot;</span><span class="p">],</span>
     <span class="n">key_on</span><span class="o">=</span><span class="s2">&quot;feature.id&quot;</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
-    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-    <span class="n">line_opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-    <span class="n">legend_name</span><span class="o">=</span><span class="s2">&quot;Sample Data&quot;</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
 <span class="n">m</span>
@@ -674,7 +726,7 @@ document.write(`
 <p>Folium allows switching between different map tiles:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
 </div>
