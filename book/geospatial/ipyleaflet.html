@@ -523,8 +523,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-choropleth-layer">12.7. 6. Adding a Choropleth Layer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layer-controls">12.8. 7. Adding Layer Controls</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-interactive-widgets">12.9. 8. Adding Interactive Widgets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.10. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">12.11. Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-image-overlay">12.10. 9. Adding an image overlay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-video-overlay">12.11. 10. Adding a video overlay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-wms-layers">12.12. 11. Adding WMS layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.13. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">12.14. Further Reading</a></li>
 </ul>
             </nav>
         </div>
@@ -727,8 +730,130 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="adding-an-image-overlay">
+<h2><span class="section-number">12.10. </span>9. Adding an image overlay<a class="headerlink" href="#adding-an-image-overlay" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">ImageOverlay</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">115</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">ImageOverlay</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://i.imgur.com/06Q1fSz.png&quot;</span><span class="p">,</span>
+    <span class="c1"># url=&#39;../06Q1fSz.png&#39;,</span>
+    <span class="n">bounds</span><span class="o">=</span><span class="p">((</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">130</span><span class="p">),</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)),</span>
+<span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">115</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">ImageOverlay</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://i.gifer.com/4j.gif&quot;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">((</span><span class="mi">13</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">130</span><span class="p">)))</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-video-overlay">
+<h2><span class="section-number">12.11. </span>10. Adding a video overlay<a class="headerlink" href="#adding-a-video-overlay" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">VideoOverlay</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">115</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">video</span> <span class="o">=</span> <span class="n">VideoOverlay</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.mapbox.com/bites/00188/patricia_nasa.webm&quot;</span><span class="p">,</span>
+    <span class="n">bounds</span><span class="o">=</span><span class="p">((</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">130</span><span class="p">),</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)),</span>
+<span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">video</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">37.562984</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.514426</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+
+<span class="n">video</span> <span class="o">=</span> <span class="n">VideoOverlay</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://static-assets.mapbox.com/mapbox-gl-js/drone.mp4&quot;</span><span class="p">,</span>
+    <span class="n">bounds</span><span class="o">=</span><span class="p">((</span><span class="mf">37.56238816</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.515963</span><span class="p">),</span> <span class="p">(</span><span class="mf">37.563391708</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.5130939</span><span class="p">)),</span>
+<span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">video</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-wms-layers">
+<h2><span class="section-number">12.12. </span>11. Adding WMS layers<a class="headerlink" href="#adding-wms-layers" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">WMSLayer</span><span class="p">,</span> <span class="n">basemaps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wms</span> <span class="o">=</span> <span class="n">WMSLayer</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi&quot;</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">=</span><span class="s2">&quot;nexrad-n0r-900913&quot;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+    <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;Weather data © 2012 IEM Nexrad&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="n">basemaps</span><span class="o">.</span><span class="n">CartoDB</span><span class="o">.</span><span class="n">Positron</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">38.491</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.712</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">wms</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://apps.nationalmap.gov/services/">https://apps.nationalmap.gov/services/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wms</span> <span class="o">=</span> <span class="n">WMSLayer</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://imagery.nationalmap.gov/arcgis/services/USGSNAIPPlus/ImageServer/WMSServer?&quot;</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">=</span><span class="s2">&quot;USGSNAIPPlus:NaturalColor&quot;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+    <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;USGS&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="n">basemaps</span><span class="o">.</span><span class="n">CartoDB</span><span class="o">.</span><span class="n">Positron</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">38.491</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.712</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">wms</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="summary">
-<h2><span class="section-number">12.10. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.13. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>ipyleaflet</strong> enables interactive mapping in Jupyter Notebooks.</p></li>
 <li><p>Supports <strong>markers, tile layers, GeoJSON, and choropleth maps</strong>.</p></li>
@@ -737,7 +862,7 @@ document.write(`
 </ul>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">12.11. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.14. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ipyleaflet.readthedocs.io/en/latest/">ipyleaflet Documentation</a></p></li>
 <li><p><a class="reference external" href="https://leafletjs.com/">Leaflet.js Documentation</a></p></li>
@@ -824,8 +949,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-choropleth-layer">12.7. 6. Adding a Choropleth Layer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layer-controls">12.8. 7. Adding Layer Controls</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-interactive-widgets">12.9. 8. Adding Interactive Widgets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.10. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">12.11. Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-image-overlay">12.10. 9. Adding an image overlay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-video-overlay">12.11. 10. Adding a video overlay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-wms-layers">12.12. 11. Adding WMS layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.13. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">12.14. Further Reading</a></li>
 </ul>
   </nav></div>
 
