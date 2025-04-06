@@ -518,13 +518,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-tiles-and-thumbnails">14.4. 3. Retrieving Tiles and Thumbnails</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-with-ipyleaflet">14.5. 4. Integrating with ipyleaflet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-with-folium">14.6. 5. Integrating with Folium</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-tile-rendering">14.7. 6. Customizing Tile Rendering</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serving-remote-raster-data">14.8. 7. Serving Remote Raster Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopping-the-server">14.9. 8. Stopping the Server</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.10. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">14.11. Further Reading</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">14.11.1. Assignment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">14.11.2. Feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.7. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">14.8. Further Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">14.8.1. Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">14.8.2. Feedback</a></li>
 </ul>
 </li>
 </ul>
@@ -580,8 +577,23 @@ document.write(`
 <p>To visualize a GeoTIFF, use the <strong>TileClient</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">TileClient</span><span class="p">(</span><span class="s2">&quot;path/to/geo.tif&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># Prints the local tile service URL</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/raster/dem.tif&quot;</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">TileClient</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_tile_url</span><span class="p">())</span>  <span class="c1"># Prints the local tile service URL</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">default_zoom</span>
 </pre></div>
 </div>
 </div>
@@ -653,42 +665,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="customizing-tile-rendering">
-<h2><span class="section-number">14.7. </span>6. Customizing Tile Rendering<a class="headerlink" href="#customizing-tile-rendering" title="Link to this heading">#</a></h2>
-<p>You can apply colormaps and adjust transparency:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">TileClient</span><span class="p">(</span><span class="s2">&quot;/path/to/your/raster.tif&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Supported colormaps include any <strong>matplotlib colormap</strong>.</p>
-</section>
-<section id="serving-remote-raster-data">
-<h2><span class="section-number">14.8. </span>7. Serving Remote Raster Data<a class="headerlink" href="#serving-remote-raster-data" title="Link to this heading">#</a></h2>
-<p>To serve <strong>Cloud Optimized GeoTIFFs (COGs)</strong>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">TileClient</span><span class="p">(</span><span class="s2">&quot;https://example.com/path/to/cog.tif&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="stopping-the-server">
-<h2><span class="section-number">14.9. </span>8. Stopping the Server<a class="headerlink" href="#stopping-the-server" title="Link to this heading">#</a></h2>
-<p>Once finished, stop the tile server to free up resources:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="summary">
-<h2><span class="section-number">14.10. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.7. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>localtileserver</strong> serves raster data as interactive tile layers.</p></li>
 <li><p>It integrates seamlessly with <strong>folium</strong> and <strong>ipyleaflet</strong>.</p></li>
@@ -697,7 +675,7 @@ document.write(`
 </ul>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">14.11. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.8. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/banesullivan/localtileserver">localtileserver Documentation</a></p></li>
 <li><p><a class="reference external" href="https://python-visualization.github.io/folium/">Folium Documentation</a></p></li>
@@ -705,7 +683,7 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="assignment">
-<h3><span class="section-number">14.11.1. </span>Assignment<a class="headerlink" href="#assignment" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.8.1. </span>Assignment<a class="headerlink" href="#assignment" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Install <strong>localtileserver</strong> and serve a local raster file.</p></li>
 <li><p>Visualize the raster data in both <strong>folium</strong> and <strong>ipyleaflet</strong>.</p></li>
@@ -714,7 +692,7 @@ document.write(`
 </ol>
 </section>
 <section id="feedback">
-<h3><span class="section-number">14.11.2. </span>Feedback<a class="headerlink" href="#feedback" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.8.2. </span>Feedback<a class="headerlink" href="#feedback" title="Link to this heading">#</a></h3>
 <p>If you encounter issues or have feature requests, please open a discussion or issue on the <a class="reference external" href="https://github.com/banesullivan/localtileserver/discussions">localtileserver GitHub page</a>.</p>
 <p>For debugging, generate a system report:</p>
 <div class="cell docutils container">
@@ -804,13 +782,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-tiles-and-thumbnails">14.4. 3. Retrieving Tiles and Thumbnails</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-with-ipyleaflet">14.5. 4. Integrating with ipyleaflet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-with-folium">14.6. 5. Integrating with Folium</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-tile-rendering">14.7. 6. Customizing Tile Rendering</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serving-remote-raster-data">14.8. 7. Serving Remote Raster Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopping-the-server">14.9. 8. Stopping the Server</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.10. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">14.11. Further Reading</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">14.11.1. Assignment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">14.11.2. Feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.7. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">14.8. Further Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">14.8.1. Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">14.8.2. Feedback</a></li>
 </ul>
 </li>
 </ul>

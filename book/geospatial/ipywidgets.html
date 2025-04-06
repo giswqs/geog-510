@@ -560,14 +560,14 @@ document.write(`
 <h2><span class="section-number">15.1. </span>Import libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install geohey</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install geodev</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geohey</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geodev</span>
 </pre></div>
 </div>
 </div>
@@ -577,7 +577,7 @@ document.write(`
 <h2><span class="section-number">15.2. </span>Create an interactive map<a class="headerlink" href="#create-an-interactive-map" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">geohey</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">geodev</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">m</span>
 </pre></div>
 </div>
@@ -586,7 +586,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://opendata.digitalglobe.com/events/mauritius-oil-spill/post-event/2020-08-12/105001001F1B5B00/105001001F1B5B00.tif&quot;</span>
-<span class="c1"># m.add_raster(url, name=&#39;Raster&#39;, fit_bounds=True)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Raster&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -604,7 +604,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raster_layer</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">raster_layer</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">raster_layer</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -628,7 +628,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int_slider</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span>
-    <span class="n">value</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1984</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Year:&quot;</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1984</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2025</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Year:&quot;</span>
 <span class="p">)</span>
 <span class="n">int_slider</span>
 </pre></div>
@@ -996,7 +996,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">geohey</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">geodev</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">m</span>
 </pre></div>
 </div>
@@ -1023,7 +1023,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_widget</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
 <span class="n">logo</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span>
-    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;img src=&quot;https://earthengine.google.com/static/images/earth-engine-logo.png&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;&#39;</span>
+    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;img src=&quot;https://raw.githubusercontent.com/opengeos/leafmap/refs/heads/master/docs/assets/logo.png&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;&#39;</span>
 <span class="p">)</span>
 <span class="k">with</span> <span class="n">output_widget</span><span class="p">:</span>
     <span class="n">display</span><span class="p">(</span><span class="n">logo</span><span class="p">)</span>
@@ -1094,7 +1094,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">geohey</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">geodev</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">m</span>
 </pre></div>
 </div>
@@ -1102,14 +1102,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_widget</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">controls</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">controls</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># m.add_widget(box)</span>
 </pre></div>
 </div>
 </div>
