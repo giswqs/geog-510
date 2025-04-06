@@ -6,7 +6,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.16.7
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: geo
   language: python
   name: python3
 ---
@@ -20,23 +20,23 @@ kernelspec:
 ## Import libraries
 
 ```{code-cell} ipython3
-# !pip install geohey
+# !pip install geodev
 ```
 
 ```{code-cell} ipython3
-import geohey
+import geodev
 ```
 
 ## Create an interactive map
 
 ```{code-cell} ipython3
-m = geohey.Map()
+m = geodev.Map()
 m
 ```
 
 ```{code-cell} ipython3
 url = "https://opendata.digitalglobe.com/events/mauritius-oil-spill/post-event/2020-08-12/105001001F1B5B00/105001001F1B5B00.tif"
-# m.add_raster(url, name='Raster', fit_bounds=True)
+m.add_raster(url, name='Raster')
 ```
 
 ## Change layer opacity
@@ -47,7 +47,7 @@ m.layers
 
 ```{code-cell} ipython3
 raster_layer = m.layers[-1]
-raster_layer.interact(opacity=(0, 1, 0.1))
+raster_layer.interact(opacity=(0, 1, 0.01))
 ```
 
 ## Widget list
@@ -66,7 +66,7 @@ import ipywidgets as widgets
 
 ```{code-cell} ipython3
 int_slider = widgets.IntSlider(
-    value=2000, min=1984, max=2020, step=1, description="Year:"
+    value=2000, min=1984, max=2025, step=1, description="Year:"
 )
 int_slider
 ```
@@ -316,11 +316,7 @@ from ipyleaflet import WidgetControl
 ```
 
 ```{code-cell} ipython3
-
-```
-
-```{code-cell} ipython3
-m = geohey.Map()
+m = geodev.Map()
 m
 ```
 
@@ -338,7 +334,7 @@ with output_widget:
 ```{code-cell} ipython3
 output_widget.clear_output()
 logo = widgets.HTML(
-    value='<img src="https://earthengine.google.com/static/images/earth-engine-logo.png" width="100" height="100">'
+    value='<img src="https://raw.githubusercontent.com/opengeos/leafmap/refs/heads/master/docs/assets/logo.png" width="200" height="200">'
 )
 with output_widget:
     display(logo)
@@ -388,14 +384,10 @@ box
 ```
 
 ```{code-cell} ipython3
-m = geohey.Map()
+m = geodev.Map()
 m
 ```
 
 ```{code-cell} ipython3
-m.add_widget(box)
-```
-
-```{code-cell} ipython3
-m.controls = m.controls[:-1]
+# m.add_widget(box)
 ```

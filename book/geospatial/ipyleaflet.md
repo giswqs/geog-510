@@ -177,7 +177,7 @@ m = Map(center=(25, -115), zoom=4)
 image = ImageOverlay(
     url="https://i.imgur.com/06Q1fSz.png",
     # url='../06Q1fSz.png',
-    bounds=((13, -130), (32, -100))
+    bounds=((13, -130), (32, -100)),
 )
 
 m.add(image)
@@ -187,10 +187,7 @@ m
 ```{code-cell} ipython3
 m = Map(center=(24, 115), zoom=4)
 
-image = ImageOverlay(
-    url="https://i.gifer.com/4j.gif",
-    bounds=((13, 100), (45, 130))
-)
+image = ImageOverlay(url="https://i.gifer.com/4j.gif", bounds=((13, 100), (45, 130)))
 
 m.add(image)
 m
@@ -207,7 +204,7 @@ m = Map(center=(25, -115), zoom=4)
 
 video = VideoOverlay(
     url="https://www.mapbox.com/bites/00188/patricia_nasa.webm",
-    bounds=((13, -130), (32, -100))
+    bounds=((13, -130), (32, -100)),
 )
 
 m.add(video)
@@ -233,11 +230,11 @@ from ipyleaflet import Map, WMSLayer, basemaps
 
 ```{code-cell} ipython3
 wms = WMSLayer(
-    url='http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi',
-    layers='nexrad-n0r-900913',
-    format='image/png',
+    url="http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi",
+    layers="nexrad-n0r-900913",
+    format="image/png",
     transparent=True,
-    attribution='Weather data © 2012 IEM Nexrad'
+    attribution="Weather data © 2012 IEM Nexrad",
 )
 
 m = Map(basemap=basemaps.CartoDB.Positron, center=(38.491, -95.712), zoom=4)
@@ -249,11 +246,11 @@ https://apps.nationalmap.gov/services/
 
 ```{code-cell} ipython3
 wms = WMSLayer(
-    url='https://imagery.nationalmap.gov/arcgis/services/USGSNAIPPlus/ImageServer/WMSServer?',
-    layers='USGSNAIPPlus:NaturalColor',
-    format='image/png',
+    url="https://imagery.nationalmap.gov/arcgis/services/USGSNAIPPlus/ImageServer/WMSServer?",
+    layers="USGSNAIPPlus:NaturalColor",
+    format="image/png",
     transparent=True,
-    attribution='USGS'
+    attribution="USGS",
 )
 
 m = Map(basemap=basemaps.CartoDB.Positron, center=(38.491, -95.712), zoom=4)

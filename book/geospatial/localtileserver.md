@@ -6,7 +6,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.16.7
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: geo
   language: python
   name: python3
 ---
@@ -48,8 +48,17 @@ from localtileserver import (
 To visualize a GeoTIFF, use the **TileClient**:
 
 ```{code-cell} ipython3
-client = TileClient("path/to/geo.tif")
-print(client.url)  # Prints the local tile service URL
+filepath = "https://github.com/opengeos/datasets/releases/download/raster/dem.tif"
+client = TileClient(filepath)
+print(client.get_tile_url())  # Prints the local tile service URL
+```
+
+```{code-cell} ipython3
+client.center()
+```
+
+```{code-cell} ipython3
+client.default_zoom
 ```
 
 Alternatively, you can use example data:
@@ -103,32 +112,6 @@ tile_layer = get_folium_tile_layer(client)
 m = Map(location=client.center(), zoom_start=16)
 m.add_child(tile_layer)
 m
-```
-
-## 6. Customizing Tile Rendering
-
-You can apply colormaps and adjust transparency:
-
-```{code-cell} ipython3
-client = TileClient("/path/to/your/raster.tif", colormap="viridis")
-```
-
-Supported colormaps include any **matplotlib colormap**.
-
-## 7. Serving Remote Raster Data
-
-To serve **Cloud Optimized GeoTIFFs (COGs)**:
-
-```{code-cell} ipython3
-client = TileClient("https://example.com/path/to/cog.tif")
-```
-
-## 8. Stopping the Server
-
-Once finished, stop the tile server to free up resources:
-
-```{code-cell} ipython3
-client.shutdown()
 ```
 
 ## Summary
