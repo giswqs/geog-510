@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 7 &#8212; Geographic Software Design</title>
+    <title>Lab 8 &#8212; Geographic Software Design</title>
   
   
   
@@ -57,13 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_07';</script>
-    <link rel="canonical" href="https://geog-510.gishub.org/book/labs/lab_07.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_08';</script>
+    <link rel="canonical" href="https://geog-510.gishub.org/book/labs/lab_08.html" />
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lab 8" href="lab_08.html" />
-    <link rel="prev" title="Lab 6" href="lab_06.html" />
+    <link rel="prev" title="Lab 7" href="lab_07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -229,8 +228,8 @@
 <li class="toctree-l1"><a class="reference internal" href="lab_04.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_05.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_06.html"><strong>Lab 6</strong></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab_08.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_07.html">Lab 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 8</a></li>
 </ul>
 
     </div>
@@ -302,7 +301,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/labs/lab_07.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/labs/lab_08.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -319,7 +318,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_07.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_08.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +348,7 @@
       
       
       
-      <li><a href="../../_sources/book/labs/lab_07.md" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_08.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -433,7 +432,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 7</h1>
+    <h1>Lab 8</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -443,12 +442,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-add-add-raster-method">Task 1: Add <code class="docutils literal notranslate"><span class="pre">add_raster()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-add-add-image-method">Task 2: Add <code class="docutils literal notranslate"><span class="pre">add_image()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-add-add-video-method">Task 3: Add <code class="docutils literal notranslate"><span class="pre">add_video()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-add-add-wms-layer-method">Task 4: Add <code class="docutils literal notranslate"><span class="pre">add_wms_layer()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-checklist">🗂 Submission Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-instructions">🛠️ Task Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-basemap-selection-dropdown">1. <strong>Create a Basemap Selection Dropdown</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-close-toggle-button-for-the-dropdown">2. <strong>Add a Close/Toggle Button for the Dropdown</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-docstrings-to-your-functions">3. <strong>Add Docstrings to Your Functions</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-share-a-google-colab-notebook">4. <strong>Create and Share a Google Colab Notebook</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-checklist">📝 Submission Checklist</a></li>
 </ul>
             </nav>
         </div>
@@ -460,87 +462,93 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-7">
-<h1>Lab 7<a class="headerlink" href="#lab-7" title="Link to this heading">#</a></h1>
-<section id="overview">
-<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>In this lab, you’ll extend the functionality of your interactive mapping package by implementing support for raster data, static image overlays, and Web Map Service (WMS) layers. These enhancements will make your package more versatile for real-world geospatial visualization tasks.</p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-8">
+<h1>Lab 8<a class="headerlink" href="#lab-8" title="Link to this heading">#</a></h1>
+<p>In this lab, you’ll enrich your interactive map by implementing a <strong>dynamic basemap selector</strong> using a dropdown menu. You’ll also practice writing proper docstrings and showcasing your work in a <strong>shareable Colab notebook</strong>.</p>
 <hr class="docutils" />
-<section id="task-1-add-add-raster-method">
-<h2>Task 1: Add <code class="docutils literal notranslate"><span class="pre">add_raster()</span></code> Method<a class="headerlink" href="#task-1-add-add-raster-method" title="Link to this heading">#</a></h2>
-<p>Implement an <code class="docutils literal notranslate"><span class="pre">add_raster()</span></code> method in your <code class="docutils literal notranslate"><span class="pre">Map</span></code> class to visualize <strong>Cloud Optimized GeoTIFFs (COGs)</strong>.</p>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, you will be able to:</p>
 <ul class="simple">
-<li><p>Method parameters should include:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: path to the COG</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: optional display name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">colormap</span></code> (optional): a dictionary or string identifier</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">opacity</span></code>: transparency level</p></li>
-</ul>
-</li>
+<li><p>Add an interactive dropdown for switching basemaps.</p></li>
+<li><p>Implement a close/hide button to control UI elements.</p></li>
+<li><p>Write clear and professional docstrings.</p></li>
+<li><p>Share your work via a Google Colab notebook with an embedded badge.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="task-2-add-add-image-method">
-<h2>Task 2: Add <code class="docutils literal notranslate"><span class="pre">add_image()</span></code> Method<a class="headerlink" href="#task-2-add-add-image-method" title="Link to this heading">#</a></h2>
-<p>Implement an <code class="docutils literal notranslate"><span class="pre">add_image()</span></code> method to overlay <strong>static images</strong> or <strong>animated GIFs</strong> on the map.</p>
+<section id="task-instructions">
+<h2>🛠️ Task Instructions<a class="headerlink" href="#task-instructions" title="Link to this heading">#</a></h2>
+<section id="create-a-basemap-selection-dropdown">
+<h3>1. <strong>Create a Basemap Selection Dropdown</strong><a class="headerlink" href="#create-a-basemap-selection-dropdown" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">ipyleaflet.ImageOverlay</span></code></p></li>
-<li><p>Required parameters:</p>
+<li><p>Add a dropdown widget that lets users choose from at least the following basemaps:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: image or GIF URL</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bounds</span></code>: a tuple of ((south, west), (north, east)) geographic coordinates</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">opacity</span></code>: transparency level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;OpenStreetMap&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;OpenTopoMap&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Esri.WorldImagery&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;CartoDB.DarkMatter&quot;</span></code></p></li>
+</ul>
+</li>
+<li><p>Ensure that the selected basemap updates the map dynamically.</p></li>
+</ul>
+</section>
+<section id="add-a-close-toggle-button-for-the-dropdown">
+<h3>2. <strong>Add a Close/Toggle Button for the Dropdown</strong><a class="headerlink" href="#add-a-close-toggle-button-for-the-dropdown" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Implement a button to <strong>close the dropdown menu</strong>.</p></li>
+<li><p>This allows users to remove the dropdown from the UI when not needed.</p></li>
+</ul>
+</section>
+<section id="add-docstrings-to-your-functions">
+<h3>3. <strong>Add Docstrings to Your Functions</strong><a class="headerlink" href="#add-docstrings-to-your-functions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Write proper Python docstrings for all custom functions or classes.</p></li>
+<li><p>Your docstrings should describe:</p>
+<ul>
+<li><p>The purpose of the function.</p></li>
+<li><p>The parameters (with types).</p></li>
+<li><p>The return value (if any).</p></li>
 </ul>
 </li>
 </ul>
+<p>📌 Example format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_basemap_gui</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds the selected basemap to the map.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        position (str): Position of the dropdown menu on the map.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
 </section>
-<section id="task-3-add-add-video-method">
-<h2>Task 3: Add <code class="docutils literal notranslate"><span class="pre">add_video()</span></code> Method<a class="headerlink" href="#task-3-add-add-video-method" title="Link to this heading">#</a></h2>
-<p>Implement an <code class="docutils literal notranslate"><span class="pre">add_video()</span></code> method to overlay <strong>videos</strong> on the map.</p>
+<section id="create-and-share-a-google-colab-notebook">
+<h3>4. <strong>Create and Share a Google Colab Notebook</strong><a class="headerlink" href="#create-and-share-a-google-colab-notebook" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">ipyleaflet.VideoOverlay</span></code></p></li>
-<li><p>Required parameters:</p>
+<li><p>Create a notebook that demonstrates:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: image or GIF URL</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bounds</span></code>: a tuple of ((south, west), (north, east)) geographic coordinates</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">opacity</span></code>: transparency level</p></li>
+<li><p>The interactive dropdown functionality.</p></li>
+<li><p>The toggle button for hiding/showing the UI.</p></li>
 </ul>
 </li>
+<li><p>Add an <strong>“Open in Colab” badge</strong> at the top so users can easily run it themselves.</p></li>
 </ul>
+<p>🔗 <strong>Instructions to add a Colab badge</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>[<span class="nt">![Open In Colab</span>](<span class="na">https://colab.research.google.com/assets/colab-badge.svg</span>)](YOUR_NOTEBOOK_LINK_HERE)
+</pre></div>
+</div>
 </section>
-<section id="task-4-add-add-wms-layer-method">
-<h2>Task 4: Add <code class="docutils literal notranslate"><span class="pre">add_wms_layer()</span></code> Method<a class="headerlink" href="#task-4-add-add-wms-layer-method" title="Link to this heading">#</a></h2>
-<p>Add a method to support <strong>WMS (Web Map Service) layers</strong>, commonly used for serving satellite imagery, weather maps, and environmental data.</p>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">ipyleaflet.WMSLayer</span></code></p></li>
-<li><p>Parameters to support:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: base WMS endpoint</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">layers</span></code>: comma-separated layer names</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: display name for the layer</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">format</span></code>: (e.g., ‘image/png’)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">transparent</span></code>: boolean for layer transparency</p></li>
-</ul>
-</li>
-<li><p>Optionally support additional query string parameters.</p></li>
-</ul>
 </section>
-<hr class="docutils" />
 <section id="submission-checklist">
-<h2>🗂 Submission Checklist<a class="headerlink" href="#submission-checklist" title="Link to this heading">#</a></h2>
+<h2>📝 Submission Checklist<a class="headerlink" href="#submission-checklist" title="Link to this heading">#</a></h2>
 <p>Your submission should include links to the following:</p>
 <ul class="simple">
-<li><p>Updated <code class="docutils literal notranslate"><span class="pre">Map</span></code> class with all four methods:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">add_raster()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add_image()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add_video()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add_wms_layer()</span></code></p></li>
-</ul>
-</li>
-<li><p>A Jupyter Notebook demonstrating the new functionalities.</p></li>
+<li><p>A GitHub link to your added functionality in the <code class="docutils literal notranslate"><span class="pre">Map</span></code> class</p></li>
+<li><p>A link to the Jupyter Notebook demonstrating the new functionalities on your package website</p></li>
 </ul>
 </section>
 </section>
@@ -576,22 +584,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lab_06.html"
+       href="lab_07.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>Lab 6</strong></p>
+        <p class="prev-next-title">Lab 7</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="lab_08.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 8</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -609,12 +608,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-add-add-raster-method">Task 1: Add <code class="docutils literal notranslate"><span class="pre">add_raster()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-add-add-image-method">Task 2: Add <code class="docutils literal notranslate"><span class="pre">add_image()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-add-add-video-method">Task 3: Add <code class="docutils literal notranslate"><span class="pre">add_video()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-add-add-wms-layer-method">Task 4: Add <code class="docutils literal notranslate"><span class="pre">add_wms_layer()</span></code> Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-checklist">🗂 Submission Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-instructions">🛠️ Task Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-basemap-selection-dropdown">1. <strong>Create a Basemap Selection Dropdown</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-close-toggle-button-for-the-dropdown">2. <strong>Add a Close/Toggle Button for the Dropdown</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-docstrings-to-your-functions">3. <strong>Add Docstrings to Your Functions</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-share-a-google-colab-notebook">4. <strong>Create and Share a Google Colab Notebook</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-checklist">📝 Submission Checklist</a></li>
 </ul>
   </nav></div>
 
