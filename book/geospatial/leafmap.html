@@ -807,10 +807,10 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://imagery.nationalmap.gov/arcgis/services/USGSNAIPImagery/ImageServer/WMSServer?&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://imagery.nationalmap.gov/arcgis/services/USGSNAIPPlus/ImageServer/WMSServer?&quot;</span>
 <span class="n">m</span><span class="o">.</span><span class="n">add_wms_layer</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-    <span class="n">layers</span><span class="o">=</span><span class="s2">&quot;USGSNAIPImagery:FalseColorComposite&quot;</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">=</span><span class="s2">&quot;USGSNAIPPlus&quot;</span><span class="p">,</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;NAIP&quot;</span><span class="p">,</span>
     <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;USGS&quot;</span><span class="p">,</span>
     <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
@@ -821,6 +821,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>For more web map services, you can refer to the National Map of the United States <a class="reference external" href="https://apps.nationalmap.gov/services">WMS services</a>.</p>
 </section>
 <section id="adding-a-legend-to-a-map">
 <h3><span class="section-number">16.6.3. </span>Adding a Legend to a Map<a class="headerlink" href="#adding-a-legend-to-a-map" title="Link to this heading">#</a></h3>
@@ -1068,7 +1069,7 @@ document.write(`
 <p>Download and load a GeoParquet file containing city data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://open.gishub.org/data/duckdb/cities.parquet&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://opengeos.org/data/duckdb/cities.parquet&quot;</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;cities.parquet&quot;</span>
 <span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -1160,7 +1161,7 @@ document.write(`
 <p>To visualize PMTiles data, first retrieve metadata such as available layers and bounds. Here’s an example using a PMTiles archive of Florence, Italy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://open.gishub.org/data/pmtiles/protomaps_firenze.pmtiles&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://opengeos.org/data/pmtiles/protomaps_firenze.pmtiles&quot;</span>
 <span class="n">metadata</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">pmtiles_metadata</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;layer names: </span><span class="si">{</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;layer_names&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bounds: </span><span class="si">{</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;bounds&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
