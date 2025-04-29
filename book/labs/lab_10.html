@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 6 &#8212; Geographic Software Design</title>
+    <title>Lab 10 &#8212; Geographic Software Design</title>
   
   
   
@@ -57,13 +57,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_06';</script>
-    <link rel="canonical" href="https://geog-510.gishub.org/book/labs/lab_06.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_10';</script>
+    <link rel="canonical" href="https://geog-510.gishub.org/book/labs/lab_10.html" />
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lab 7" href="lab_07.html" />
-    <link rel="prev" title="Lab 5" href="lab_05.html" />
+    <link rel="next" title="Final Project Guidelines" href="final_project.html" />
+    <link rel="prev" title="Lab 9" href="lab_09.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -228,11 +228,11 @@
 <li class="toctree-l1"><a class="reference internal" href="lab_03.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_04.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_05.html">Lab 5</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Lab 6</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_06.html"><strong>Lab 6</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_07.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_08.html">Lab 8</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_09.html">Lab 9</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab_10.html">Lab 10</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="final_project.html">Final Project Guidelines</a></li>
 </ul>
 
@@ -280,6 +280,73 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-510/main?urlpath=tree/book/labs/lab_10.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/labs/lab_10.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -305,7 +372,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/labs/lab_06.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/edit/main/book/labs/lab_10.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +389,7 @@
       
       
       
-      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_06.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/giswqs/geog-510/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_10.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +419,7 @@
       
       
       
-      <li><a href="../../_sources/book/labs/lab_06.md" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_10.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -362,7 +429,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -436,7 +503,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 6</h1>
+    <h1>Lab 10</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -446,12 +513,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-implement-the-map-class-ipyleaflet"><strong>Task 1: Implement the Map Class (ipyleaflet)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-implement-the-map-class-folium"><strong>Task 2: Implement the Map Class (folium)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-documentation-and-notebook-example"><strong>Task 3: Documentation and Notebook Example</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-package-deployment-and-release"><strong>Task 4: Package Deployment and Release</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-requirements"><strong>Submission Requirements</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-visualizing-dem-data">Exercise 1: Visualizing DEM Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-cloud-free-composite-with-sentinel-2-or-landsat">Exercise 2: Cloud-Free Composite with Sentinel-2 or Landsat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-visualizing-naip-imagery">Exercise 3: Visualizing NAIP Imagery</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-visualizing-watershed-boundaries">Exercise 4: Visualizing Watershed Boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-visualizing-land-cover-change">Exercise 5: Visualizing Land Cover Change</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-creating-a-landsat-timelapse-animation">Exercise 6: Creating a Landsat Timelapse Animation</a></li>
 </ul>
             </nav>
         </div>
@@ -463,62 +532,55 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-6">
-<h1><strong>Lab 6</strong><a class="headerlink" href="#lab-6" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-10">
+<h1>Lab 10<a class="headerlink" href="#lab-10" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/labs/lab_10.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <section id="overview">
-<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>In this lab, you will extend your Python package by adding mapping functionalities. This package will be used throughout the rest of the semester, with new features added each week.</p>
-<p>For this lab, you will:</p>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This lab introduces Google Earth Engine (GEE) for accessing and analyzing geospatial data in Python. You will explore diverse data types, including DEM, satellite imagery, and land cover datasets. You’ll gain experience creating cloud-free composites, visualizing temporal changes, and generating animations for time-series data.</p>
+</section>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h2>
+<p>By completing this lab, you will be able to:</p>
 <ol class="arabic simple">
-<li><p>Implement an interactive <code class="docutils literal notranslate"><span class="pre">Map</span></code> class using both <code class="docutils literal notranslate"><span class="pre">ipyleaflet</span></code> and <code class="docutils literal notranslate"><span class="pre">folium</span></code>.</p></li>
-<li><p>Add essential methods for basemaps, layers, and controls.</p></li>
-<li><p>Document the package with proper docstrings and a Jupyter Notebook tutorial.</p></li>
-<li><p>Create a new release on GitHub Use GitHub Actions to publish your package on PyPI.</p></li>
+<li><p>Access and visualize Digital Elevation Model (DEM) data for a specific region.</p></li>
+<li><p>Generate cloud-free composites from Sentinel-2 or Landsat imagery for a specified year.</p></li>
+<li><p>Visualize National Agricultural Imagery Program (NAIP) data for U.S. counties.</p></li>
+<li><p>Display watershed boundaries using Earth Engine styling.</p></li>
+<li><p>Visualize land cover changes over time using split-panel maps.</p></li>
+<li><p>Create a time-lapse animation for land cover changes over time in a region of your choice.</p></li>
 </ol>
 </section>
-<hr class="docutils" />
-<section id="task-1-implement-the-map-class-ipyleaflet">
-<h2><strong>Task 1: Implement the Map Class (ipyleaflet)</strong><a class="headerlink" href="#task-1-implement-the-map-class-ipyleaflet" title="Link to this heading">#</a></h2>
-<p>Enhance your package by adding a <code class="docutils literal notranslate"><span class="pre">Map</span></code> class that inherits from <code class="docutils literal notranslate"><span class="pre">ipyleaflet.Map</span></code> and provides the following functionalities:</p>
-<ul class="simple">
-<li><p><strong>Basemap Support:</strong> Implement an <code class="docutils literal notranslate"><span class="pre">add_basemap</span></code> method that allows users to add a basemap by specifying its name as a string (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;OpenStreetMap&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Esri.WorldImagery&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;OpenTopoMap&quot;</span></code>).</p></li>
-<li><p><strong>Layer Control:</strong> Implement an <code class="docutils literal notranslate"><span class="pre">add_layer_control</span></code> method that adds a layer control widget for managing map layers.</p></li>
-<li><p><strong>Vector Data Support:</strong> Implement an <code class="docutils literal notranslate"><span class="pre">add_vector</span></code> method to add vector data in any format supported by <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> (e.g., GeoJSON, Shapefile).</p></li>
-</ul>
-<p>Ensure all methods include <strong>docstrings</strong> explaining their purpose, parameters, and return values.</p>
+<section id="exercise-1-visualizing-dem-data">
+<h2>Exercise 1: Visualizing DEM Data<a class="headerlink" href="#exercise-1-visualizing-dem-data" title="Link to this heading">#</a></h2>
+<p>Find a DEM dataset in the <a class="reference external" href="https://developers.google.com/earth-engine/datasets">Earth Engine Data Catalog</a> and clip it to a specific area (e.g., your country, state, or city). Display it with an appropriate color palette. For example, the sample map below shows the DEM of the state of Colorado.</p>
+<p><img alt="" src="https://i.imgur.com/OLeSt7n.png" /></p>
 </section>
-<hr class="docutils" />
-<section id="task-2-implement-the-map-class-folium">
-<h2><strong>Task 2: Implement the Map Class (folium)</strong><a class="headerlink" href="#task-2-implement-the-map-class-folium" title="Link to this heading">#</a></h2>
-<p>Repeat <strong>Task 1</strong> but using <code class="docutils literal notranslate"><span class="pre">folium.Map</span></code> instead of <code class="docutils literal notranslate"><span class="pre">ipyleaflet.Map</span></code>. Ensure that the <code class="docutils literal notranslate"><span class="pre">folium</span></code>-based map class includes similar methods (<code class="docutils literal notranslate"><span class="pre">add_basemap</span></code>, <code class="docutils literal notranslate"><span class="pre">add_layer_control</span></code>, and <code class="docutils literal notranslate"><span class="pre">add_vector</span></code>).</p>
+<section id="exercise-2-cloud-free-composite-with-sentinel-2-or-landsat">
+<h2>Exercise 2: Cloud-Free Composite with Sentinel-2 or Landsat<a class="headerlink" href="#exercise-2-cloud-free-composite-with-sentinel-2-or-landsat" title="Link to this heading">#</a></h2>
+<p>Use Sentinel-2 or Landsat-9 data to create a cloud-free composite for a specific year in a region of your choice.</p>
+<p>Use <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED">Sentinel-2</a> or <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/landsat-9">Landsat-9 data</a> data to create a cloud-free composite for a specific year in a region of your choice. Display the imagery on the map with a proper band combination. For example, the sample map below shows a cloud-free false-color composite of Sentinel-2 imagery of the year 2021 for the state of Colorado.</p>
+<p><img alt="" src="https://i.imgur.com/xkxpkS1.png" /></p>
 </section>
-<hr class="docutils" />
-<section id="task-3-documentation-and-notebook-example">
-<h2><strong>Task 3: Documentation and Notebook Example</strong><a class="headerlink" href="#task-3-documentation-and-notebook-example" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Add a <strong>Jupyter Notebook</strong> to the package that demonstrates the functionalities of your <code class="docutils literal notranslate"><span class="pre">Map</span></code> class for both <code class="docutils literal notranslate"><span class="pre">ipyleaflet</span></code> and <code class="docutils literal notranslate"><span class="pre">folium</span></code>.</p></li>
-<li><p>Ensure the notebook is included in the package documentation and accessible via an <strong>Open in Colab</strong> badge.</p></li>
-</ul>
+<section id="exercise-3-visualizing-naip-imagery">
+<h2>Exercise 3: Visualizing NAIP Imagery<a class="headerlink" href="#exercise-3-visualizing-naip-imagery" title="Link to this heading">#</a></h2>
+<p>Use <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USDA_NAIP_DOQQ">NAIP</a> imagery to create a cloud-free imagery for a U.S. county of your choice. For example, the sample map below shows a cloud-free true-color composite of NAIP imagery for Knox County, Tennessee. Keep in mind that there might be some counties with the same name in different states, so make sure to select the correct county for the selected state.</p>
+<p><img alt="" src="https://i.imgur.com/iZSGqGS.png" /></p>
 </section>
-<hr class="docutils" />
-<section id="task-4-package-deployment-and-release">
-<h2><strong>Task 4: Package Deployment and Release</strong><a class="headerlink" href="#task-4-package-deployment-and-release" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Bump your package version using bump-my-version.</p></li>
-<li><p>Automate the package deployment process to PyPI.</p></li>
-<li><p>Create a <strong>new release on GitHub</strong> with automatic deployment to PyPI.</p></li>
-</ul>
+<section id="exercise-4-visualizing-watershed-boundaries">
+<h2>Exercise 4: Visualizing Watershed Boundaries<a class="headerlink" href="#exercise-4-visualizing-watershed-boundaries" title="Link to this heading">#</a></h2>
+<p>Visualize the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USGS_WBD_2017_HUC04">USGS Watershed Boundary Dataset</a> with outline color only, no fill color.</p>
+<p><img alt="" src="https://i.imgur.com/PLlNFq3.png" /></p>
 </section>
-<hr class="docutils" />
-<section id="submission-requirements">
-<h2><strong>Submission Requirements</strong><a class="headerlink" href="#submission-requirements" title="Link to this heading">#</a></h2>
-<p>Submit the following:</p>
-<ol class="arabic simple">
-<li><p><strong>Link to the package’s main module documentation</strong> (e.g., <a class="reference external" href="https://geodev.gishub.org/geodev">https://geodev.gishub.org/geodev</a>).</p></li>
-<li><p><strong>Link to the package’s folium module documentation</strong> (e.g., <a class="reference external" href="https://geodev.gishub.org/foliumap%60">https://geodev.gishub.org/foliumap`</a>).</p></li>
-<li><p><strong>Link to the Jupyter Notebook example</strong> demonstrating the functionality (e.g.,<a class="reference external" href="https://geodev.gishub.org/examples/map/">https://geodev.gishub.org/examples/map/</a>).</p></li>
-<li><p><strong>Link to the PyPI release</strong> of the package (e.g., <a class="github reference external" href="https://github.com/giswqs/geodev/releases">giswqs/geodev</a>).</p></li>
-</ol>
+<section id="exercise-5-visualizing-land-cover-change">
+<h2>Exercise 5: Visualizing Land Cover Change<a class="headerlink" href="#exercise-5-visualizing-land-cover-change" title="Link to this heading">#</a></h2>
+<p>Use the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USGS_NLCD_RELEASES_2019_REL_NLCD">USGS National Land Cover Database</a> and <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/TIGER_2018_States">US Census States</a> to create a split-panel map for visualizing land cover change (2001-2019) for a US state of your choice. Make sure you add the NLCD legend to the map.</p>
+<p><img alt="" src="https://i.imgur.com/Au7Q5Ln.png" /></p>
+</section>
+<section id="exercise-6-creating-a-landsat-timelapse-animation">
+<h2>Exercise 6: Creating a Landsat Timelapse Animation<a class="headerlink" href="#exercise-6-creating-a-landsat-timelapse-animation" title="Link to this heading">#</a></h2>
+<p>Generate a timelapse animation using Landsat data to show changes over time for a selected region.</p>
+<p><img alt="Spain" src="https://github.com/user-attachments/assets/f12839c0-1c30-404d-b0ab-0fa12ce12d24" /></p>
 </section>
 </section>
 
@@ -553,20 +615,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lab_05.html"
+       href="lab_09.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 5</p>
+        <p class="prev-next-title">Lab 9</p>
       </div>
     </a>
     <a class="right-next"
-       href="lab_07.html"
+       href="final_project.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 7</p>
+        <p class="prev-next-title">Final Project Guidelines</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -586,12 +648,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-implement-the-map-class-ipyleaflet"><strong>Task 1: Implement the Map Class (ipyleaflet)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-implement-the-map-class-folium"><strong>Task 2: Implement the Map Class (folium)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-documentation-and-notebook-example"><strong>Task 3: Documentation and Notebook Example</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-package-deployment-and-release"><strong>Task 4: Package Deployment and Release</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-requirements"><strong>Submission Requirements</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-visualizing-dem-data">Exercise 1: Visualizing DEM Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-cloud-free-composite-with-sentinel-2-or-landsat">Exercise 2: Cloud-Free Composite with Sentinel-2 or Landsat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-visualizing-naip-imagery">Exercise 3: Visualizing NAIP Imagery</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-visualizing-watershed-boundaries">Exercise 4: Visualizing Watershed Boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-visualizing-land-cover-change">Exercise 5: Visualizing Land Cover Change</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-creating-a-landsat-timelapse-animation">Exercise 6: Creating a Landsat Timelapse Animation</a></li>
 </ul>
   </nav></div>
 
