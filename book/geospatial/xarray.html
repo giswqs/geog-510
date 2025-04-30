@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. Xarray &#8212; Geographic Software Design</title>
+    <title>20. Xarray &#8212; Geographic Software Design</title>
   
   
   
@@ -62,8 +62,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20. Rioxarray" href="rioxarray.html" />
-    <link rel="prev" title="18. Whitebox" href="whitebox.html" />
+    <link rel="next" title="21. Rioxarray" href="rioxarray.html" />
+    <link rel="prev" title="19. Whitebox" href="whitebox.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,9 +216,10 @@
 <li class="toctree-l1"><a class="reference internal" href="ipywidgets.html">15. Ipywidgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leafmap.html">16. Leafmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geemap.html">17. Geemap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whitebox.html">18. Whitebox</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Xarray</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rioxarray.html">20. Rioxarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maplibre.html">18. MapLibre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whitebox.html">19. Whitebox</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rioxarray.html">21. Rioxarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -513,49 +514,49 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">19.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">19.2. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-xarray">19.3. What is Xarray?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-xarray">19.4. Installing Xarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">19.5. Importing Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-data-structures">19.6. Xarray Data Structures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-dataset">19.7. Loading a Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dataarrays">19.8. Working with DataArrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataarray-components">19.9. DataArray Components</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-selecting-data">19.10. Indexing and Selecting Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-operations-on-dataarrays">19.11. Performing Operations on DataArrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-with-xarray">19.12. Visualization with Xarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datasets">19.13. Working with Datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-xarray">19.14. Why Use Xarray?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#without-xarray-using-numpy">19.14.1. Without Xarray (Using NumPy)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-xarray">19.14.2. With Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">20.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">20.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-xarray">20.3. What is Xarray?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-xarray">20.4. Installing Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">20.5. Importing Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-data-structures">20.6. Xarray Data Structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-dataset">20.7. Loading a Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dataarrays">20.8. Working with DataArrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataarray-components">20.9. DataArray Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-selecting-data">20.10. Indexing and Selecting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-operations-on-dataarrays">20.11. Performing Operations on DataArrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-with-xarray">20.12. Visualization with Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datasets">20.13. Working with Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-xarray">20.14. Why Use Xarray?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#without-xarray-using-numpy">20.14.1. Without Xarray (Using NumPy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-xarray">20.14.2. With Xarray</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-indexing-label-vs-position-based-indexing">19.15. Advanced Indexing: Label vs. Position-Based Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label-based-indexing">19.15.1. Label-based Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-based-indexing">19.15.2. Position-based Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-indexing-label-vs-position-based-indexing">20.15. Advanced Indexing: Label vs. Position-Based Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label-based-indexing">20.15.1. Label-based Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-based-indexing">20.15.2. Position-based Indexing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-computations-with-xarray">19.16. High-Level Computations with Xarray</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-operation">19.16.1. GroupBy Operation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-with-weights">19.16.2. Computation with Weights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-window-operation">19.16.3. Rolling Window Operation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-computations-with-xarray">20.16. High-Level Computations with Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-operation">20.16.1. GroupBy Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-with-weights">20.16.2. Computation with Weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-window-operation">20.16.3. Rolling Window Operation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-files">19.17. Reading and Writing Files</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-netcdf">19.17.1. Writing to netCDF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-from-netcdf">19.17.2. Reading from netCDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-files">20.17. Reading and Writing Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-netcdf">20.17.1. Writing to netCDF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-from-netcdf">20.17.2. Reading from netCDF</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">19.18. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-exploring-a-new-dataset">19.18.1. Exercise 1: Exploring a New Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-data-selection-and-indexing">19.18.2. Exercise 2: Data Selection and Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-arithmetic-operations">19.18.3. Exercise 3: Performing Arithmetic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-groupby-and-resampling">19.18.4. Exercise 4: GroupBy and Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-writing-data-to-netcdf">19.18.5. Exercise 5: Writing Data to netCDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">20.18. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-exploring-a-new-dataset">20.18.1. Exercise 1: Exploring a New Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-data-selection-and-indexing">20.18.2. Exercise 2: Data Selection and Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-arithmetic-operations">20.18.3. Exercise 3: Performing Arithmetic Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-groupby-and-resampling">20.18.4. Exercise 4: GroupBy and Resampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-writing-data-to-netcdf">20.18.5. Exercise 5: Writing Data to netCDF</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">19.19. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">20.19. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -568,14 +569,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="xarray">
-<h1><span class="section-number">19. </span>Xarray<a class="headerlink" href="#xarray" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>Xarray<a class="headerlink" href="#xarray" title="Link to this heading">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/xarray.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <section id="overview">
-<h2><span class="section-number">19.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://docs.xarray.dev">Xarray</a> is a powerful Python library designed for working with multi-dimensional labeled datasets, often used in fields such as climate science, oceanography, and remote sensing. It provides a high-level interface for manipulating and analyzing datasets that can be thought of as extensions of NumPy arrays. Xarray is particularly useful for geospatial data because it supports labeled axes (dimensions), coordinates, and metadata, making it easier to work with datasets that vary across time, space, and other dimensions.</p>
 </section>
 <section id="learning-objectives">
-<h2><span class="section-number">19.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>By the end of this lecture, you should be able to:</p>
 <ul class="simple">
 <li><p>Understand the basic concepts and data structures in Xarray, including <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> and <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>.</p></li>
@@ -586,7 +587,7 @@ document.write(`
 </ul>
 </section>
 <section id="what-is-xarray">
-<h2><span class="section-number">19.3. </span>What is Xarray?<a class="headerlink" href="#what-is-xarray" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>What is Xarray?<a class="headerlink" href="#what-is-xarray" title="Link to this heading">#</a></h2>
 <p>Xarray extends the capabilities of NumPy by providing a data structure for labeled, multi-dimensional arrays. The two main data structures in Xarray are:</p>
 <ul class="simple">
 <li><p><strong>DataArray</strong>: A labeled, multi-dimensional array, which includes dimensions, coordinates, and attributes.</p></li>
@@ -596,7 +597,7 @@ document.write(`
 <p>Xarray is particularly useful for working with datasets where dimensions have meaningful labels (e.g., time, latitude, longitude) and where metadata is important.</p>
 </section>
 <section id="installing-xarray">
-<h2><span class="section-number">19.4. </span>Installing Xarray<a class="headerlink" href="#installing-xarray" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>Installing Xarray<a class="headerlink" href="#installing-xarray" title="Link to this heading">#</a></h2>
 <p>Before we start, ensure that Xarray is installed. You can install it via pip:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,7 +608,7 @@ document.write(`
 </div>
 </section>
 <section id="importing-libraries">
-<h2><span class="section-number">19.5. </span>Importing Libraries<a class="headerlink" href="#importing-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>Importing Libraries<a class="headerlink" href="#importing-libraries" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -622,7 +623,7 @@ document.write(`
 </div>
 </section>
 <section id="xarray-data-structures">
-<h2><span class="section-number">19.6. </span>Xarray Data Structures<a class="headerlink" href="#xarray-data-structures" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.6. </span>Xarray Data Structures<a class="headerlink" href="#xarray-data-structures" title="Link to this heading">#</a></h2>
 <p>Xarray provides two core data structures:</p>
 <ol class="arabic simple">
 <li><p><strong>DataArray</strong>: A single multi-dimensional array with labeled dimensions, coordinates, and metadata.</p></li>
@@ -630,7 +631,7 @@ document.write(`
 </ol>
 </section>
 <section id="loading-a-dataset">
-<h2><span class="section-number">19.7. </span>Loading a Dataset<a class="headerlink" href="#loading-a-dataset" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.7. </span>Loading a Dataset<a class="headerlink" href="#loading-a-dataset" title="Link to this heading">#</a></h2>
 <p>Xarray offers built-in access to several <a class="reference external" href="https://docs.xarray.dev/en/latest/generated/xarray.tutorial.open_dataset.html">tutorial datasets</a>, which we can load with <code class="docutils literal notranslate"><span class="pre">xr.tutorial.open_dataset</span></code>. Here, we load an air temperature dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,7 +650,7 @@ document.write(`
 </ul>
 </section>
 <section id="working-with-dataarrays">
-<h2><span class="section-number">19.8. </span>Working with DataArrays<a class="headerlink" href="#working-with-dataarrays" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.8. </span>Working with DataArrays<a class="headerlink" href="#working-with-dataarrays" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> is the core data structure in Xarray. It includes data values, dimensions (e.g., time, latitude, longitude), and the coordinates for each dimension.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -670,7 +671,7 @@ document.write(`
 </div>
 </section>
 <section id="dataarray-components">
-<h2><span class="section-number">19.9. </span>DataArray Components<a class="headerlink" href="#dataarray-components" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.9. </span>DataArray Components<a class="headerlink" href="#dataarray-components" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Values</strong>: The actual data stored in a NumPy array or similar structure.</p></li>
 <li><p><strong>Dimensions</strong>: Named axes of the data (e.g., time, latitude, longitude).</p></li>
@@ -708,7 +709,7 @@ document.write(`
 </div>
 </section>
 <section id="indexing-and-selecting-data">
-<h2><span class="section-number">19.10. </span>Indexing and Selecting Data<a class="headerlink" href="#indexing-and-selecting-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.10. </span>Indexing and Selecting Data<a class="headerlink" href="#indexing-and-selecting-data" title="Link to this heading">#</a></h2>
 <p>Xarray allows you to easily select data based on dimension labels, which is very intuitive when working with geospatial data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -730,7 +731,7 @@ document.write(`
 </div>
 </section>
 <section id="performing-operations-on-dataarrays">
-<h2><span class="section-number">19.11. </span>Performing Operations on DataArrays<a class="headerlink" href="#performing-operations-on-dataarrays" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.11. </span>Performing Operations on DataArrays<a class="headerlink" href="#performing-operations-on-dataarrays" title="Link to this heading">#</a></h2>
 <p>You can perform arithmetic operations directly on <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> objects, similar to how you would with NumPy arrays. Xarray also handles broadcasting automatically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,7 +753,7 @@ document.write(`
 </div>
 </section>
 <section id="visualization-with-xarray">
-<h2><span class="section-number">19.12. </span>Visualization with Xarray<a class="headerlink" href="#visualization-with-xarray" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.12. </span>Visualization with Xarray<a class="headerlink" href="#visualization-with-xarray" title="Link to this heading">#</a></h2>
 <p>Xarray integrates well with Matplotlib and other visualization libraries, making it easy to create plots directly from <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> and <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -786,7 +787,7 @@ document.write(`
 </div>
 </section>
 <section id="working-with-datasets">
-<h2><span class="section-number">19.13. </span>Working with Datasets<a class="headerlink" href="#working-with-datasets" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.13. </span>Working with Datasets<a class="headerlink" href="#working-with-datasets" title="Link to this heading">#</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> is a collection of <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> objects. It is useful when you need to work with multiple related variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -815,10 +816,10 @@ document.write(`
 </div>
 </section>
 <section id="why-use-xarray">
-<h2><span class="section-number">19.14. </span>Why Use Xarray?<a class="headerlink" href="#why-use-xarray" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.14. </span>Why Use Xarray?<a class="headerlink" href="#why-use-xarray" title="Link to this heading">#</a></h2>
 <p>Xarray is valuable for handling multi-dimensional data, especially in scientific applications. It provides metadata, dimension names, and coordinate labels, making it much easier to understand and manipulate data compared to raw NumPy arrays.</p>
 <section id="without-xarray-using-numpy">
-<h3><span class="section-number">19.14.1. </span>Without Xarray (Using NumPy)<a class="headerlink" href="#without-xarray-using-numpy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.14.1. </span>Without Xarray (Using NumPy)<a class="headerlink" href="#without-xarray-using-numpy" title="Link to this heading">#</a></h3>
 <p>Here’s how a task might look without Xarray, using NumPy arrays:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,7 +848,7 @@ document.write(`
 <p>While this approach works, it’s not clear what <code class="docutils literal notranslate"><span class="pre">0</span></code> refers to (in this case, it’s the first time step).</p>
 </section>
 <section id="with-xarray">
-<h3><span class="section-number">19.14.2. </span>With Xarray<a class="headerlink" href="#with-xarray" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.14.2. </span>With Xarray<a class="headerlink" href="#with-xarray" title="Link to this heading">#</a></h3>
 <p>With Xarray, you can use more intuitive and readable indexing with <code class="docutils literal notranslate"><span class="pre">sel</span></code> and <code class="docutils literal notranslate"><span class="pre">isel</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -867,10 +868,10 @@ document.write(`
 </section>
 </section>
 <section id="advanced-indexing-label-vs-position-based-indexing">
-<h2><span class="section-number">19.15. </span>Advanced Indexing: Label vs. Position-Based Indexing<a class="headerlink" href="#advanced-indexing-label-vs-position-based-indexing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.15. </span>Advanced Indexing: Label vs. Position-Based Indexing<a class="headerlink" href="#advanced-indexing-label-vs-position-based-indexing" title="Link to this heading">#</a></h2>
 <p>Xarray supports both label-based and position-based indexing, making it flexible for data selection.</p>
 <section id="label-based-indexing">
-<h3><span class="section-number">19.15.1. </span>Label-based Indexing<a class="headerlink" href="#label-based-indexing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.15.1. </span>Label-based Indexing<a class="headerlink" href="#label-based-indexing" title="Link to this heading">#</a></h3>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">.sel()</span></code> to select data based on the labels of coordinates, such as specific times or locations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -890,7 +891,7 @@ document.write(`
 </div>
 </section>
 <section id="position-based-indexing">
-<h3><span class="section-number">19.15.2. </span>Position-based Indexing<a class="headerlink" href="#position-based-indexing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.15.2. </span>Position-based Indexing<a class="headerlink" href="#position-based-indexing" title="Link to this heading">#</a></h3>
 <p>Alternatively, you can use <code class="docutils literal notranslate"><span class="pre">.isel()</span></code> to select data based on the positions of coordinates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -903,10 +904,10 @@ document.write(`
 </section>
 </section>
 <section id="high-level-computations-with-xarray">
-<h2><span class="section-number">19.16. </span>High-Level Computations with Xarray<a class="headerlink" href="#high-level-computations-with-xarray" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.16. </span>High-Level Computations with Xarray<a class="headerlink" href="#high-level-computations-with-xarray" title="Link to this heading">#</a></h2>
 <p>Xarray offers several high-level operations that make common computations straightforward, such as <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, <code class="docutils literal notranslate"><span class="pre">resample</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling</span></code>, and <code class="docutils literal notranslate"><span class="pre">weighted</span></code>.</p>
 <section id="groupby-operation">
-<h3><span class="section-number">19.16.1. </span>GroupBy Operation<a class="headerlink" href="#groupby-operation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.16.1. </span>GroupBy Operation<a class="headerlink" href="#groupby-operation" title="Link to this heading">#</a></h3>
 <p>You can calculate statistics such as the seasonal mean of the dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -918,7 +919,7 @@ document.write(`
 </div>
 </section>
 <section id="computation-with-weights">
-<h3><span class="section-number">19.16.2. </span>Computation with Weights<a class="headerlink" href="#computation-with-weights" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.16.2. </span>Computation with Weights<a class="headerlink" href="#computation-with-weights" title="Link to this heading">#</a></h3>
 <p>Xarray allows for weighted computations, useful in geospatial contexts where grid cells vary in size. For example, you can weight the mean of the dataset by cell area.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,7 +932,7 @@ document.write(`
 </div>
 </section>
 <section id="rolling-window-operation">
-<h3><span class="section-number">19.16.3. </span>Rolling Window Operation<a class="headerlink" href="#rolling-window-operation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.16.3. </span>Rolling Window Operation<a class="headerlink" href="#rolling-window-operation" title="Link to this heading">#</a></h3>
 <p>Xarray supports rolling window operations, which are useful for smoothing time series data spatially or temporally. For example, you can smooth the temperature data spatially using a 5x5 window.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -973,10 +974,10 @@ document.write(`
 </section>
 </section>
 <section id="reading-and-writing-files">
-<h2><span class="section-number">19.17. </span>Reading and Writing Files<a class="headerlink" href="#reading-and-writing-files" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.17. </span>Reading and Writing Files<a class="headerlink" href="#reading-and-writing-files" title="Link to this heading">#</a></h2>
 <p>Xarray supports many common scientific data formats, including <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">netCDF</a> and <a class="reference external" href="https://zarr.readthedocs.io/">Zarr</a>. You can read and write datasets to disk with a few simple commands.</p>
 <section id="writing-to-netcdf">
-<h3><span class="section-number">19.17.1. </span>Writing to netCDF<a class="headerlink" href="#writing-to-netcdf" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.17.1. </span>Writing to netCDF<a class="headerlink" href="#writing-to-netcdf" title="Link to this heading">#</a></h3>
 <p>To save a dataset as a netCDF file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -991,7 +992,7 @@ document.write(`
 </div>
 </section>
 <section id="reading-from-netcdf">
-<h3><span class="section-number">19.17.2. </span>Reading from netCDF<a class="headerlink" href="#reading-from-netcdf" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.17.2. </span>Reading from netCDF<a class="headerlink" href="#reading-from-netcdf" title="Link to this heading">#</a></h3>
 <p>To load a dataset from a netCDF file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1004,9 +1005,9 @@ document.write(`
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">19.18. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.18. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-exploring-a-new-dataset">
-<h3><span class="section-number">19.18.1. </span>Exercise 1: Exploring a New Dataset<a class="headerlink" href="#exercise-1-exploring-a-new-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.18.1. </span>Exercise 1: Exploring a New Dataset<a class="headerlink" href="#exercise-1-exploring-a-new-dataset" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Load the Xarray tutorial dataset <code class="docutils literal notranslate"><span class="pre">rasm</span></code>.</p></li>
 <li><p>Inspect the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> object and list all the variables and dimensions.</p></li>
@@ -1015,7 +1016,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-2-data-selection-and-indexing">
-<h3><span class="section-number">19.18.2. </span>Exercise 2: Data Selection and Indexing<a class="headerlink" href="#exercise-2-data-selection-and-indexing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.18.2. </span>Exercise 2: Data Selection and Indexing<a class="headerlink" href="#exercise-2-data-selection-and-indexing" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Select a subset of the <code class="docutils literal notranslate"><span class="pre">Tair</span></code> data for the date <code class="docutils literal notranslate"><span class="pre">1980-07-01</span></code> and latitude <code class="docutils literal notranslate"><span class="pre">70.0</span></code>.</p></li>
 <li><p>Create a time slice for the entire latitude range between January and March of 1980.</p></li>
@@ -1023,7 +1024,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-3-performing-arithmetic-operations">
-<h3><span class="section-number">19.18.3. </span>Exercise 3: Performing Arithmetic Operations<a class="headerlink" href="#exercise-3-performing-arithmetic-operations" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.18.3. </span>Exercise 3: Performing Arithmetic Operations<a class="headerlink" href="#exercise-3-performing-arithmetic-operations" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Compute the mean of the <code class="docutils literal notranslate"><span class="pre">Tair</span></code> data over the <code class="docutils literal notranslate"><span class="pre">time</span></code> dimension.</p></li>
 <li><p>Subtract the computed mean from the original <code class="docutils literal notranslate"><span class="pre">Tair</span></code> dataset to get the temperature anomalies.</p></li>
@@ -1031,7 +1032,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-4-groupby-and-resampling">
-<h3><span class="section-number">19.18.4. </span>Exercise 4: GroupBy and Resampling<a class="headerlink" href="#exercise-4-groupby-and-resampling" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.18.4. </span>Exercise 4: GroupBy and Resampling<a class="headerlink" href="#exercise-4-groupby-and-resampling" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">groupby</span></code> to calculate the seasonal mean temperature (<code class="docutils literal notranslate"><span class="pre">Tair</span></code>).</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">resample</span></code> to calculate the monthly mean temperature for 1980.</p></li>
@@ -1039,7 +1040,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-5-writing-data-to-netcdf">
-<h3><span class="section-number">19.18.5. </span>Exercise 5: Writing Data to netCDF<a class="headerlink" href="#exercise-5-writing-data-to-netcdf" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.18.5. </span>Exercise 5: Writing Data to netCDF<a class="headerlink" href="#exercise-5-writing-data-to-netcdf" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Select the temperature anomalies calculated in Exercise 3.</p></li>
 <li><p>Convert the <code class="docutils literal notranslate"><span class="pre">Tair</span></code> variable to <code class="docutils literal notranslate"><span class="pre">float32</span></code> to optimize file size.</p></li>
@@ -1049,7 +1050,7 @@ document.write(`
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">19.19. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.19. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>Xarray is a powerful library for working with multi-dimensional geospatial data. It simplifies data handling by offering labeled dimensions and coordinates, enabling intuitive operations and making analysis more transparent. Xarray’s ability to work seamlessly with NumPy, Dask, and Pandas makes it an essential tool for geospatial and scientific analysis. With Xarray, you can efficiently manage and analyze large, complex datasets, making it a valuable asset for researchers and developers alike.</p>
 </section>
 </section>
@@ -1090,7 +1091,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Whitebox</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Whitebox</p>
       </div>
     </a>
     <a class="right-next"
@@ -1098,7 +1099,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Rioxarray</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Rioxarray</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1118,49 +1119,49 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">19.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">19.2. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-xarray">19.3. What is Xarray?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-xarray">19.4. Installing Xarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">19.5. Importing Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-data-structures">19.6. Xarray Data Structures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-dataset">19.7. Loading a Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dataarrays">19.8. Working with DataArrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataarray-components">19.9. DataArray Components</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-selecting-data">19.10. Indexing and Selecting Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-operations-on-dataarrays">19.11. Performing Operations on DataArrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-with-xarray">19.12. Visualization with Xarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datasets">19.13. Working with Datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-xarray">19.14. Why Use Xarray?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#without-xarray-using-numpy">19.14.1. Without Xarray (Using NumPy)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-xarray">19.14.2. With Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">20.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">20.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-xarray">20.3. What is Xarray?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-xarray">20.4. Installing Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">20.5. Importing Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-data-structures">20.6. Xarray Data Structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-dataset">20.7. Loading a Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dataarrays">20.8. Working with DataArrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataarray-components">20.9. DataArray Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-selecting-data">20.10. Indexing and Selecting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-operations-on-dataarrays">20.11. Performing Operations on DataArrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-with-xarray">20.12. Visualization with Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datasets">20.13. Working with Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-xarray">20.14. Why Use Xarray?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#without-xarray-using-numpy">20.14.1. Without Xarray (Using NumPy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-xarray">20.14.2. With Xarray</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-indexing-label-vs-position-based-indexing">19.15. Advanced Indexing: Label vs. Position-Based Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label-based-indexing">19.15.1. Label-based Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-based-indexing">19.15.2. Position-based Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-indexing-label-vs-position-based-indexing">20.15. Advanced Indexing: Label vs. Position-Based Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label-based-indexing">20.15.1. Label-based Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-based-indexing">20.15.2. Position-based Indexing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-computations-with-xarray">19.16. High-Level Computations with Xarray</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-operation">19.16.1. GroupBy Operation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-with-weights">19.16.2. Computation with Weights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-window-operation">19.16.3. Rolling Window Operation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-computations-with-xarray">20.16. High-Level Computations with Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-operation">20.16.1. GroupBy Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-with-weights">20.16.2. Computation with Weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-window-operation">20.16.3. Rolling Window Operation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-files">19.17. Reading and Writing Files</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-netcdf">19.17.1. Writing to netCDF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-from-netcdf">19.17.2. Reading from netCDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-files">20.17. Reading and Writing Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-netcdf">20.17.1. Writing to netCDF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-from-netcdf">20.17.2. Reading from netCDF</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">19.18. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-exploring-a-new-dataset">19.18.1. Exercise 1: Exploring a New Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-data-selection-and-indexing">19.18.2. Exercise 2: Data Selection and Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-arithmetic-operations">19.18.3. Exercise 3: Performing Arithmetic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-groupby-and-resampling">19.18.4. Exercise 4: GroupBy and Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-writing-data-to-netcdf">19.18.5. Exercise 5: Writing Data to netCDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">20.18. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-exploring-a-new-dataset">20.18.1. Exercise 1: Exploring a New Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-data-selection-and-indexing">20.18.2. Exercise 2: Data Selection and Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-arithmetic-operations">20.18.3. Exercise 3: Performing Arithmetic Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-groupby-and-resampling">20.18.4. Exercise 4: GroupBy and Resampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-writing-data-to-netcdf">20.18.5. Exercise 5: Writing Data to netCDF</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">19.19. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">20.19. Summary</a></li>
 </ul>
   </nav></div>
 

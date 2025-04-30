@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>20. Rioxarray &#8212; Geographic Software Design</title>
+    <title>21. Rioxarray &#8212; Geographic Software Design</title>
   
   
   
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Submission Instructions" href="../labs/instructions.html" />
-    <link rel="prev" title="19. Xarray" href="xarray.html" />
+    <link rel="prev" title="20. Xarray" href="xarray.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,9 +216,10 @@
 <li class="toctree-l1"><a class="reference internal" href="ipywidgets.html">15. Ipywidgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leafmap.html">16. Leafmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geemap.html">17. Geemap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whitebox.html">18. Whitebox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xarray.html">19. Xarray</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Rioxarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maplibre.html">18. MapLibre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whitebox.html">19. Whitebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarray.html">20. Xarray</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">21. Rioxarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -513,40 +514,40 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">20.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">20.2. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-rioxarray">20.3. Installing rioxarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-rioxarray">20.4. Importing rioxarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-georeferenced-raster-data">20.5. Loading Georeferenced Raster Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-dataset">20.5.1. Inspecting the Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-crs-and-transform-information">20.5.2. Checking CRS and Transform Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">21.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">21.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-rioxarray">21.3. Installing rioxarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-rioxarray">21.4. Importing rioxarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-georeferenced-raster-data">21.5. Loading Georeferenced Raster Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-dataset">21.5.1. Inspecting the Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-crs-and-transform-information">21.5.2. Checking CRS and Transform Information</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-geospatial-operations">20.6. Basic Geospatial Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-a-dataset">20.6.1. Reprojecting a Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clipping-a-raster">20.6.2. Clipping a Raster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-geospatial-operations">21.6. Basic Geospatial Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-a-dataset">21.6.1. Reprojecting a Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clipping-a-raster">21.6.2. Clipping a Raster</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-spatial-dimensions">20.7. Working with Spatial Dimensions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">20.7.1. Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-spatial-subsets">20.7.2. Extracting Spatial Subsets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-spatial-dimensions">21.7. Working with Spatial Dimensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">21.7.1. Resampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-spatial-subsets">21.7.2. Extracting Spatial Subsets</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-georeferenced-data">20.8. Visualization of Georeferenced Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data">20.9. Saving Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-nodata-values">20.10. Handling NoData Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproject-to-multiple-crs">20.11. Reproject to Multiple CRS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">20.12. Basic Band Math (NDVI Calculation)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">20.13. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">20.13.1. Sample Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-load-and-inspect-a-raster-dataset">20.13.2. Exercise 1: Load and Inspect a Raster Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproject-the-raster-to-a-new-crs">20.13.3. Exercise 2: Reproject the Raster to a New CRS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-clip-the-raster-using-a-bounding-box">20.13.4. Exercise 3: Clip the Raster Using a Bounding Box</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-mask-the-raster-using-a-vector-dataset">20.13.5. Exercise 4: Mask the Raster Using a Vector Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-resample-the-raster-to-a-different-resolution">20.13.6. Exercise 5: Resample the Raster to a Different Resolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-georeferenced-data">21.8. Visualization of Georeferenced Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data">21.9. Saving Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-nodata-values">21.10. Handling NoData Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproject-to-multiple-crs">21.11. Reproject to Multiple CRS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">21.12. Basic Band Math (NDVI Calculation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">21.13. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">21.13.1. Sample Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-load-and-inspect-a-raster-dataset">21.13.2. Exercise 1: Load and Inspect a Raster Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproject-the-raster-to-a-new-crs">21.13.3. Exercise 2: Reproject the Raster to a New CRS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-clip-the-raster-using-a-bounding-box">21.13.4. Exercise 3: Clip the Raster Using a Bounding Box</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-mask-the-raster-using-a-vector-dataset">21.13.5. Exercise 4: Mask the Raster Using a Vector Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-resample-the-raster-to-a-different-resolution">21.13.6. Exercise 5: Resample the Raster to a Different Resolution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">20.14. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">21.14. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -559,15 +560,15 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rioxarray">
-<h1><span class="section-number">20. </span>Rioxarray<a class="headerlink" href="#rioxarray" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">21. </span>Rioxarray<a class="headerlink" href="#rioxarray" title="Link to this heading">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/giswqs/geog-510/blob/main/book/geospatial/rioxarray.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <section id="overview">
-<h2><span class="section-number">20.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://corteva.github.io/rioxarray/"><code class="docutils literal notranslate"><span class="pre">rioxarray</span></code></a> is an extension of the powerful Python library Xarray that focuses on geospatial raster data. It provides easy access to georeferencing information and geospatial transforms using Xarray’s labeled, multi-dimensional data structures, which makes it an ideal tool for working with geospatial data like satellite imagery or climate data.</p>
 <p>The key feature of <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> is its seamless integration of rasterio’s geospatial data handling capabilities (such as CRS and affine transforms) with Xarray’s efficient multi-dimensional array handling. This allows you to manipulate, analyze, and visualize raster data with ease.</p>
 </section>
 <section id="learning-objectives">
-<h2><span class="section-number">20.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>By the end of this lecture, you should be able to:</p>
 <ul class="simple">
 <li><p>Understand how <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> extends Xarray for geospatial data handling.</p></li>
@@ -578,7 +579,7 @@ document.write(`
 </ul>
 </section>
 <section id="installing-rioxarray">
-<h2><span class="section-number">20.3. </span>Installing rioxarray<a class="headerlink" href="#installing-rioxarray" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.3. </span>Installing rioxarray<a class="headerlink" href="#installing-rioxarray" title="Link to this heading">#</a></h2>
 <p>To use <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code>, you’ll need to install it along with <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> and its dependencies. You can install it via pip by uncommenting the following line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -589,7 +590,7 @@ document.write(`
 </div>
 </section>
 <section id="importing-rioxarray">
-<h2><span class="section-number">20.4. </span>Importing rioxarray<a class="headerlink" href="#importing-rioxarray" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.4. </span>Importing rioxarray<a class="headerlink" href="#importing-rioxarray" title="Link to this heading">#</a></h2>
 <p>You can start by importing <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> and other necessary libraries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -605,7 +606,7 @@ document.write(`
 </div>
 </section>
 <section id="loading-georeferenced-raster-data">
-<h2><span class="section-number">20.5. </span>Loading Georeferenced Raster Data<a class="headerlink" href="#loading-georeferenced-raster-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.5. </span>Loading Georeferenced Raster Data<a class="headerlink" href="#loading-georeferenced-raster-data" title="Link to this heading">#</a></h2>
 <p>One of the core functionalities of <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> is the ability to load georeferenced raster data, including its CRS and geospatial transformations. You can load a raster file (e.g., a GeoTIFF file) directly using <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,7 +620,7 @@ document.write(`
 </div>
 <p>Here, <code class="docutils literal notranslate"><span class="pre">rioxarray.open_rasterio</span></code> loads the raster data into an Xarray <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> and automatically attaches the geospatial metadata, including CRS, affine transformations, and spatial coordinates.</p>
 <section id="inspecting-the-dataset">
-<h3><span class="section-number">20.5.1. </span>Inspecting the Dataset<a class="headerlink" href="#inspecting-the-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.5.1. </span>Inspecting the Dataset<a class="headerlink" href="#inspecting-the-dataset" title="Link to this heading">#</a></h3>
 <p>You can easily inspect the loaded dataset, including its dimensions, coordinates, and attributes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -645,7 +646,7 @@ document.write(`
 </div>
 </section>
 <section id="checking-crs-and-transform-information">
-<h3><span class="section-number">20.5.2. </span>Checking CRS and Transform Information<a class="headerlink" href="#checking-crs-and-transform-information" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.5.2. </span>Checking CRS and Transform Information<a class="headerlink" href="#checking-crs-and-transform-information" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> integrates CRS and affine transform metadata into the Xarray object:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -675,9 +676,9 @@ document.write(`
 </section>
 </section>
 <section id="basic-geospatial-operations">
-<h2><span class="section-number">20.6. </span>Basic Geospatial Operations<a class="headerlink" href="#basic-geospatial-operations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.6. </span>Basic Geospatial Operations<a class="headerlink" href="#basic-geospatial-operations" title="Link to this heading">#</a></h2>
 <section id="reprojecting-a-dataset">
-<h3><span class="section-number">20.6.1. </span>Reprojecting a Dataset<a class="headerlink" href="#reprojecting-a-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.6.1. </span>Reprojecting a Dataset<a class="headerlink" href="#reprojecting-a-dataset" title="Link to this heading">#</a></h3>
 <p>Reprojecting raster data to another CRS is common in geospatial analysis. For example, you may want to reproject the dataset from its native projection to the WGS84 geographic coordinate system (EPSG:4326):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -690,7 +691,7 @@ document.write(`
 </div>
 </section>
 <section id="clipping-a-raster">
-<h3><span class="section-number">20.6.2. </span>Clipping a Raster<a class="headerlink" href="#clipping-a-raster" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.6.2. </span>Clipping a Raster<a class="headerlink" href="#clipping-a-raster" title="Link to this heading">#</a></h3>
 <p>Clipping a raster dataset is useful when you only want to focus on a specific geographic area. You can clip a dataset using a bounding box in the same CRS as the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -735,10 +736,10 @@ document.write(`
 </section>
 </section>
 <section id="working-with-spatial-dimensions">
-<h2><span class="section-number">20.7. </span>Working with Spatial Dimensions<a class="headerlink" href="#working-with-spatial-dimensions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.7. </span>Working with Spatial Dimensions<a class="headerlink" href="#working-with-spatial-dimensions" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> supports operations on spatial dimensions (latitude/longitude or x/y coordinates) like resampling, reducing, or slicing.</p>
 <section id="resampling">
-<h3><span class="section-number">20.7.1. </span>Resampling<a class="headerlink" href="#resampling" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.7.1. </span>Resampling<a class="headerlink" href="#resampling" title="Link to this heading">#</a></h3>
 <p>To resample the raster dataset to a different resolution (e.g., 1 km), use the <code class="docutils literal notranslate"><span class="pre">rio.resample</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,7 +758,7 @@ document.write(`
 </div>
 </section>
 <section id="extracting-spatial-subsets">
-<h3><span class="section-number">20.7.2. </span>Extracting Spatial Subsets<a class="headerlink" href="#extracting-spatial-subsets" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.7.2. </span>Extracting Spatial Subsets<a class="headerlink" href="#extracting-spatial-subsets" title="Link to this heading">#</a></h3>
 <p>You can extract spatial subsets of the dataset by selecting specific coordinate ranges:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -775,7 +776,7 @@ document.write(`
 </section>
 </section>
 <section id="visualization-of-georeferenced-data">
-<h2><span class="section-number">20.8. </span>Visualization of Georeferenced Data<a class="headerlink" href="#visualization-of-georeferenced-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.8. </span>Visualization of Georeferenced Data<a class="headerlink" href="#visualization-of-georeferenced-data" title="Link to this heading">#</a></h2>
 <p>Once you have performed operations on the data, you can visualize it using matplotlib. For example, to plot a multi-band image using bands 4, 3, and 2:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -820,7 +821,7 @@ document.write(`
 </div>
 </section>
 <section id="saving-data">
-<h2><span class="section-number">20.9. </span>Saving Data<a class="headerlink" href="#saving-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.9. </span>Saving Data<a class="headerlink" href="#saving-data" title="Link to this heading">#</a></h2>
 <p>Just like loading data, you can export <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> datasets to disk. For example, you can save the modified or processed raster data as a GeoTIFF file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -832,7 +833,7 @@ document.write(`
 </div>
 </section>
 <section id="handling-nodata-values">
-<h2><span class="section-number">20.10. </span>Handling NoData Values<a class="headerlink" href="#handling-nodata-values" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.10. </span>Handling NoData Values<a class="headerlink" href="#handling-nodata-values" title="Link to this heading">#</a></h2>
 <p>If your dataset contains NoData values, you can manage them using the following functions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,7 +848,7 @@ document.write(`
 </div>
 </section>
 <section id="reproject-to-multiple-crs">
-<h2><span class="section-number">20.11. </span>Reproject to Multiple CRS<a class="headerlink" href="#reproject-to-multiple-crs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.11. </span>Reproject to Multiple CRS<a class="headerlink" href="#reproject-to-multiple-crs" title="Link to this heading">#</a></h2>
 <p>You can reproject the dataset to multiple CRS and compare them. For instance:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -895,7 +896,7 @@ document.write(`
 </div>
 </section>
 <section id="basic-band-math-ndvi-calculation">
-<h2><span class="section-number">20.12. </span>Basic Band Math (NDVI Calculation)<a class="headerlink" href="#basic-band-math-ndvi-calculation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.12. </span>Basic Band Math (NDVI Calculation)<a class="headerlink" href="#basic-band-math-ndvi-calculation" title="Link to this heading">#</a></h2>
 <p>Band math enables us to perform computations across different bands. A common application is calculating the Normalized Difference Vegetation Index (NDVI), which is an indicator of vegetation health.</p>
 <p>NDVI is calculated as:</p>
 <p>NDVI = (NIR - Red) / (NIR + Red)</p>
@@ -943,14 +944,14 @@ document.write(`
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">20.13. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.13. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="sample-dataset">
-<h3><span class="section-number">20.13.1. </span>Sample Dataset<a class="headerlink" href="#sample-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.13.1. </span>Sample Dataset<a class="headerlink" href="#sample-dataset" title="Link to this heading">#</a></h3>
 <p>For the exercises, we will use a sample GeoTIFF raster dataset of Libya, which is available at the following URL:
 <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/raster/Libya-2023-09-13.tif">opengeos/datasets</a></p>
 </section>
 <section id="exercise-1-load-and-inspect-a-raster-dataset">
-<h3><span class="section-number">20.13.2. </span>Exercise 1: Load and Inspect a Raster Dataset<a class="headerlink" href="#exercise-1-load-and-inspect-a-raster-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.13.2. </span>Exercise 1: Load and Inspect a Raster Dataset<a class="headerlink" href="#exercise-1-load-and-inspect-a-raster-dataset" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> to load the GeoTIFF raster file.</p></li>
 <li><p>Inspect the dataset by printing its dimensions, coordinates, and attributes.</p></li>
@@ -958,7 +959,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-2-reproject-the-raster-to-a-new-crs">
-<h3><span class="section-number">20.13.3. </span>Exercise 2: Reproject the Raster to a New CRS<a class="headerlink" href="#exercise-2-reproject-the-raster-to-a-new-crs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.13.3. </span>Exercise 2: Reproject the Raster to a New CRS<a class="headerlink" href="#exercise-2-reproject-the-raster-to-a-new-crs" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Reproject the loaded raster dataset from its original CRS to EPSG:4326 (WGS84).</p></li>
 <li><p>Print the new CRS and check the dimensions and coordinates of the reprojected data.</p></li>
@@ -966,7 +967,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-3-clip-the-raster-using-a-bounding-box">
-<h3><span class="section-number">20.13.4. </span>Exercise 3: Clip the Raster Using a Bounding Box<a class="headerlink" href="#exercise-3-clip-the-raster-using-a-bounding-box" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.13.4. </span>Exercise 3: Clip the Raster Using a Bounding Box<a class="headerlink" href="#exercise-3-clip-the-raster-using-a-bounding-box" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Define a bounding box (e.g., <code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">ymin</span></code>, <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax</span></code>) that covers the land area of Libya.</p></li>
 <li><p>Clip the raster dataset using this bounding box.</p></li>
@@ -974,7 +975,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-4-mask-the-raster-using-a-vector-dataset">
-<h3><span class="section-number">20.13.5. </span>Exercise 4: Mask the Raster Using a Vector Dataset<a class="headerlink" href="#exercise-4-mask-the-raster-using-a-vector-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.13.5. </span>Exercise 4: Mask the Raster Using a Vector Dataset<a class="headerlink" href="#exercise-4-mask-the-raster-using-a-vector-dataset" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Load the GeoJSON file at <a class="github reference external" href="https://github.com/opengeos/datasets/releases/download/raster/Derna_Libya.geojson">opengeos/datasets</a> using <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>.</p></li>
 <li><p>Use the GeoJSON to mask the raster dataset, keeping only the data within the GeoJSON boundaries.</p></li>
@@ -982,7 +983,7 @@ document.write(`
 </ol>
 </section>
 <section id="exercise-5-resample-the-raster-to-a-different-resolution">
-<h3><span class="section-number">20.13.6. </span>Exercise 5: Resample the Raster to a Different Resolution<a class="headerlink" href="#exercise-5-resample-the-raster-to-a-different-resolution" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.13.6. </span>Exercise 5: Resample the Raster to a Different Resolution<a class="headerlink" href="#exercise-5-resample-the-raster-to-a-different-resolution" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Resample the raster dataset to a 3m resolution, using an average resampling method.</p></li>
 <li><p>Check the new dimensions and coordinates after resampling.</p></li>
@@ -991,7 +992,7 @@ document.write(`
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">20.14. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.14. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>In this lecture, we have explored the basic functionality of <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code>, a powerful extension of Xarray designed for geospatial raster data. Key points include:</p>
 <ul class="simple">
 <li><p>Loading and inspecting geospatial raster data with CRS and transform metadata.</p></li>
@@ -1039,7 +1040,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Xarray</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Xarray</p>
       </div>
     </a>
     <a class="right-next"
@@ -1067,40 +1068,40 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">20.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">20.2. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-rioxarray">20.3. Installing rioxarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-rioxarray">20.4. Importing rioxarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-georeferenced-raster-data">20.5. Loading Georeferenced Raster Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-dataset">20.5.1. Inspecting the Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-crs-and-transform-information">20.5.2. Checking CRS and Transform Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">21.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">21.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-rioxarray">21.3. Installing rioxarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-rioxarray">21.4. Importing rioxarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-georeferenced-raster-data">21.5. Loading Georeferenced Raster Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-dataset">21.5.1. Inspecting the Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-crs-and-transform-information">21.5.2. Checking CRS and Transform Information</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-geospatial-operations">20.6. Basic Geospatial Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-a-dataset">20.6.1. Reprojecting a Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clipping-a-raster">20.6.2. Clipping a Raster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-geospatial-operations">21.6. Basic Geospatial Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-a-dataset">21.6.1. Reprojecting a Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clipping-a-raster">21.6.2. Clipping a Raster</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-spatial-dimensions">20.7. Working with Spatial Dimensions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">20.7.1. Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-spatial-subsets">20.7.2. Extracting Spatial Subsets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-spatial-dimensions">21.7. Working with Spatial Dimensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">21.7.1. Resampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-spatial-subsets">21.7.2. Extracting Spatial Subsets</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-georeferenced-data">20.8. Visualization of Georeferenced Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data">20.9. Saving Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-nodata-values">20.10. Handling NoData Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproject-to-multiple-crs">20.11. Reproject to Multiple CRS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">20.12. Basic Band Math (NDVI Calculation)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">20.13. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">20.13.1. Sample Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-load-and-inspect-a-raster-dataset">20.13.2. Exercise 1: Load and Inspect a Raster Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproject-the-raster-to-a-new-crs">20.13.3. Exercise 2: Reproject the Raster to a New CRS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-clip-the-raster-using-a-bounding-box">20.13.4. Exercise 3: Clip the Raster Using a Bounding Box</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-mask-the-raster-using-a-vector-dataset">20.13.5. Exercise 4: Mask the Raster Using a Vector Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-resample-the-raster-to-a-different-resolution">20.13.6. Exercise 5: Resample the Raster to a Different Resolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-georeferenced-data">21.8. Visualization of Georeferenced Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data">21.9. Saving Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-nodata-values">21.10. Handling NoData Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproject-to-multiple-crs">21.11. Reproject to Multiple CRS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-band-math-ndvi-calculation">21.12. Basic Band Math (NDVI Calculation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">21.13. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset">21.13.1. Sample Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-load-and-inspect-a-raster-dataset">21.13.2. Exercise 1: Load and Inspect a Raster Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproject-the-raster-to-a-new-crs">21.13.3. Exercise 2: Reproject the Raster to a New CRS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-clip-the-raster-using-a-bounding-box">21.13.4. Exercise 3: Clip the Raster Using a Bounding Box</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-mask-the-raster-using-a-vector-dataset">21.13.5. Exercise 4: Mask the Raster Using a Vector Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-resample-the-raster-to-a-different-resolution">21.13.6. Exercise 5: Resample the Raster to a Different Resolution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">20.14. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">21.14. Summary</a></li>
 </ul>
   </nav></div>
 
